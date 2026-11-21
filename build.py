@@ -3172,81 +3172,59 @@ html_content = r'''<!DOCTYPE html>
         </div>
       </section>
 
-      <!-- SLIDE 14: HÓA TRỊ III -->
+      <!-- SLIDE 14: HÓA TRỊ III (THIẾT KẾ ĐỒNG BỘ VỚI HÓA TRỊ I VÀ II) -->
       <section class="slide" data-slide="14" data-transition="cinematic-zoom">
         <div class="badge-label stagger-item" style="--s-idx:0;">🔥 HÓA TRỊ III (VALENCY III)</div>
         <h2 class="slide-title kinetic-title">Hóa Trị III — Phơi 4 Áo Sắt</h2>
         <p class="slide-subtitle stagger-item" style="--s-idx:1;">
-          Câu nói ngắn gọn chỉ 4 từ nhưng bao trọn gốc axit Photphat và 2 kim loại hóa trị III trọng tâm trong Hóa 9.
+          Câu thần chú siêu ngắn gọn chỉ 4 từ nhưng bao trọn gốc axit Photphat và 2 kim loại hóa trị III trọng tâm trong Hóa 9.
         </p>
 
-        <div style="display:grid; grid-template-columns: 1fr 1.3fr; gap:24px; align-items:center; margin-top:10px;">
-          <!-- Left: Big Glowing Number 4 Visual -->
-          <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:2; padding:28px 24px; text-align:center; border-color:rgba(245,158,11,0.3); background:radial-gradient(circle at center, rgba(245,158,11,0.08) 0%, rgba(15,23,42,0.6) 100%);">
-            <div class="giant-number-4">4</div>
-            <div style="font-family:var(--font-display); font-size:20px; font-weight:700; color:#fff; margin-top:2px;">
-              Điểm Nhấn: "Phơi 4" ➔ PO₄
-            </div>
-            <p style="font-size:13px; color:#94a3b8; line-height:1.5; margin-top:8px;">
-              Bí quyết của câu thần chú này nằm ở chữ <strong>"4"</strong>: Nó vừa là số từ trong câu, vừa chính là <strong>4 nguyên tử Oxi</strong> trong gốc axit <strong>PO₄</strong> (Photphat)!
-            </p>
-            <div style="margin-top:14px;">
-              <span class="badge-label" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.4); color:#fbbf24; font-size:11px;">
-                MẸO THẦN TỐC: PHƠI 4 = PO₄
-              </span>
-            </div>
+        <!-- Mnemonic Master Banner -->
+        <div class="valency-mnemonic-box stagger-item" style="--s-idx:2; border-color:rgba(245,158,11,0.35);">
+          <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:6px;">
+            <div class="roman-medallion" style="width:38px; height:38px; font-size:18px; margin-bottom:0; color:#f59e0b; border-color:rgba(245,158,11,0.45); --glow-color:rgba(245,158,11,0.4);">III</div>
+            <span style="font-family:var(--font-mono); font-size:12px; color:#fbbf24; text-transform:uppercase; letter-spacing:0.1em;">CÂU THẦN CHÚ GỐC CHUẨN XÁC</span>
+          </div>
+          <div class="valency-mnemonic-quote" style="color:#fef3c7;">
+            "Phơi 4 Áo Sắt"
+          </div>
+          <div style="margin-top:6px; font-size:12px; color:#94a3b8;">
+            Bấm vào từng thẻ hoặc <button class="tool-icon-btn" style="display:inline-flex; width:auto; height:24px; padding:0 10px; font-size:11px; vertical-align:middle; margin-left:6px;" onclick="playValencySequence(3)">▶ Trình diễn lần lượt 3 thẻ</button> để thấy liên kết chữ và ký hiệu
+          </div>
+        </div>
+
+        <!-- 3 Cards Grid (Same style as Slide 12 & 13) -->
+        <div class="valency-cards-grid stagger-item" style="--s-idx:3; grid-template-columns: repeat(3, 1fr); max-width:960px; margin:0 auto;" id="valencyGrid3">
+          <div class="valency-card interactive-tilt" data-v="3" data-idx="0" onclick="highlightValencyCard(this, 'PO4', 'Gốc Photphat — Nhóm gốc axit photphoric hóa trị III (axit tương ứng H₃PO₄). Chữ "4" chính là 4 nguyên tử Oxi!')">
+            <div class="valency-card-badge" style="color:#f59e0b; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Gốc III</div>
+            <div class="valency-card-phrase">"Phơi 4"</div>
+            <div class="valency-card-symbol" style="color:#fbbf24; font-size:32px;">PO₄</div>
+            <div class="valency-card-name">Gốc Photphat (Chỉ số 4)</div>
           </div>
 
-          <!-- Right: 3 Big Chemical Cards -->
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            <!-- Card PO4 -->
-            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:3; padding:20px 24px; border-left:4px solid #f59e0b; cursor:pointer;" onclick="highlightValencyCard(this, 'PO4', 'Gốc Photphat — Nhóm gốc axit photphoric hóa trị III duy nhất thường gặp (ví dụ: Na₃PO₄, Ca₃(PO₄)₂)')">
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <div style="display:flex; align-items:center; gap:16px;">
-                  <div style="width:50px; height:50px; border-radius:14px; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:22px; color:#fbbf24;">
-                    PO₄
-                  </div>
-                  <div>
-                    <div style="font-size:16px; font-weight:700; color:#fff;">"Phơi 4" ➔ Gốc Photphat (PO₄)</div>
-                    <div style="font-size:13px; color:#94a3b8; margin-top:2px;">Gốc axit hóa trị III (axit tương ứng H₃PO₄)</div>
-                  </div>
-                </div>
-                <div class="valency-card-badge" style="position:static; color:#fbbf24; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Gốc III</div>
-              </div>
-            </div>
-
-            <!-- Card Al -->
-            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:4; padding:20px 24px; border-left:4px solid #f59e0b; cursor:pointer;" onclick="highlightValencyCard(this, 'Al', 'Nhôm — Kim loại có hóa trị III duy nhất trong mọi hợp chất (ví dụ: Al₂O₃, AlCl₃, Al(OH)₃)')">
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <div style="display:flex; align-items:center; gap:16px;">
-                  <div style="width:50px; height:50px; border-radius:14px; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:22px; color:#fbbf24;">
-                    Al
-                  </div>
-                  <div>
-                    <div style="font-size:16px; font-weight:700; color:#fff;">"Áo" ➔ Kim loại Nhôm (Al)</div>
-                    <div style="font-size:13px; color:#94a3b8; margin-top:2px;">Hóa trị III không đổi trong mọi phản ứng</div>
-                  </div>
-                </div>
-                <div class="valency-card-badge" style="position:static; color:#fbbf24; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Hóa trị III</div>
-              </div>
-            </div>
-
-            <!-- Card Fe (III) -->
-            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:5; padding:20px 24px; border-left:4px solid #ef4444; cursor:pointer;" onclick="highlightValencyCard(this, 'Fe3', 'Sắt (III) — Thể hiện hóa trị III trong muối sắt(III) như FeCl₃, Fe₂(SO₄)₃, Fe₂O₃ (Lưu ý Fe có 2 hóa trị: II và III)')">
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <div style="display:flex; align-items:center; gap:16px;">
-                  <div style="width:50px; height:50px; border-radius:14px; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:22px; color:#f87171;">
-                    Fe
-                  </div>
-                  <div>
-                    <div style="font-size:16px; font-weight:700; color:#fff;">"Sắt" ➔ Kim loại Sắt (Fe - III)</div>
-                    <div style="font-size:13px; color:#94a3b8; margin-top:2px;">Sắt thể hiện hóa trị III (ví dụ: FeCl₃, Fe₂(SO₄)₃)</div>
-                  </div>
-                </div>
-                <div class="valency-card-badge" style="position:static; color:#f87171; background:rgba(239,68,68,0.2); border-color:rgba(239,68,68,0.4);">Fe (III)</div>
-              </div>
-            </div>
+          <div class="valency-card interactive-tilt" data-v="3" data-idx="1" onclick="highlightValencyCard(this, 'Al', 'Nhôm — Kim loại có hóa trị III duy nhất trong mọi hợp chất (ví dụ: Al₂O₃, AlCl₃, Al(OH)₃)')">
+            <div class="valency-card-badge" style="color:#f59e0b; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Hóa trị III</div>
+            <div class="valency-card-phrase">"Áo"</div>
+            <div class="valency-card-symbol" style="color:#f59e0b; font-size:32px;">Al</div>
+            <div class="valency-card-name">Nhôm (Aluminium)</div>
           </div>
+
+          <div class="valency-card interactive-tilt" data-v="3" data-idx="2" onclick="highlightValencyCard(this, 'Fe', 'Sắt (III) — Thể hiện hóa trị III trong muối sắt(III) như FeCl₃, Fe₂(SO₄)₃ (Lưu ý: Fe là kim loại đa hóa trị, xuất hiện ở cả nhóm II và III!)')">
+            <div class="valency-card-badge" style="color:#f87171; background:rgba(239,68,68,0.2); border-color:rgba(239,68,68,0.4);">Fe (III)</div>
+            <div class="valency-card-phrase">"Sắt"</div>
+            <div class="valency-card-symbol" style="color:#f87171; font-size:32px;">Fe</div>
+            <div class="valency-card-name">Sắt (III)</div>
+          </div>
+        </div>
+
+        <!-- Detail Inspector Bar -->
+        <div class="glass-panel stagger-item" id="valencyInspector3" style="--s-idx:4; margin-top:16px; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; font-size:13px; max-width:960px; margin-left:auto; margin-right:auto;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="color:#f59e0b; font-size:16px;">🔥</span>
+            <span id="inspectorText3" style="color:#cbd5e1;">Bấm vào từng thẻ phía trên để giải nghĩa. Lưu ý chữ "4" trong PO₄ và tính đa hóa trị của Fe.</span>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:#64748b;">PO₄ – Al – Fe</div>
         </div>
       </section>
 
@@ -3338,134 +3316,78 @@ html_content = r'''<!DOCTYPE html>
         </div>
       </section>
 
-      <!-- SLIDE 16: MINI QUIZ HÓA TRỊ -->
-      <section class="slide" data-slide="16" data-transition="mask-circle">
-        <div class="badge-label stagger-item" style="--s-idx:0;">🎯 THỬ THÁCH TƯƠNG TÁC</div>
-        <h2 class="slide-title kinetic-title">Mini Quiz: Thử Thách Ghi Nhớ Hóa Trị</h2>
+      <!-- SLIDE 16: LỜI CẢM ƠN & TỔNG KẾT TOÀN DIỆN -->
+      <section class="slide" data-slide="16" data-transition="cinematic-zoom">
+        <div class="badge-label stagger-item" style="--s-idx:0;">🎉 LỜI CẢM ƠN & KẾT THÚC</div>
+        <h2 class="slide-title kinetic-title">Cảm Ơn Thầy Cô & Các Bạn Đã Lắng Nghe!</h2>
         <p class="slide-subtitle stagger-item" style="--s-idx:1;">
-          Kiểm tra độ nhạy bén và khả năng áp dụng 3 câu thần chú — Bấm vào từng câu hỏi để lật mở đáp án và giải thích chi tiết!
+          Kính chúc thầy cô luôn dồi dào sức khỏe & công tác tốt — Chúc các bạn học sinh làm chủ kiến thức Hóa học 9 và đạt điểm số tối đa trong kỳ thi vào lớp 10!
         </p>
 
-        <!-- 4 Interactive Quiz Cards -->
-        <div class="valency-quiz-grid stagger-item" style="--s-idx:2;">
-          <!-- Q1 -->
-          <div class="valency-quiz-card interactive-tilt" id="vQuiz1">
-            <div>
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-                <span style="font-family:var(--font-mono); font-size:11px; color:#00f2fe; text-transform:uppercase;">CÂU HỎI 01</span>
-                <span style="font-size:16px;">❓</span>
-              </div>
-              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
-                Câu "Khi Na ăn gà..." tương ứng với hóa trị nào?
-              </h4>
+        <!-- 3 Highlight Recap Cards -->
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; margin-top:8px;" class="stagger-item" style="--s-idx:2;">
+          <!-- Card 1 -->
+          <div class="glass-panel interactive-tilt" style="padding:20px; border-top:3px solid #00f2fe; text-align:left;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:22px;">⚗️</span>
+              <h4 style="font-size:15px; font-weight:700; color:#fff;">Phản Ứng Na + dd CuSO₄</h4>
             </div>
-
-            <div class="valency-quiz-answer">
-              <div style="font-size:13px; font-weight:700; color:#00f2fe; margin-bottom:4px;">
-                ✓ ĐÁP ÁN: HÓA TRỊ I
-              </div>
-              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
-                Gồm 8 nguyên tố và gốc axit: <strong>K, Na, Ag, Cl, H, OH, NO₃, Br</strong>. Ví dụ: NaCl, KOH, AgNO₃.
-              </div>
-            </div>
-
-            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px;" onclick="toggleValencyQuizAnswer('vQuiz1')">
-              <span>Lật Mở Đáp Án</span> <span>➔</span>
-            </button>
+            <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
+              Luôn nhớ cơ chế 2 giai đoạn: Natri tác dụng với nước trước (2Na + 2H₂O ➔ 2NaOH + H₂⬆), sau đó NaOH mới phản ứng tạo kết tủa xanh lơ Cu(OH)₂⬇. <strong>Không bao giờ sinh ra Cu đỏ!</strong>
+            </p>
           </div>
 
-          <!-- Q2 -->
-          <div class="valency-quiz-card interactive-tilt" id="vQuiz2">
-            <div>
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-                <span style="font-family:var(--font-mono); font-size:11px; color:#10b981; text-transform:uppercase;">CÂU HỎI 02</span>
-                <span style="font-size:16px;">❓</span>
-              </div>
-              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
-                Gốc Sunfat (SO₄) nằm trong câu ghi nhớ nào?
-              </h4>
+          <!-- Card 2 -->
+          <div class="glass-panel interactive-tilt" style="padding:20px; border-top:3px solid #10b981; text-align:left;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:22px;">🔑</span>
+              <h4 style="font-size:15px; font-weight:700; color:#fff;">Quy Luật Kim Loại Kiềm</h4>
             </div>
-
-            <div class="valency-quiz-answer" style="border-left-color:#10b981;">
-              <div style="font-size:13px; font-weight:700; color:#10b981; margin-bottom:4px;">
-                ✓ ĐÁP ÁN: CÂU HÓA TRỊ II
-              </div>
-              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
-                Trong câu <em>"Ba Cũng <strong>Sang</strong> Mua Cà Phê..."</em>, từ <strong>"Sang"</strong> chính là gốc <strong>SO₄ (Hóa trị II)</strong>.
-              </div>
-            </div>
-
-            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px; background:linear-gradient(135deg, #10b981, #059669);" onclick="toggleValencyQuizAnswer('vQuiz2')">
-              <span>Lật Mở Đáp Án</span> <span>➔</span>
-            </button>
+            <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
+              5 kim loại tan trong nước thường gặp: <strong>K, Na, Ba, Ca, Li</strong> ("Khi Nào Bạn Cần Ly") khi cho vào bất kỳ dung dịch muối nào đều phản ứng mãnh liệt với nước trước.
+            </p>
           </div>
 
-          <!-- Q3 -->
-          <div class="valency-quiz-card interactive-tilt" id="vQuiz3">
-            <div>
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-                <span style="font-family:var(--font-mono); font-size:11px; color:#f59e0b; text-transform:uppercase;">CÂU HỎI 03</span>
-                <span style="font-size:16px;">❓</span>
-              </div>
-              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
-                Câu "Phơi 4 Áo Sắt" tương ứng với những ký hiệu nào?
-              </h4>
+          <!-- Card 3 -->
+          <div class="glass-panel interactive-tilt" style="padding:20px; border-top:3px solid #f59e0b; text-align:left;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:22px;">⚡</span>
+              <h4 style="font-size:15px; font-weight:700; color:#fff;">3 Thần Chú Hóa Trị I - II - III</h4>
             </div>
-
-            <div class="valency-quiz-answer" style="border-left-color:#f59e0b;">
-              <div style="font-size:13px; font-weight:700; color:#f59e0b; margin-bottom:4px;">
-                ✓ ĐÁP ÁN: PO₄ – Al – Fe (HÓA TRỊ III)
-              </div>
-              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
-                • "Phơi 4" = <strong>PO₄</strong> (gốc Photphat)<br/>
-                • "Áo" = <strong>Al</strong> (Nhôm)<br/>
-                • "Sắt" = <strong>Fe</strong> (Sắt - III)
-              </div>
-            </div>
-
-            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px; background:linear-gradient(135deg, #f59e0b, #d97706);" onclick="toggleValencyQuizAnswer('vQuiz3')">
-              <span>Lật Mở Đáp Án</span> <span>➔</span>
-            </button>
-          </div>
-
-          <!-- Q4 -->
-          <div class="valency-quiz-card interactive-tilt" id="vQuiz4">
-            <div>
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-                <span style="font-family:var(--font-mono); font-size:11px; color:#f43f5e; text-transform:uppercase;">CÂU HỎI 04 (BẪY HỌC THUẬT)</span>
-                <span style="font-size:16px;">❓</span>
-              </div>
-              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
-                Kim loại Sắt (Fe) xuất hiện trong những nhóm ghi nhớ nào?
-              </h4>
-            </div>
-
-            <div class="valency-quiz-answer" style="border-left-color:#f43f5e;">
-              <div style="font-size:13px; font-weight:700; color:#f43f5e; margin-bottom:4px;">
-                ✓ ĐÁP ÁN: CẢ HÓA TRỊ II VÀ III
-              </div>
-              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
-                • Hóa trị II: từ <strong>"Phê"</strong> trong <em>"Ba Cũng Sang Mua Cà Phê..."</em><br/>
-                • Hóa trị III: từ <strong>"Sắt"</strong> trong <em>"Phơi 4 Áo Sắt"</em>. Fe là kim loại có nhiều hóa trị!
-              </div>
-            </div>
-
-            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px; background:linear-gradient(135deg, #f43f5e, #e11d48);" onclick="toggleValencyQuizAnswer('vQuiz4')">
-              <span>Lật Mở Đáp Án</span> <span>➔</span>
-            </button>
+            <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
+              • Hóa trị I: <em>"Khi Na ăn gà, Cô Lan hát..."</em><br/>
+              • Hóa trị II: <em>"Ba Cũng Sang Mua Cà Phê..."</em><br/>
+              • Hóa trị III: <em>"Phơi 4 Áo Sắt"</em> (PO₄, Al, Fe)
+            </p>
           </div>
         </div>
 
-        <!-- Quiz Control Bar -->
-        <div style="display:flex; justify-content:center; gap:16px; margin-top:16px;">
-          <button class="tool-icon-btn" style="width:auto; padding:0 16px; height:36px; font-size:12px; gap:8px;" onclick="revealAllValencyQuiz()">
-            <span>✨</span> Lật Mở Tất Cả Đáp Án
+        <!-- Q&A and Presenter Note Box -->
+        <div class="glass-panel stagger-item" style="--s-idx:3; margin-top:16px; padding:18px 24px; text-align:center; background:radial-gradient(circle at center, rgba(0,242,254,0.06) 0%, rgba(15,23,42,0.6) 100%);">
+          <div style="font-family:var(--font-display); font-size:16px; font-weight:700; color:#fff; margin-bottom:6px;">
+            💬 KHÔNG GIAN THẢO LUẬN & HỎI ĐÁP (Q&A)
+          </div>
+          <p style="font-size:13px; color:#cbd5e1; max-width:700px; margin:0 auto; line-height:1.5;">
+            Nhóm em rất mong nhận được những câu hỏi, ý kiến đóng góp và nhận xét quý báu từ thầy cô cùng các bạn để bài thuyết trình ngày càng hoàn thiện hơn!
+          </p>
+        </div>
+
+        <!-- Interactive Control Bar -->
+        <div style="display:flex; justify-content:center; gap:12px; margin-top:16px; flex-wrap:wrap;" class="stagger-item" style="--s-idx:4;">
+          <button class="tool-icon-btn" style="width:auto; padding:0 18px; height:38px; font-size:13px; gap:8px;" onclick="deck.goTo(1)">
+            <span>🔄</span> Xem Lại Từ Đầu
           </button>
-          <button class="tool-icon-btn" style="width:auto; padding:0 16px; height:36px; font-size:12px; gap:8px;" onclick="resetValencyQuiz()">
-            <span>🔄</span> Ẩn Lại Từ Đầu
+          <button class="tool-icon-btn" style="width:auto; padding:0 18px; height:38px; font-size:13px; gap:8px;" onclick="deck.goTo(5)">
+            <span>🔬</span> Phòng Lab Ảo (Slide 5)
           </button>
-          <button class="btn-primary" style="padding:0 20px; height:36px; font-size:13px;" onclick="triggerConfetti(); soundFx.playSuccessChime();">
-            <span>🏆 Chúc Mừng Hoàn Thành</span>
+          <button class="tool-icon-btn" style="width:auto; padding:0 18px; height:38px; font-size:13px; gap:8px;" onclick="deck.goTo(4)">
+            <span>🎥</span> Video Thí Nghiệm (Slide 4)
+          </button>
+          <button class="tool-icon-btn" style="width:auto; padding:0 18px; height:38px; font-size:13px; gap:8px;" onclick="deck.toggleFullscreen()">
+            <span>⛶</span> Toàn Màn Hình
+          </button>
+          <button class="btn-primary" style="padding:0 22px; height:38px; font-size:13px;" onclick="triggerConfetti(); soundFx.playSuccessChime();">
+            <span>🏆 Bắn Pháo Hoa Ăn Mừng</span>
           </button>
         </div>
       </section>
@@ -4311,7 +4233,7 @@ html_content = r'''<!DOCTYPE html>
           `<strong>Hóa trị II ("Ba Cũng Sang Mua..."):</strong> "Câu nói chuẩn gồm 9 ký hiệu: Ba, Cu, SO₄, Mg, Ca, Fe, SO₃, Zn, CO₃. Đặc biệt lưu ý từ 'Zới' chính là Zn (Kẽm) và 'Phê' là Sắt (II). Giữ nguyên từ 'Zới' theo đúng bản gốc."`,
           `<strong>Hóa trị III ("Phơi 4 Áo Sắt"):</strong> "Câu thần chú này cực kỳ thông minh: Con số '4' đại diện cho 4 nguyên tử Oxy trong gốc PO₄ (Photphat), 'Áo' là Al, và 'Sắt' là Fe (III). Fe là kim loại đa hóa trị nên xuất hiện ở cả nhóm II và III."`,
           `<strong>Bảng Ma Trận Tổng Hợp:</strong> "Tại đây học sinh có cái nhìn toàn cảnh về cả 3 nhóm hóa trị I, II, III. Giáo viên cần nhấn mạnh tính đa hóa trị của Fe và lưu ý rằng các câu thần chú là công cụ nhớ nhanh, không thay thế quy tắc cấu tạo electron."`,
-          `<strong>Mini Quiz Hóa Trị:</strong> "Bây giờ xin mời cả lớp cùng thử thách phản xạ với 4 câu hỏi trắc nghiệm kiểm tra khả năng nhớ và ứng dụng 3 câu thần chú vừa học. Người thuyết trình có thể bấm lật mở đáp án từng câu hoặc lật tất cả."`
+          `<strong>Lời cảm ơn & Bế mạc:</strong> "Kính thưa thầy cô và các bạn, bài thuyết trình của nhóm em đến đây là kết thúc. Chúng em xin chân thành cảm ơn sự chú ý lắng nghe của thầy cô và các bạn. Nhóm em rất mong nhận được những câu hỏi thảo luận và ý kiến đóng góp quý báu!"`
         ];
 
         this.initControls();
@@ -4383,7 +4305,7 @@ html_content = r'''<!DOCTYPE html>
           'Hóa Trị II: Ba Cũng Sang Mua Cà Phê...',
           'Hóa Trị III: Phơi 4 Áo Sắt',
           'Tổng Hợp 3 Nhóm Hóa Trị I-II-III',
-          'Mini Quiz Thử Thách Hóa Trị'
+          'Lời Cảm Ơn & Tổng Kết Toàn Diện'
         ];
 
         for (let i = 1; i <= this.total; i++) {
