@@ -12,7 +12,7 @@ html_content = r'''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phản Ứng Giữa Natri & Dung Dịch CuSO4 | Hóa Học 9 Premium Glassmorphism</title>
+  <title>Phản Ứng Giữa Sodium & Dung Dịch Copper(II) Sulfate | Hóa Học 9 Premium Glassmorphism</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2193,8 +2193,8 @@ html_content = r'''<!DOCTYPE html>
           <div class="hero-left">
             <div class="badge-label">✨ BÀI HỌC THỰC NGHIỆM ĐỔI MỚI SÁNG TẠO 2026</div>
             <h1 class="hero-title-main">
-              PHẢN ỨNG GIỮA NATRI & DUNG DỊCH
-              <span class="hero-title-highlight">ĐỒNG(II) SUNFAT (CuSO₄)</span>
+              PHẢN ỨNG GIỮA SODIUM & DUNG DỊCH
+              <span class="hero-title-highlight">COPPER(II) SULFATE (CuSO₄)</span>
             </h1>
             <p class="slide-subtitle">
               Giải mã cơ chế hóa học nhiều giai đoạn, hiện tượng sủi bọt khí không màu & tạo kết tủa xanh lơ dạng keo — "Chiếc bẫy" lý thuyết kinh điển trong đề thi vào 10 THPT.
@@ -2247,7 +2247,7 @@ html_content = r'''<!DOCTYPE html>
             </div>
 
             <div style="font-size:12.5px; color:#cbd5e1; line-height:1.5; background:rgba(0,0,0,0.3); padding:12px 16px; border-radius:14px; border-left:3px solid #f59e0b;">
-              ⚠️ <strong>Lưu ý quan trọng:</strong> Natri KHÔNG đẩy Đồng ra khỏi muối như quy tắc kim loại thông thường!
+              ⚠️ <strong>Lưu ý quan trọng:</strong> Sodium KHÔNG đẩy Copper ra khỏi muối như quy tắc kim loại thông thường!
             </div>
           </div>
         </div>
@@ -2260,28 +2260,28 @@ html_content = r'''<!DOCTYPE html>
         <div class="badge-label badge-amber">🤔 ĐẶT VẤN ĐỀ & TƯ DUY PHẢN BIỆN</div>
         <h2 class="slide-title kinetic-title">"Chiếc Bẫy" Kim Loại Đứng Trước Đẩy Kim Loại Đứng Sau</h2>
         <p class="slide-subtitle">
-          Quan sát dãy hoạt động hóa học lớp 9 và xem xét liệu quy tắc thông thường có áp dụng được với Natri?
+          Quan sát dãy hoạt động hóa học lớp 9 và xem xét liệu quy tắc thông thường có áp dụng được với Sodium?
         </p>
 
         <!-- Dãy hoạt động hóa học -->
         <div class="metal-series-bar">
-          <div class="metal-item"><span>K</span><span style="font-size:10px;">Kali</span></div>
-          <div class="metal-item highlight-na"><span>Na</span><span style="font-size:10px;">Natri</span></div>
-          <div class="metal-item"><span>Ba</span><span style="font-size:10px;">Bari</span></div>
-          <div class="metal-item"><span>Ca</span><span style="font-size:10px;">Canxi</span></div>
-          <div class="metal-item"><span>Mg</span><span style="font-size:10px;">Magie</span></div>
-          <div class="metal-item"><span>Al</span><span style="font-size:10px;">Nhôm</span></div>
-          <div class="metal-item"><span>Zn</span><span style="font-size:10px;">Kẽm</span></div>
-          <div class="metal-item"><span>Fe</span><span style="font-size:10px;">Sắt</span></div>
-          <div class="metal-item"><span>Ni</span><span style="font-size:10px;">Niken</span></div>
-          <div class="metal-item"><span>Sn</span><span style="font-size:10px;">Thiếc</span></div>
-          <div class="metal-item"><span>Pb</span><span style="font-size:10px;">Chì</span></div>
+          <div class="metal-item"><span>K</span><span style="font-size:10px;">Potassium</span></div>
+          <div class="metal-item highlight-na"><span>Na</span><span style="font-size:10px;">Sodium</span></div>
+          <div class="metal-item"><span>Ba</span><span style="font-size:10px;">Barium</span></div>
+          <div class="metal-item"><span>Ca</span><span style="font-size:10px;">Calcium</span></div>
+          <div class="metal-item"><span>Mg</span><span style="font-size:10px;">Magnesium</span></div>
+          <div class="metal-item"><span>Al</span><span style="font-size:10px;">Aluminium</span></div>
+          <div class="metal-item"><span>Zn</span><span style="font-size:10px;">Zinc</span></div>
+          <div class="metal-item"><span>Fe</span><span style="font-size:10px;">Iron</span></div>
+          <div class="metal-item"><span>Ni</span><span style="font-size:10px;">Nickel</span></div>
+          <div class="metal-item"><span>Sn</span><span style="font-size:10px;">Tin</span></div>
+          <div class="metal-item"><span>Pb</span><span style="font-size:10px;">Lead</span></div>
           <div class="metal-item"><span>(H)</span><span style="font-size:10px;">Hidro</span></div>
-          <div class="metal-item highlight-cu"><span>Cu</span><span style="font-size:10px;">Đồng</span></div>
-          <div class="metal-item"><span>Hg</span><span style="font-size:10px;">Thủy ngân</span></div>
-          <div class="metal-item"><span>Ag</span><span style="font-size:10px;">Bạc</span></div>
-          <div class="metal-item"><span>Pt</span><span style="font-size:10px;">Bạch kim</span></div>
-          <div class="metal-item"><span>Au</span><span style="font-size:10px;">Vàng</span></div>
+          <div class="metal-item highlight-cu"><span>Cu</span><span style="font-size:10px;">Copper</span></div>
+          <div class="metal-item"><span>Hg</span><span style="font-size:10px;">Mercury</span></div>
+          <div class="metal-item"><span>Ag</span><span style="font-size:10px;">Silver</span></div>
+          <div class="metal-item"><span>Pt</span><span style="font-size:10px;">Platinum</span></div>
+          <div class="metal-item"><span>Au</span><span style="font-size:10px;">Gold</span></div>
         </div>
 
         <div class="problem-grid">
@@ -2298,7 +2298,7 @@ html_content = r'''<!DOCTYPE html>
               2Na + CuSO₄ ➔ Na₂SO₄ + Cu ⬇ (Đỏ)
             </div>
             <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
-              Học sinh nghĩ rằng Na đứng trước Cu nên sẽ đẩy Cu ra khỏi dung dịch tạo lớp đồng kim loại màu đỏ gạch bám vào đáy ống nghiệm. <strong>Đây là kết luận hoàn toàn SAI trong dung dịch nước!</strong>
+              Học sinh nghĩ rằng Na đứng trước Cu nên sẽ đẩy Cu ra khỏi dung dịch tạo lớp kim loại Copper màu đỏ gạch bám vào đáy ống nghiệm. <strong>Đây là kết luận hoàn toàn SAI trong dung dịch nước!</strong>
             </p>
           </div>
 
@@ -2315,7 +2315,7 @@ html_content = r'''<!DOCTYPE html>
               Na + H₂O ➔ NaOH + H₂ ⬆ &nbsp;|&nbsp; NaOH + CuSO₄ ➔ Cu(OH)₂ ⬇
             </div>
             <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
-              Do Natri là kim loại kiềm cực kỳ hoạt động, khi cho vào dung dịch, <strong>Na lập tức phản ứng mãnh liệt với nước trước</strong>, sinh ra khí H₂ và dung dịch bazơ kiềm NaOH. Sau đó NaOH mới tác dụng với CuSO₄ tạo kết tủa xanh lơ Cu(OH)₂!
+              Do Sodium là kim loại kiềm cực kỳ hoạt động, khi cho vào dung dịch, <strong>Na lập tức phản ứng mãnh liệt với nước trước</strong>, sinh ra khí H₂ và dung dịch bazơ kiềm NaOH. Sau đó NaOH mới tác dụng với CuSO₄ tạo kết tủa xanh lơ Cu(OH)₂!
             </p>
           </div>
         </div>
@@ -2328,14 +2328,14 @@ html_content = r'''<!DOCTYPE html>
         <div class="badge-label">🧰 THỰC NGHIỆM PHÒNG THÍ NGHIỆM</div>
         <h2 class="slide-title kinetic-title">Dụng Cụ, Hóa Chất & Quy Tắc An Toàn Nghiêm Ngặt</h2>
         <p class="slide-subtitle">
-          Natri kim loại có hoạt tính hóa học cực mạnh, đòi hỏi thao tác chuẩn xác và tuân thủ tuyệt đối an toàn.
+          Kim loại Sodium có hoạt tính hóa học cực mạnh, đòi hỏi thao tác chuẩn xác và tuân thủ tuyệt đối an toàn.
         </p>
 
         <div class="prep-grid">
           <div class="glass-panel prep-card">
             <div>
               <div class="prep-icon-box" style="color:#fbbf24;">⚡</div>
-              <h4>Kim Loại Natri (Na)</h4>
+              <h4>Kim Loại Sodium (Na)</h4>
               <p>Kim loại mềm như sáp, cắt được bằng dao, màu trắng bạc sáng lấp lánh khi mới cắt, nhanh chóng bị mờ ngoài không khí.</p>
               <div class="prep-tag-list">
                 <span class="prep-tag">D = 0.97 g/cm³</span>
@@ -2348,8 +2348,8 @@ html_content = r'''<!DOCTYPE html>
           <div class="glass-panel prep-card">
             <div>
               <div class="prep-icon-box" style="color:#38bdf8;">💧</div>
-              <h4>Dung Dịch Đồng Sunfat (CuSO₄)</h4>
-              <p>Dung dịch có màu xanh lam trong suốt đặc trưng do sự hiện diện của phức ion đồng ngậm nước [Cu(H₂O)₆]²⁺.</p>
+              <h4>Dung Dịch Copper(II) Sulfate (CuSO₄)</h4>
+              <p>Dung dịch có màu xanh lam trong suốt đặc trưng do sự hiện diện của phức ion Copper ngậm nước [Cu(H₂O)₆]²⁺.</p>
               <div class="prep-tag-list">
                 <span class="prep-tag">Nồng độ ~ 5% - 10%</span>
                 <span class="prep-tag">Màu xanh lam</span>
@@ -2376,7 +2376,7 @@ html_content = r'''<!DOCTYPE html>
             <div>
               <div class="prep-icon-box" style="color:#f43f5e; background:rgba(244,63,94,0.15);">⚠️</div>
               <h4 style="color:#fda4af;">An Toàn Tuyệt Đối</h4>
-              <p>Natri phản ứng tỏa nhiệt dữ dội và có thể gây nổ nếu dùng lượng lớn hoặc dính nước không kiểm soát.</p>
+              <p>Sodium phản ứng tỏa nhiệt dữ dội và có thể gây nổ nếu dùng lượng lớn hoặc dính nước không kiểm soát.</p>
               <div class="prep-tag-list">
                 <span class="prep-tag" style="color:#fca5a5;">Mẩu Na = hạt đậu xanh</span>
                 <span class="prep-tag" style="color:#fca5a5;">Thấm sạch dầu hỏa</span>
@@ -2392,7 +2392,7 @@ html_content = r'''<!DOCTYPE html>
            ========================================== -->
       <section class="slide" data-slide="4" data-transition="mask-circle">
         <div class="badge-label badge-emerald">🎥 VIDEO THỰC NGHIỆM ĐỘ PHÂN GIẢI CAO (ĐÃ LỌC CÂU HỎI)</div>
-        <h2 class="slide-title kinetic-title">Video Thí Nghiệm Trực Quan: Na + dd CuSO₄</h2>
+        <h2 class="slide-title kinetic-title">Video Thí Nghiệm Trực Quan: Sodium + dd Copper(II) Sulfate</h2>
         <p class="slide-subtitle">
           Video ghi lại toàn bộ tiến trình phản ứng thực nghiệm (đã cắt bỏ phần câu hỏi cuối video để tập trung trọn vẹn vào hiện tượng).
         </p>
@@ -2470,7 +2470,7 @@ html_content = r'''<!DOCTYPE html>
             <div class="timeline-step" onclick="deckVideo.jumpTo(10)">
               <div class="timeline-num">01</div>
               <div class="timeline-content">
-                <h5>Giới thiệu dụng cụ & Cắt mẩu Natri</h5>
+                <h5>Giới thiệu dụng cụ & Cắt mẩu Sodium</h5>
                 <p>Quan sát mẩu Na mềm sáng bạc, thấm sạch lớp dầu bảo quản trước khi thả.</p>
                 <span class="timeline-time-badge">▶ 00:10</span>
               </div>
@@ -2479,7 +2479,7 @@ html_content = r'''<!DOCTYPE html>
             <div class="timeline-step" onclick="deckVideo.jumpTo(26)">
               <div class="timeline-num">02</div>
               <div class="timeline-content">
-                <h5>Thả Natri vào cốc dung dịch CuSO₄</h5>
+                <h5>Thả Sodium vào cốc dung dịch Copper(II) Sulfate</h5>
                 <p>Na lập tức nổi lên mặt thoáng và co tròn thành giọt cầu do nhiệt nóng chảy.</p>
                 <span class="timeline-time-badge">▶ 00:26</span>
               </div>
@@ -2511,7 +2511,7 @@ html_content = r'''<!DOCTYPE html>
            ========================================== -->
       <section class="slide" data-slide="5" data-transition="cinematic-zoom">
         <div class="badge-label badge-emerald">🧪 PHÒNG THÍ NGHIỆM SỐ TƯƠNG TÁC 60FPS</div>
-        <h2 class="slide-title kinetic-title">Mô Phỏng Thí Nghiệm Ảo: Na + dd CuSO₄</h2>
+        <h2 class="slide-title kinetic-title">Mô Phỏng Thí Nghiệm Ảo: Sodium + dd Copper(II) Sulfate</h2>
         <p class="slide-subtitle">
           Tương tác trực tiếp: Thả kim loại Na vào cốc dung dịch để quan sát hiệu ứng vật lý & phản ứng kết tủa thời gian thực.
         </p>
@@ -2527,7 +2527,7 @@ html_content = r'''<!DOCTYPE html>
             <h4 style="font-family:var(--font-display); font-size:16px; color:#fff;">Bảng Điều Khiển Phòng Lab</h4>
 
             <button class="lab-action-btn btn-drop-na" id="btnDropNa" onclick="labSim.dropNa()">
-              <span>🟡 Thả 1 mẩu Natri (Na)</span>
+              <span>🟡 Thả 1 mẩu Sodium (Na)</span>
             </button>
 
             <button class="lab-action-btn btn-add-indicator" onclick="labSim.addPhenol()">
@@ -2587,7 +2587,7 @@ html_content = r'''<!DOCTYPE html>
                 <span>Na Nóng Chảy Vo Tròn & Chạy Trên Mặt Nước</span>
               </div>
               <p class="phenomenon-desc">
-                Mẩu Natri co tròn lại thành viên bi cầu sáng bạc như giọt thủy ngân, nổi trên bề mặt và lướt nhanh theo những quỹ đạo ngoằn ngoèo.
+                Mẩu Sodium co tròn lại thành viên bi cầu sáng bạc như giọt Mercury, nổi trên bề mặt và lướt nhanh theo những quỹ đạo ngoằn ngoèo.
               </p>
             </div>
             <div class="phenomenon-cause">
@@ -2607,11 +2607,11 @@ html_content = r'''<!DOCTYPE html>
                 <span>Có Khí Không Màu Thoát Ra Sủi Bọt Mãnh Liệt</span>
               </div>
               <p class="phenomenon-desc">
-                Xung quanh viên Natri xuất hiện vô số bọt khí li ti sủi bọt liên tục kèm theo tiếng xì xèo đặc trưng, có làn khói trắng mỏng bốc lên.
+                Xung quanh viên Sodium xuất hiện vô số bọt khí li ti sủi bọt liên tục kèm theo tiếng xì xèo đặc trưng, có làn khói trắng mỏng bốc lên.
               </p>
             </div>
             <div class="phenomenon-cause">
-              <strong>Nguyên nhân:</strong> Khí thoát ra chính là Hidro (H₂), sinh ra do phản ứng oxi hóa - khử mãnh liệt giữa Natri và nước: <em>2Na + 2H₂O ➔ 2NaOH + H₂ ⬆</em>. Làn khói trắng là những giọt nước nhỏ bị cuốn theo luồng khí nóng.
+              <strong>Nguyên nhân:</strong> Khí thoát ra chính là Hidro (H₂), sinh ra do phản ứng oxi hóa - khử mãnh liệt giữa Sodium và Water: <em>2Na + 2H₂O ➔ 2NaOH + H₂ ⬆</em>. Làn khói trắng là những giọt nước nhỏ bị cuốn theo luồng khí nóng.
             </div>
           </div>
 
@@ -2647,11 +2647,11 @@ html_content = r'''<!DOCTYPE html>
                 <span>Tuyệt Đối KHÔNG Xuất Hiện Kim Loại Cu Đỏ</span>
               </div>
               <p class="phenomenon-desc">
-                Dung dịch màu xanh lam nhạt dần do mất bớt ion Cu²⁺. Hoàn toàn không quan sát thấy lớp bột kim loại màu đỏ gạch của đồng.
+                Dung dịch màu xanh lam nhạt dần do mất bớt ion Cu²⁺. Hoàn toàn không quan sát thấy lớp bột kim loại màu đỏ gạch của Copper.
               </p>
             </div>
             <div class="phenomenon-cause">
-              <strong>Nguyên nhân:</strong> Natri không khử trực tiếp Cu²⁺ thành Cu kim loại trong môi trường dung dịch nước vì tốc độ phản ứng của Na với H₂O vượt trội hoàn toàn.
+              <strong>Nguyên nhân:</strong> Sodium không khử trực tiếp Cu²⁺ thành Cu kim loại trong môi trường dung dịch nước vì tốc độ phản ứng của Na với H₂O vượt trội hoàn toàn.
             </div>
           </div>
         </div>
@@ -2675,8 +2675,8 @@ html_content = r'''<!DOCTYPE html>
               <span class="stage-tag-label">Giai Đoạn</span>
             </div>
             <div class="stage-info">
-              <h4>Kim loại Natri tác dụng với dung môi Nước</h4>
-              <p>Phản ứng oxi hóa - khử mãnh liệt, tỏa nhiệt lớn tạo dung dịch kiềm và khí hiđro.</p>
+              <h4>Kim loại Sodium tác dụng với dung môi Water</h4>
+              <p>Phản ứng oxi hóa - khử mãnh liệt, tỏa nhiệt lớn tạo dung dịch kiềm Sodium Hydroxide và khí Hydrogen.</p>
               <div class="chemical-equation-row">
                 <span style="color:#fcd34d;">2Na</span> + <span style="color:#7dd3fc;">2H₂O</span> ➔ <span style="color:#c084fc;">2NaOH</span> + <span style="color:#4ade80;">H₂ ⬆</span>
               </div>
@@ -2690,7 +2690,7 @@ html_content = r'''<!DOCTYPE html>
               <span class="stage-tag-label">Giai Đoạn</span>
             </div>
             <div class="stage-info">
-              <h4>Dung dịch kiềm vừa sinh ra tác dụng với muối Đồng(II) Sunfat</h4>
+              <h4>Dung dịch Sodium Hydroxide tác dụng với Copper(II) Sulfate</h4>
               <p>Phản ứng trao đổi ion giữa bazơ tan và muối tan tạo ra bazơ không tan.</p>
               <div class="chemical-equation-row">
                 <span style="color:#c084fc;">2NaOH</span> + <span style="color:#38bdf8;">CuSO₄</span> ➔ <span style="color:#00f2fe; text-decoration:underline;">Cu(OH)₂ ⬇ (Xanh lam)</span> + <span style="color:#cbd5e1;">Na₂SO₄</span>
@@ -2736,7 +2736,7 @@ html_content = r'''<!DOCTYPE html>
             </div>
             <ul style="font-size:13.5px; color:#cbd5e1; line-height:1.7; padding-left:20px;">
               <li>Đẩy trực tiếp kim loại yếu hơn ra khỏi muối.</li>
-              <li>Có lớp kim loại màu <strong>đỏ gạch (Cu)</strong> bám ngoài bề mặt đinh sắt.</li>
+              <li>Có lớp kim loại <strong>Copper</strong> màu <strong>đỏ gạch (Cu)</strong> bám ngoài bề mặt đinh Iron.</li>
               <li><strong>Không có khí thoát ra</strong>.</li>
               <li>Dung dịch nhạt dần màu xanh lam và chuyển sang xanh rêu nhạt (FeSO₄).</li>
             </ul>
@@ -2754,7 +2754,7 @@ html_content = r'''<!DOCTYPE html>
               <li><strong>LUÔN LUÔN phản ứng với nước trước</strong> tạo dung dịch bazơ.</li>
               <li>Bazơ tạo thành mới phản ứng với muối (nếu có kết tủa/khí).</li>
               <li><strong>Có sủi bọt khí H₂</strong> không màu thoát ra.</li>
-              <li>Tạo kết tủa hiđroxit màu xanh lam, <strong>tuyệt đối không tạo Cu đỏ</strong>.</li>
+              <li>Tạo kết tủa <strong>Copper(II) Hydroxide</strong> màu xanh lam, <strong>tuyệt đối không tạo Copper đỏ</strong>.</li>
             </ul>
           </div>
         </div>
@@ -2769,11 +2769,11 @@ html_content = r'''<!DOCTYPE html>
             </div>
           </div>
           <div class="mnemonic-tokens">
-            <span class="mnemonic-chip">K (Kali)</span>
-            <span class="mnemonic-chip">Na (Natri)</span>
-            <span class="mnemonic-chip">Ba (Bari)</span>
-            <span class="mnemonic-chip">Ca (Canxi)</span>
-            <span class="mnemonic-chip">Li (Liti)</span>
+            <span class="mnemonic-chip">K (Potassium)</span>
+            <span class="mnemonic-chip">Na (Sodium)</span>
+            <span class="mnemonic-chip">Ba (Barium)</span>
+            <span class="mnemonic-chip">Ca (Calcium)</span>
+            <span class="mnemonic-chip">Li (Lithium)</span>
           </div>
         </div>
       </section>
@@ -2796,7 +2796,7 @@ html_content = r'''<!DOCTYPE html>
             </div>
 
             <div class="quiz-question-text" id="quizQuestion">
-              Cho một mẩu nhỏ Natri vào ống nghiệm đựng dung dịch CuSO₄ dư, hiện tượng quan sát được đầy đủ nhất là:
+              Cho một mẩu nhỏ Sodium vào ống nghiệm đựng dung dịch Copper(II) Sulfate dư, hiện tượng quan sát được đầy đủ nhất là:
             </div>
 
             <div class="quiz-options-list" id="quizOptions">
@@ -2817,7 +2817,7 @@ html_content = r'''<!DOCTYPE html>
         <div class="badge-label">🏁 TỔNG KẾT BÀI HỌC</div>
         <h2 class="slide-title kinetic-title">Sơ Đồ Tư Duy & Ghi Nhớ Trọng Tâm</h2>
         <p class="slide-subtitle">
-          Hệ thống hóa toàn bộ kiến thức về phản ứng của Natri với dung dịch muối Đồng(II) Sunfat.
+          Hệ thống hóa toàn bộ kiến thức về phản ứng của Sodium với dung dịch muối Copper(II) Sulfate.
         </p>
 
         <div class="summary-grid">
@@ -2830,9 +2830,9 @@ html_content = r'''<!DOCTYPE html>
             <div class="mindmap-node">
               <div>
                 <div class="mindmap-node-step">BƯỚC 1: TIẾP XÚC DUNG MÔI</div>
-                <div style="font-size:14px; color:#fff; font-weight:600; margin-top:2px;">Natri (Na) + Nước (H₂O)</div>
+                <div style="font-size:14px; color:#fff; font-weight:600; margin-top:2px;">Sodium (Na) + Water (H₂O)</div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:12px; color:#38bdf8;">Tạo NaOH + H₂ ⬆</div>
+              <div style="font-family:var(--font-mono); font-size:12px; color:#38bdf8;">Tạo Sodium Hydroxide (NaOH) + Hydrogen (H₂) ⬆</div>
             </div>
 
             <div style="text-align:center; font-size:18px; color:#00f2fe; margin:-8px 0;">⬇</div>
@@ -2840,9 +2840,9 @@ html_content = r'''<!DOCTYPE html>
             <div class="mindmap-node">
               <div>
                 <div class="mindmap-node-step">BƯỚC 2: TRAO ĐỔI ION</div>
-                <div style="font-size:14px; color:#fff; font-weight:600; margin-top:2px;">NaOH sinh ra + Dung dịch CuSO₄</div>
+                <div style="font-size:14px; color:#fff; font-weight:600; margin-top:2px;">NaOH sinh ra + Dung dịch Copper(II) Sulfate</div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:12px; color:#00f2fe;">Tạo Cu(OH)₂ ⬇ + Na₂SO₄</div>
+              <div style="font-family:var(--font-mono); font-size:12px; color:#00f2fe;">Tạo Copper(II) Hydroxide ⬇ + Sodium Sulfate</div>
             </div>
 
             <div style="text-align:center; font-size:18px; color:#00f2fe; margin:-8px 0;">⬇</div>
@@ -3007,60 +3007,60 @@ html_content = r'''<!DOCTYPE html>
 
         <!-- 8 Cards Grid -->
         <div class="valency-cards-grid stagger-item" style="--s-idx:3;" id="valencyGrid1">
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="0" onclick="highlightValencyCard(this, 'K', 'Kali — Kim loại kiềm hóa trị I (ví dụ: KCl, KOH)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="0" onclick="highlightValencyCard(this, 'K', 'Potassium — Kim loại kiềm hóa trị I (ví dụ: KCl, KOH)')">
             <div class="valency-card-badge">Hóa trị I</div>
             <div class="valency-card-phrase">"Khi"</div>
             <div class="valency-card-symbol" style="color:#00f2fe;">K</div>
-            <div class="valency-card-name">Kali</div>
+            <div class="valency-card-name">Potassium</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="1" onclick="highlightValencyCard(this, 'Na', 'Natri — Kim loại kiềm hóa trị I (ví dụ: NaCl, NaOH)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="1" onclick="highlightValencyCard(this, 'Na', 'Sodium — Kim loại kiềm hóa trị I (ví dụ: NaCl, NaOH)')">
             <div class="valency-card-badge">Hóa trị I</div>
             <div class="valency-card-phrase">"Na"</div>
             <div class="valency-card-symbol" style="color:#38bdf8;">Na</div>
-            <div class="valency-card-name">Natri</div>
+            <div class="valency-card-name">Sodium</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="2" onclick="highlightValencyCard(this, 'Ag', 'Bạc (Argentum) — Kim loại hóa trị I (ví dụ: AgNO₃, AgCl)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="2" onclick="highlightValencyCard(this, 'Ag', 'Silver (Argentum) — Kim loại hóa trị I (ví dụ: AgNO₃, AgCl)')">
             <div class="valency-card-badge">Hóa trị I</div>
             <div class="valency-card-phrase">"ăn gà"</div>
             <div class="valency-card-symbol" style="color:#e2e8f0;">Ag</div>
-            <div class="valency-card-name">Bạc (Argentum)</div>
+            <div class="valency-card-name">Silver (Argentum)</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="3" onclick="highlightValencyCard(this, 'Cl', 'Clo — Phi kim Halogen hóa trị I trong muối clorua (ví dụ: NaCl, HCl)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="3" onclick="highlightValencyCard(this, 'Cl', 'Chlorine — Phi kim Halogen hóa trị I trong muối clorua (ví dụ: NaCl, HCl)')">
             <div class="valency-card-badge">Hóa trị I</div>
             <div class="valency-card-phrase">"Cô Lan"</div>
             <div class="valency-card-symbol" style="color:#4ade80;">Cl</div>
-            <div class="valency-card-name">Clo</div>
+            <div class="valency-card-name">Chlorine</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="4" onclick="highlightValencyCard(this, 'H', 'Hiđro — Nguyên tố chuẩn hóa trị I (ví dụ: H₂O, HCl)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="4" onclick="highlightValencyCard(this, 'H', 'Hydrogen — Nguyên tố chuẩn hóa trị I (ví dụ: H₂O, HCl)')">
             <div class="valency-card-badge">Hóa trị I</div>
             <div class="valency-card-phrase">"hát"</div>
             <div class="valency-card-symbol" style="color:#60a5fa;">H</div>
-            <div class="valency-card-name">Hiđro</div>
+            <div class="valency-card-name">Hydrogen</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="5" onclick="highlightValencyCard(this, 'OH', 'Gốc Hiđroxit — Nhóm ion hóa trị I trong bazơ (ví dụ: NaOH, KOH)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="5" onclick="highlightValencyCard(this, 'OH', 'Hydroxide — Nhóm ion hóa trị I trong bazơ (ví dụ: NaOH, KOH)')">
             <div class="valency-card-badge">Gốc I</div>
             <div class="valency-card-phrase">"Ông Hùng"</div>
             <div class="valency-card-symbol" style="color:#818cf8;">OH</div>
-            <div class="valency-card-name">Gốc Hiđroxit</div>
+            <div class="valency-card-name">Hydroxide</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="6" onclick="highlightValencyCard(this, 'NO3', 'Gốc Nitrat — Nhóm gốc axit hóa trị I (ví dụ: HNO₃, NaNO₃)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="6" onclick="highlightValencyCard(this, 'NO3', 'Nitrate — Nhóm gốc axit hóa trị I (ví dụ: HNO₃, NaNO₃)')">
             <div class="valency-card-badge">Gốc I</div>
             <div class="valency-card-phrase">"nấu ba"</div>
             <div class="valency-card-symbol" style="color:#f472b6;">NO₃</div>
-            <div class="valency-card-name">Gốc Nitrat (Số 3)</div>
+            <div class="valency-card-name">Nitrate (NO₃)</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="1" data-idx="7" onclick="highlightValencyCard(this, 'Br', 'Brom — Phi kim Halogen hóa trị I trong muối bromua (ví dụ: NaBr, HBr)')">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="7" onclick="highlightValencyCard(this, 'Br', 'Bromine — Phi kim Halogen hóa trị I trong muối bromua (ví dụ: NaBr, HBr)')">
             <div class="valency-card-badge">Hóa trị I</div>
             <div class="valency-card-phrase">"rổ bắp"</div>
             <div class="valency-card-symbol" style="color:#fb923c;">Br</div>
-            <div class="valency-card-name">Brom</div>
+            <div class="valency-card-name">Bromine</div>
           </div>
         </div>
 
@@ -3098,67 +3098,67 @@ html_content = r'''<!DOCTYPE html>
 
         <!-- 9 Cards Grid -->
         <div class="valency-cards-grid stagger-item" style="--s-idx:3; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));" id="valencyGrid2">
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="0" onclick="highlightValencyCard(this, 'Ba', 'Bari — Kim loại kiềm thổ hóa trị II (ví dụ: BaCl₂, BaSO₄)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="0" onclick="highlightValencyCard(this, 'Ba', 'Barium — Kim loại kiềm thổ hóa trị II (ví dụ: BaCl₂, BaSO₄)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
             <div class="valency-card-phrase">"Ba"</div>
             <div class="valency-card-symbol" style="color:#10b981;">Ba</div>
-            <div class="valency-card-name">Bari</div>
+            <div class="valency-card-name">Barium</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="1" onclick="highlightValencyCard(this, 'Cu', 'Đồng — Kim loại chuyển tiếp hóa trị II phổ biến (ví dụ: CuSO₄, CuO, Cu(OH)₂)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="1" onclick="highlightValencyCard(this, 'Cu', 'Copper — Kim loại chuyển tiếp hóa trị II phổ biến (ví dụ: CuSO₄, CuO, Cu(OH)₂)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
             <div class="valency-card-phrase">"Cũng"</div>
             <div class="valency-card-symbol" style="color:#34d399;">Cu</div>
-            <div class="valency-card-name">Đồng (Copper)</div>
+            <div class="valency-card-name">Copper</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="2" onclick="highlightValencyCard(this, 'SO4', 'Gốc Sunfat — Nhóm gốc axit sunfuric hóa trị II (ví dụ: H₂SO₄, CuSO₄)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="2" onclick="highlightValencyCard(this, 'SO4', 'Sulfate — Nhóm gốc axit sunfuric hóa trị II (ví dụ: H₂SO₄, CuSO₄)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Gốc II</div>
             <div class="valency-card-phrase">"Sang"</div>
             <div class="valency-card-symbol" style="color:#6ee7b7;">SO₄</div>
-            <div class="valency-card-name">Gốc Sunfat</div>
+            <div class="valency-card-name">Sulfate</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="3" onclick="highlightValencyCard(this, 'Mg', 'Magie — Kim loại kiềm thổ hóa trị II (ví dụ: MgCl₂, MgSO₄)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="3" onclick="highlightValencyCard(this, 'Mg', 'Magnesium — Kim loại kiềm thổ hóa trị II (ví dụ: MgCl₂, MgSO₄)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
             <div class="valency-card-phrase">"Mua"</div>
             <div class="valency-card-symbol" style="color:#a7f3d0;">Mg</div>
-            <div class="valency-card-name">Magie</div>
+            <div class="valency-card-name">Magnesium</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="4" onclick="highlightValencyCard(this, 'Ca', 'Canxi — Kim loại kiềm thổ hóa trị II (ví dụ: CaCO₃, Ca(OH)₂)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="4" onclick="highlightValencyCard(this, 'Ca', 'Calcium — Kim loại kiềm thổ hóa trị II (ví dụ: CaCO₃, Ca(OH)₂)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
             <div class="valency-card-phrase">"Cà"</div>
             <div class="valency-card-symbol" style="color:#6ee7b7;">Ca</div>
-            <div class="valency-card-name">Canxi</div>
+            <div class="valency-card-name">Calcium</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="5" onclick="highlightValencyCard(this, 'Fe', 'Sắt (II) — Hóa trị II trong muối sắt(II) như FeCl₂, FeSO₄ (Lưu ý: Fe còn có hóa trị III!)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="5" onclick="highlightValencyCard(this, 'Fe', 'Iron (II) — Hóa trị II trong muối Iron(II) như FeCl₂, FeSO₄ (Lưu ý: Fe còn có hóa trị III!)')">
             <div class="valency-card-badge" style="color:#f59e0b; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Fe (II)</div>
             <div class="valency-card-phrase">"Phê"</div>
             <div class="valency-card-symbol" style="color:#fbbf24;">Fe</div>
-            <div class="valency-card-name">Sắt (II)</div>
+            <div class="valency-card-name">Iron (II)</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="6" onclick="highlightValencyCard(this, 'SO3', 'Gốc Sunfit — Nhóm gốc axit sunfurơ hóa trị II (ví dụ: H₂SO₃, Na₂SO₃)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="6" onclick="highlightValencyCard(this, 'SO3', 'Sulfite — Nhóm gốc axit sunfurơ hóa trị II (ví dụ: H₂SO₃, Na₂SO₃)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Gốc II</div>
             <div class="valency-card-phrase">"Sữa"</div>
             <div class="valency-card-symbol" style="color:#6ee7b7;">SO₃</div>
-            <div class="valency-card-name">Gốc Sunfit</div>
+            <div class="valency-card-name">Sulfite</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="7" onclick="highlightValencyCard(this, 'Zn', 'Kẽm — Kim loại chuyển tiếp hóa trị II duy nhất (ví dụ: ZnSO₄, ZnCl₂)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="7" onclick="highlightValencyCard(this, 'Zn', 'Zinc — Kim loại chuyển tiếp hóa trị II duy nhất (ví dụ: ZnSO₄, ZnCl₂)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
             <div class="valency-card-phrase">"Zới"</div>
             <div class="valency-card-symbol" style="color:#34d399;">Zn</div>
-            <div class="valency-card-name">Kẽm (Zinc)</div>
+            <div class="valency-card-name">Zinc</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="2" data-idx="8" onclick="highlightValencyCard(this, 'CO3', 'Gốc Cacbonat — Nhóm gốc axit cacbonic hóa trị II (ví dụ: CaCO₃, Na₂CO₃)')">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="8" onclick="highlightValencyCard(this, 'CO3', 'Carbonate — Nhóm gốc axit cacbonic hóa trị II (ví dụ: CaCO₃, Na₂CO₃)')">
             <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Gốc II</div>
             <div class="valency-card-phrase">"Cô ba"</div>
             <div class="valency-card-symbol" style="color:#10b981;">CO₃</div>
-            <div class="valency-card-name">Gốc Cacbonat</div>
+            <div class="valency-card-name">Carbonate</div>
           </div>
         </div>
 
@@ -3166,7 +3166,7 @@ html_content = r'''<!DOCTYPE html>
         <div class="glass-panel stagger-item" id="valencyInspector2" style="--s-idx:4; margin-top:14px; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; font-size:13px;">
           <div style="display:flex; align-items:center; gap:10px;">
             <span style="color:#10b981; font-size:16px;">💎</span>
-            <span id="inspectorText2" style="color:#cbd5e1;">Bấm vào từng thẻ phía trên để giải nghĩa. Lưu ý từ "Zới" (Zn) và "Phê" (Fe - Sắt II).</span>
+            <span id="inspectorText2" style="color:#cbd5e1;">Bấm vào từng thẻ phía trên để giải nghĩa. Lưu ý từ "Zới" (Zn) và "Phê" (Fe - Iron II).</span>
           </div>
           <div style="font-family:var(--font-mono); font-size:11px; color:#64748b;">Ba – Cu – SO₄ – Mg – Ca – Fe – SO₃ – Zn – CO₃</div>
         </div>
@@ -3196,25 +3196,25 @@ html_content = r'''<!DOCTYPE html>
 
         <!-- 3 Cards Grid (Same style as Slide 12 & 13) -->
         <div class="valency-cards-grid stagger-item" style="--s-idx:3; grid-template-columns: repeat(3, 1fr); max-width:960px; margin:0 auto;" id="valencyGrid3">
-          <div class="valency-card interactive-tilt" data-v="3" data-idx="0" onclick="highlightValencyCard(this, 'PO4', 'Gốc Photphat — Nhóm gốc axit photphoric hóa trị III (axit tương ứng H₃PO₄). Chữ "4" chính là 4 nguyên tử Oxi!')">
+          <div class="valency-card interactive-tilt" data-v="3" data-idx="0" onclick="highlightValencyCard(this, 'PO4', 'Phosphate — Nhóm gốc axit photphoric hóa trị III (axit tương ứng H₃PO₄). Chữ "4" chính là 4 nguyên tử Oxi!')">
             <div class="valency-card-badge" style="color:#f59e0b; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Gốc III</div>
             <div class="valency-card-phrase">"Phơi 4"</div>
             <div class="valency-card-symbol" style="color:#fbbf24; font-size:32px;">PO₄</div>
-            <div class="valency-card-name">Gốc Photphat (Chỉ số 4)</div>
+            <div class="valency-card-name">Phosphate (PO₄)</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="3" data-idx="1" onclick="highlightValencyCard(this, 'Al', 'Nhôm — Kim loại có hóa trị III duy nhất trong mọi hợp chất (ví dụ: Al₂O₃, AlCl₃, Al(OH)₃)')">
+          <div class="valency-card interactive-tilt" data-v="3" data-idx="1" onclick="highlightValencyCard(this, 'Al', 'Aluminium — Kim loại có hóa trị III duy nhất trong mọi hợp chất (ví dụ: Al₂O₃, AlCl₃, Al(OH)₃)')">
             <div class="valency-card-badge" style="color:#f59e0b; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Hóa trị III</div>
             <div class="valency-card-phrase">"Áo"</div>
             <div class="valency-card-symbol" style="color:#f59e0b; font-size:32px;">Al</div>
-            <div class="valency-card-name">Nhôm (Aluminium)</div>
+            <div class="valency-card-name">Aluminium</div>
           </div>
 
-          <div class="valency-card interactive-tilt" data-v="3" data-idx="2" onclick="highlightValencyCard(this, 'Fe', 'Sắt (III) — Thể hiện hóa trị III trong muối sắt(III) như FeCl₃, Fe₂(SO₄)₃ (Lưu ý: Fe là kim loại đa hóa trị, xuất hiện ở cả nhóm II và III!)')">
+          <div class="valency-card interactive-tilt" data-v="3" data-idx="2" onclick="highlightValencyCard(this, 'Fe', 'Iron (III) — Thể hiện hóa trị III trong muối Iron(III) như FeCl₃, Fe₂(SO₄)₃ (Lưu ý: Fe là kim loại đa hóa trị, xuất hiện ở cả nhóm II và III!)')">
             <div class="valency-card-badge" style="color:#f87171; background:rgba(239,68,68,0.2); border-color:rgba(239,68,68,0.4);">Fe (III)</div>
             <div class="valency-card-phrase">"Sắt"</div>
             <div class="valency-card-symbol" style="color:#f87171; font-size:32px;">Fe</div>
-            <div class="valency-card-name">Sắt (III)</div>
+            <div class="valency-card-name">Iron (III)</div>
           </div>
         </div>
 
@@ -3255,9 +3255,9 @@ html_content = r'''<!DOCTYPE html>
 
             <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; font-size:12px; color:#94a3b8; line-height:1.5;">
               <strong style="color:#cbd5e1;">Hợp chất tiêu biểu:</strong><br/>
-              • Muối: NaCl, KCl, AgNO₃, NaBr<br/>
-              • Bazơ: NaOH, KOH<br/>
-              • Axit: HCl, HNO₃, HBr
+              • Muối: Sodium chloride (NaCl), Potassium chloride (KCl), Silver nitrate (AgNO₃), Sodium bromide (NaBr)<br/>
+              • Bazơ: Sodium hydroxide (NaOH), Potassium hydroxide (KOH)<br/>
+              • Axit: Hydrochloric acid (HCl), Nitric acid (HNO₃), Hydrobromic acid (HBr)
             </div>
           </div>
 
@@ -3278,9 +3278,9 @@ html_content = r'''<!DOCTYPE html>
 
             <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; font-size:12px; color:#94a3b8; line-height:1.5;">
               <strong style="color:#cbd5e1;">Hợp chất tiêu biểu:</strong><br/>
-              • Muối: BaSO₄, CuSO₄, CaCO₃, MgCl₂, ZnSO₄<br/>
-              • Bazơ: Ca(OH)₂, Ba(OH)₂, Cu(OH)₂<br/>
-              • Sắt (II): FeSO₄, FeCl₂
+              • Muối: Barium sulfate (BaSO₄), Copper(II) sulfate (CuSO₄), Calcium carbonate (CaCO₃), Magnesium chloride (MgCl₂), Zinc sulfate (ZnSO₄)<br/>
+              • Bazơ: Calcium hydroxide [Ca(OH)₂], Barium hydroxide [Ba(OH)₂], Copper(II) hydroxide [Cu(OH)₂]<br/>
+              • Hợp chất Iron(II): Iron(II) sulfate (FeSO₄), Iron(II) chloride (FeCl₂)
             </div>
           </div>
 
@@ -3301,9 +3301,9 @@ html_content = r'''<!DOCTYPE html>
 
             <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; font-size:12px; color:#94a3b8; line-height:1.5;">
               <strong style="color:#cbd5e1;">Hợp chất tiêu biểu:</strong><br/>
-              • Muối Photphat: Na₃PO₄, Ca₃(PO₄)₂<br/>
-              • Nhôm (Al): Al₂O₃, AlCl₃, Al(OH)₃<br/>
-              • Sắt (III): FeCl₃, Fe₂(SO₄)₃, Fe₂O₃
+              • Muối Phosphate: Sodium phosphate (Na₃PO₄), Calcium phosphate [Ca₃(PO₄)₂]<br/>
+              • Aluminium (Al): Aluminium oxide (Al₂O₃), Aluminium chloride (AlCl₃), Aluminium hydroxide [Al(OH)₃]<br/>
+              • Hợp chất Iron(III): Iron(III) chloride (FeCl₃), Iron(III) sulfate [Fe₂(SO₄)₃], Iron(III) oxide (Fe₂O₃)
             </div>
           </div>
         </div>
@@ -3311,7 +3311,7 @@ html_content = r'''<!DOCTYPE html>
         <!-- Academic Precision Guardrail Note -->
         <div class="glass-panel stagger-item" style="--s-idx:3; margin-top:16px; padding:12px 20px; border-left:3px solid #f59e0b; display:flex; align-items:center; justify-content:space-between;">
           <div style="font-size:13px; color:#cbd5e1; line-height:1.5;">
-            <strong style="color:#fbbf24;">Lưu ý học thuật quan trọng:</strong> Kim loại Sắt (<strong>Fe</strong>) có nhiều hóa trị trong hóa học (thường gặp là <strong>II</strong> và <strong>III</strong>). Do đó Fe xuất hiện ở cả câu Hóa trị II (<em>"Phê"</em>) và Hóa trị III (<em>"Sắt"</em>). Các câu thần chú là công cụ hỗ trợ tư duy nhanh, không thay thế quy tắc cấu tạo electron nguyên tử.
+            <strong style="color:#fbbf24;">Lưu ý học thuật quan trọng:</strong> Kim loại <strong>Iron (Fe)</strong> có nhiều hóa trị trong hóa học (thường gặp là <strong>II</strong> và <strong>III</strong>). Do đó Fe xuất hiện ở cả câu Hóa trị II (<em>"Phê"</em>) và Hóa trị III (<em>"Sắt"</em>). Các câu thần chú là công cụ hỗ trợ tư duy nhanh, không thay thế quy tắc cấu tạo electron nguyên tử.
           </div>
         </div>
       </section>
@@ -3330,10 +3330,10 @@ html_content = r'''<!DOCTYPE html>
           <div class="glass-panel interactive-tilt" style="padding:20px; border-top:3px solid #00f2fe; text-align:left;">
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
               <span style="font-size:22px;">⚗️</span>
-              <h4 style="font-size:15px; font-weight:700; color:#fff;">Phản Ứng Na + dd CuSO₄</h4>
+              <h4 style="font-size:15px; font-weight:700; color:#fff;">Phản Ứng Sodium + dd Copper(II) Sulfate</h4>
             </div>
             <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
-              Luôn nhớ cơ chế 2 giai đoạn: Natri tác dụng với nước trước (2Na + 2H₂O ➔ 2NaOH + H₂⬆), sau đó NaOH mới phản ứng tạo kết tủa xanh lơ Cu(OH)₂⬇. <strong>Không bao giờ sinh ra Cu đỏ!</strong>
+              Luôn nhớ cơ chế 2 giai đoạn: Sodium tác dụng với Water trước (2Na + 2H₂O ➔ 2NaOH + H₂⬆), sau đó NaOH mới phản ứng tạo kết tủa xanh lơ Copper(II) Hydroxide [Cu(OH)₂⬇]. <strong>Không bao giờ sinh ra kim loại Copper đỏ!</strong>
             </p>
           </div>
 
@@ -3344,7 +3344,7 @@ html_content = r'''<!DOCTYPE html>
               <h4 style="font-size:15px; font-weight:700; color:#fff;">Quy Luật Kim Loại Kiềm</h4>
             </div>
             <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
-              5 kim loại tan trong nước thường gặp: <strong>K, Na, Ba, Ca, Li</strong> ("Khi Nào Bạn Cần Ly") khi cho vào bất kỳ dung dịch muối nào đều phản ứng mãnh liệt với nước trước.
+              5 kim loại tan trong nước: <strong>Potassium, Sodium, Barium, Calcium, Lithium</strong> ("Khi Nào Bạn Cần Ly") khi cho vào bất kỳ dung dịch muối nào đều phản ứng mãnh liệt với nước trước.
             </p>
           </div>
 
@@ -4218,20 +4218,20 @@ html_content = r'''<!DOCTYPE html>
         this.overviewOpen = false;
 
         this.notesData = [
-          `<strong>Lời dẫn mở đầu:</strong> "Kính thưa thầy cô và các bạn, hôm nay nhóm em xin trình bày về một thí nghiệm vô cùng thú vị nhưng cũng là cái bẫy kinh điển nhất trong chương trình Hóa học lớp 9: Phản ứng giữa Natri và dung dịch CuSO₄."`,
-          `<strong>Nhấn mạnh tư duy phản biện:</strong> "Khi nhìn vào dãy hoạt động hóa học, phản xạ đầu tiên của đa số học sinh là viết phương trình Na đẩy Cu tạo kết tủa đồng đỏ. Nhưng thực tế trong dung dịch có dung môi nước, quy tắc này có còn đúng không? Hãy cùng lật mở bí mật."`,
-          `<strong>Quy tắc an toàn:</strong> "Natri là kim loại kiềm cực kỳ hoạt động. Trong phòng thí nghiệm trường học, giáo viên luôn nhấn mạnh: Chỉ lấy mẩu Na bằng hạt đậu xanh, phải dùng giấy lọc thấm sạch dầu hỏa trước khi cho vào nước để tránh phản ứng nổ nguy hiểm."`,
-          `<strong>Hướng dẫn xem video:</strong> "Mời thầy cô và các bạn quan sát video thí nghiệm thực tế độ nét cao (đã được cắt lọc sạch sẽ phần câu hỏi cuối video để tập trung trọn vẹn vào diễn biến thực nghiệm). Các bạn có thể bấm vào các mốc thời gian để xem chậm từng khoảnh khắc."`,
-          `<strong>Tương tác phòng Lab ảo:</strong> "Để hiểu rõ động học phân tử, em xin mời một bạn lên bấm nút 'Thả mẩu Natri' vào cốc mô phỏng để quan sát quá trình sinh bọt khí H₂ và các đám mây kết tủa keo Cu(OH)₂ lắng xuống đáy."`,
-          `<strong>Phân tích hiện tượng:</strong> "Có 4 hiện tượng cốt lõi cần giải thích: Tại sao Na co tròn? Do sức căng bề mặt khi nóng chảy. Tại sao chạy trên mặt nước? Do lực đẩy phản lực của khí H₂. Tại sao kết tủa màu xanh lam? Đó là Cu(OH)₂. Và quan trọng nhất: Không hề có kim loại Cu đỏ!"`,
-          `<strong>Cơ chế 2 giai đoạn:</strong> "Đây là phần trọng tâm ghi điểm trong đề thi: Phương trình phải viết tách bạch 2 giai đoạn: Giai đoạn 1 Na tác dụng với H₂O tạo NaOH và H₂. Giai đoạn 2 NaOH mới phản ứng trao đổi với CuSO₄ tạo Cu(OH)₂."`,
-          `<strong>Mở rộng quy luật:</strong> "Quy tắc vàng cần nhớ: Đối với 5 kim loại tan trong nước thường (Khi Nào Bạn Cần Ly - K, Na, Ba, Ca, Li), khi cho vào bất kỳ dung dịch muối nào, chúng đều tác dụng với H₂O trước!"`,
+          `<strong>Lời dẫn mở đầu:</strong> "Kính thưa thầy cô và các bạn, hôm nay nhóm em xin trình bày về một thí nghiệm vô cùng thú vị nhưng cũng là cái bẫy kinh điển nhất trong chương trình Hóa học lớp 9: Phản ứng giữa Sodium và dung dịch Copper(II) Sulfate."`,
+          `<strong>Nhấn mạnh tư duy phản biện:</strong> "Khi nhìn vào dãy hoạt động hóa học, phản xạ đầu tiên của đa số học sinh là viết phương trình Na đẩy Cu tạo kết tủa Copper đỏ. Nhưng thực tế trong dung dịch có dung môi nước, quy tắc này có còn đúng không? Hãy cùng lật mở bí mật."`,
+          `<strong>Quy tắc an toàn:</strong> "Sodium là kim loại kiềm cực kỳ hoạt động. Trong phòng thí nghiệm trường học, giáo viên luôn nhấn mạnh: Chỉ lấy mẩu Sodium bằng hạt đậu xanh, phải dùng giấy lọc thấm sạch dầu hỏa trước khi cho vào nước để tránh phản ứng nổ nguy hiểm."`,
+          `<strong>Hướng dẫn xem video:</strong> "Mời thầy cô và các bạn quan sát video thí nghiệm thực tế độ nét cao của phản ứng Sodium + Copper(II) Sulfate. Các bạn có thể bấm vào các mốc thời gian để xem chậm từng khoảnh khắc."`,
+          `<strong>Tương tác phòng Lab ảo:</strong> "Để hiểu rõ động học phân tử, em xin mời một bạn lên bấm nút 'Thả mẩu Sodium' vào cốc mô phỏng để quan sát quá trình sinh bọt khí Hydrogen (H₂) và các đám mây kết tủa keo Copper(II) Hydroxide [Cu(OH)₂] lắng xuống đáy."`,
+          `<strong>Phân tích hiện tượng:</strong> "Có 4 hiện tượng cốt lõi cần giải thích: Tại sao Sodium co tròn? Do sức căng bề mặt khi nóng chảy. Tại sao chạy trên mặt nước? Do lực đẩy phản lực của khí Hydrogen. Tại sao kết tủa màu xanh lam? Đó là Copper(II) Hydroxide [Cu(OH)₂]. Và quan trọng nhất: Không hề có kim loại Copper đỏ!"`,
+          `<strong>Cơ chế 2 giai đoạn:</strong> "Đây là phần trọng tâm ghi điểm trong đề thi: Phương trình phải viết tách bạch 2 giai đoạn: Giai đoạn 1 Sodium tác dụng với Water tạo Sodium Hydroxide (NaOH) và Hydrogen (H₂). Giai đoạn 2 Sodium Hydroxide mới phản ứng trao đổi với Copper(II) Sulfate tạo Copper(II) Hydroxide [Cu(OH)₂]."`,
+          `<strong>Mở rộng quy luật:</strong> "Quy tắc vàng cần nhớ: Đối với 5 kim loại tan trong nước thường (Khi Nào Bạn Cần Ly - Potassium, Sodium, Barium, Calcium, Lithium), khi cho vào bất kỳ dung dịch muối nào, chúng đều tác dụng với Water trước!"`,
           `<strong>Tương tác trắc nghiệm:</strong> "Bây giờ xin mời cả lớp cùng tham gia trả lời nhanh 3 câu hỏi trắc nghiệm chuẩn cấu trúc đề thi vào 10 để củng cố kiến thức vừa học."`,
-          `<strong>Tổng kết Na + CuSO₄:</strong> "Qua bài thuyết trình, nhóm em hy vọng các bạn đã nắm vững bản chất phản ứng 2 giai đoạn và không bao giờ bị bẫy kết tủa đồng đỏ. Tiếp theo xin mời thầy cô và các bạn đến với chuyên đề mở rộng đặc biệt: Bí quyết ghi nhớ Hóa trị."`,
+          `<strong>Tổng kết Na + CuSO₄:</strong> "Qua bài thuyết trình, nhóm em hy vọng các bạn đã nắm vững bản chất phản ứng 2 giai đoạn và không bao giờ bị bẫy kết tủa Copper đỏ. Tiếp theo xin mời thầy cô và các bạn đến với chuyên đề mở rộng đặc biệt: Bí quyết ghi nhớ Hóa trị."`,
           `<strong>Bí quyết Hóa trị (Mở đầu):</strong> "Hóa trị là nền tảng sống còn của hóa học THCS. Để giúp các bạn không phải học vẹt bảng hóa trị khô khan, nhóm em xin giới thiệu 3 câu thơ lục ngôn - bát ngôn độc đáo được lưu truyền qua các thế hệ học sinh giỏi."`,
           `<strong>Hóa trị I ("Khi Na ăn gà..."):</strong> "Câu nói gồm 8 ký hiệu: K, Na, Ag, Cl, H, OH, NO₃, Br. Các bạn hãy quan sát các liên kết giữa từ ngữ vui nhộn và ký hiệu hóa học tương ứng. Bấm vào từng thẻ để kiểm tra."`,
           `<strong>Hóa trị II ("Ba Cũng Sang Mua..."):</strong> "Câu nói chuẩn gồm 9 ký hiệu: Ba, Cu, SO₄, Mg, Ca, Fe, SO₃, Zn, CO₃. Đặc biệt lưu ý từ 'Zới' chính là Zn (Kẽm) và 'Phê' là Sắt (II). Giữ nguyên từ 'Zới' theo đúng bản gốc."`,
-          `<strong>Hóa trị III ("Phơi 4 Áo Sắt"):</strong> "Câu thần chú này cực kỳ thông minh: Con số '4' đại diện cho 4 nguyên tử Oxy trong gốc PO₄ (Photphat), 'Áo' là Al, và 'Sắt' là Fe (III). Fe là kim loại đa hóa trị nên xuất hiện ở cả nhóm II và III."`,
+          `<strong>Hóa trị III ("Phơi 4 Áo Sắt"):</strong> "Câu thần chú này cực kỳ thông minh: Con số '4' đại diện cho 4 nguyên tử Oxy trong gốc PO₄ (Photphat), 'Áo' là Al, và 'Sắt' là Iron (III). Iron là kim loại đa hóa trị nên xuất hiện ở cả nhóm II và III."`,
           `<strong>Bảng Ma Trận Tổng Hợp:</strong> "Tại đây học sinh có cái nhìn toàn cảnh về cả 3 nhóm hóa trị I, II, III. Giáo viên cần nhấn mạnh tính đa hóa trị của Fe và lưu ý rằng các câu thần chú là công cụ nhớ nhanh, không thay thế quy tắc cấu tạo electron."`,
           `<strong>Lời cảm ơn & Bế mạc:</strong> "Kính thưa thầy cô và các bạn, bài thuyết trình của nhóm em đến đây là kết thúc. Chúng em xin chân thành cảm ơn sự chú ý lắng nghe của thầy cô và các bạn. Nhóm em rất mong nhận được những câu hỏi thảo luận và ý kiến đóng góp quý báu!"`
         ];
@@ -4507,7 +4507,7 @@ html_content = r'''<!DOCTYPE html>
     // ==========================================
     const quizQuestions = [
       {
-        question: "Cho một mẩu nhỏ Natri vào ống nghiệm chứa dung dịch CuSO₄, hiện tượng quan sát được đầy đủ nhất là:",
+        question: "Cho một mẩu nhỏ Sodium vào ống nghiệm chứa dung dịch Copper(II) Sulfate (CuSO₄), hiện tượng quan sát được đầy đủ nhất là:",
         options: [
           "Mẩu Na tan dần, có khí không màu sủi bọt và xuất hiện kết tủa màu xanh lam.",
           "Mẩu Na tan ra, có lớp kim loại màu đỏ bám vào đáy ống nghiệm.",
@@ -4520,7 +4520,7 @@ html_content = r'''<!DOCTYPE html>
       {
         question: "Bản chất của phản ứng tạo kết tủa màu xanh lam là do:",
         options: [
-          "Natri tác dụng trực tiếp đẩy Đồng ra khỏi dung dịch muối.",
+          "Sodium tác dụng trực tiếp đẩy Copper ra khỏi dung dịch muối.",
           "Dung dịch kiềm NaOH vừa sinh ra tác dụng trao đổi với muối CuSO₄.",
           "Khí Hidro sinh ra phản ứng với ion Cu²⁺ tạo hợp chất màu xanh.",
           "Dung dịch CuSO₄ bị đun nóng và tự kết tinh thành bột màu xanh."
@@ -4532,8 +4532,8 @@ html_content = r'''<!DOCTYPE html>
         question: "Nếu lọc lấy kết tủa màu xanh lam thu được đem nung nóng ngoài không khí đến khối lượng không đổi thì thu được chất rắn màu gì?",
         options: [
           "Chất rắn màu đỏ gạch (kim loại Cu).",
-          "Chất rắn màu đen (Đồng(II) oxit - CuO).",
-          "Chất rắn màu trắng (Đồng(I) oxit - Cu₂O).",
+          "Chất rắn màu đen (Copper(II) Oxide - CuO).",
+          "Chất rắn màu đỏ gạch (Copper(I) Oxide - Cu₂O).",
           "Kết tủa không bị nhiệt phân và vẫn giữ nguyên màu xanh lam."
         ],
         answer: 1,
