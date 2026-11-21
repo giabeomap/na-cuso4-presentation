@@ -1,0 +1,3640 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phản Ứng Giữa Natri & Dung Dịch CuSO4 | Hóa Học 9 Premium Glassmorphism</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM: PREMIUM GLASSMORPHISM 2026
+       ========================================================================== */
+    :root {
+      --bg-space: #060913;
+      --bg-deep: #090e1f;
+      --cyan-glow: #00f2fe;
+      --cyan-soft: rgba(0, 242, 254, 0.25);
+      --blue-accent: #3b82f6;
+      --blue-precipitate: #0284c7;
+      --indigo-glow: #6366f1;
+      --amber-na: #f59e0b;
+      --emerald-accent: #10b981;
+      --rose-accent: #f43f5e;
+      
+      --glass-base: rgba(15, 23, 42, 0.45);
+      --glass-card: rgba(255, 255, 255, 0.05);
+      --glass-card-hover: rgba(255, 255, 255, 0.09);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-light: rgba(255, 255, 255, 0.22);
+      --glass-blur: blur(28px) saturate(190%);
+      --glass-blur-sm: blur(16px) saturate(160%);
+      
+      --shadow-ambient: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+      --shadow-glow-cyan: 0 0 35px rgba(0, 242, 254, 0.25);
+      --shadow-glow-amber: 0 0 35px rgba(245, 158, 11, 0.25);
+      --shadow-glow-blue: 0 0 45px rgba(2, 132, 199, 0.35);
+
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --trans-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --trans-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --trans-fast: all 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-space);
+      color: #f1f5f9;
+      font-family: var(--font-body);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      user-select: none;
+    }
+
+    /* Ambient Lighting Canvas & Gradient Orbs */
+    #ambient-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ambient-orbs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.55;
+      animation: floatOrb 22s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, #00f2fe 0%, #0284c7 60%, transparent 80%);
+      top: -150px;
+      left: -100px;
+      animation-duration: 20s;
+    }
+
+    .orb-2 {
+      width: 750px;
+      height: 750px;
+      background: radial-gradient(circle, #6366f1 0%, #4338ca 50%, transparent 80%);
+      bottom: -200px;
+      right: -150px;
+      animation-duration: 26s;
+    }
+
+    .orb-3 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #f59e0b 0%, #d97706 40%, transparent 75%);
+      top: 35%;
+      left: 55%;
+      opacity: 0.35;
+      animation-duration: 24s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(60px, 40px) scale(1.1); }
+      100% { transform: translate(-40px, 70px) scale(0.95); }
+    }
+
+    /* Deck Layout Container */
+    .presentation-deck {
+      position: relative;
+      z-index: 2;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Top Global Header */
+    .deck-header {
+      height: 64px;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 15, 30, 0.5);
+      backdrop-filter: var(--glass-blur-sm);
+      z-index: 10;
+    }
+
+    .deck-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #00f2fe, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      color: #050b1a;
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+    }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #fff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: #64748b;
+      font-family: var(--font-mono);
+      display: block;
+    }
+
+    .deck-progress-container {
+      flex: 1;
+      max-width: 360px;
+      margin: 0 24px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .deck-progress-bar {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, #00f2fe, #3b82f6, #6366f1);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.8);
+      border-radius: 999px;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .deck-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-pill .indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* Main Slide Stage */
+    .slide-stage {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      height: calc(100vh - 64px - 72px);
+      perspective: 1200px;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 30px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(60px, 0, -40px) scale(0.96);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0) scale(1);
+      z-index: 5;
+    }
+
+    .slide.prev {
+      opacity: 0;
+      transform: translate3d(-60px, 0, -40px) scale(0.96);
+    }
+
+    /* Custom Glass Panel Architecture */
+    .glass-panel {
+      background: var(--glass-card);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-top: 1px solid var(--glass-border-light);
+      border-radius: 24px;
+      box-shadow: var(--shadow-ambient);
+      position: relative;
+      overflow: hidden;
+      transition: var(--trans-fast);
+    }
+
+    .glass-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    }
+
+    .glass-panel:hover {
+      background: var(--glass-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Common Typographic Components */
+    .badge-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--cyan-glow);
+      margin-bottom: 14px;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+    }
+
+    .badge-emerald {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+    }
+
+    .slide-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.4vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 40%, #bae6fd 80%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .slide-subtitle {
+      font-size: clamp(14px, 1.2vw, 17px);
+      color: #94a3b8;
+      line-height: 1.6;
+      max-width: 820px;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    /* Chemical Formula Box */
+    .formula-tag {
+      font-family: var(--font-mono);
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(2, 132, 199, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 8px;
+      color: #7dd3fc;
+      font-weight: 600;
+    }
+
+    .formula-box {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 16px;
+      padding: 16px 24px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      color: #e0f2fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.4), 0 0 20px rgba(2, 132, 199, 0.15);
+    }
+
+    /* ==========================================================================
+       SLIDE 1: HERO / COVER
+       ========================================================================== */
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      height: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-left {
+      padding-right: 20px;
+    }
+
+    .hero-title-main {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.4vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #ffffff 10%, #7dd3fc 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 18px;
+    }
+
+    .hero-title-highlight {
+      display: block;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 60%, #fde68a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .hero-stat-card {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    .hero-stat-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    /* Hero Right Showcase: 3D Chemical Card */
+    .hero-showcase {
+      position: relative;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: radial-gradient(circle at 80% 20%, rgba(0, 242, 254, 0.15), transparent 70%),
+                  rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 32px;
+      box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8),
+                  0 0 50px rgba(0, 242, 254, 0.15);
+      animation: gentleFloat 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-12px) rotate(0.8deg); }
+    }
+
+    .reaction-preview-box {
+      background: rgba(8, 14, 28, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .reagent-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .reagent-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 14px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .reagent-na {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fcd34d;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+    }
+
+    .reagent-cuso4 {
+      background: rgba(2, 132, 199, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      box-shadow: 0 0 20px rgba(2, 132, 199, 0.25);
+    }
+
+    .reagent-arrow {
+      color: #94a3b8;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .hero-btn-group {
+      display: flex;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      flex: 1;
+      padding: 14px 22px;
+      background: linear-gradient(135deg, #00f2fe 0%, #0284c7 100%);
+      border: none;
+      border-radius: 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      color: #030a1c;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
+      transition: var(--trans-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 242, 254, 0.6);
+      filter: brightness(1.1);
+    }
+
+    .btn-secondary {
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      color: #f1f5f9;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--trans-fast);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       SLIDE 2: ĐẶT VẤN ĐỀ & CHIẾC BẪY KIM LOẠI
+       ========================================================================== */
+    .metal-series-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px 18px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      margin-bottom: 24px;
+    }
+
+    .metal-item {
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 52px;
+      transition: var(--trans-fast);
+    }
+
+    .metal-item.highlight-na {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #f59e0b;
+      color: #fcd34d;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+      transform: scale(1.08);
+    }
+
+    .metal-item.highlight-cu {
+      background: rgba(2, 132, 199, 0.2);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 15px rgba(2, 132, 199, 0.3);
+      transform: scale(1.08);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .trap-card {
+      padding: 26px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .trap-card.wrong {
+      background: rgba(239, 68, 68, 0.06);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .trap-card.correct {
+      background: rgba(16, 185, 129, 0.07);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      box-shadow: 0 0 35px rgba(16, 185, 129, 0.12);
+    }
+
+    .trap-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .trap-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .trap-card.wrong .trap-icon {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+    }
+
+    .trap-card.correct .trap-icon {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+    }
+
+    /* ==========================================================================
+       SLIDE 3: CHUẨN BỊ & QUY TẮC AN TOÀN
+       ========================================================================== */
+    .prep-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      height: 100%;
+    }
+
+    .prep-card {
+      padding: 24px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--trans-bounce);
+    }
+
+    .prep-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .prep-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    .prep-card h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .prep-card p {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .prep-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .prep-tag {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+    }
+
+    /* ==========================================================================
+       SLIDE 4: VIDEO THÍ NGHIỆM THỰC TẾ (NATIVE HTML5 VIDEO PLAYER)
+       ========================================================================== */
+    .video-slide-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 28px;
+      height: calc(100% - 70px);
+      align-items: stretch;
+    }
+
+    .video-player-glass {
+      padding: 18px;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .video-viewport {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      min-height: 340px;
+      background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-viewport video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+      cursor: pointer;
+    }
+
+    /* Big Center Play Overlay */
+    .video-center-play {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(0, 242, 254, 0.25);
+      border: 2px solid #00f2fe;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 35px rgba(0, 242, 254, 0.5);
+      transition: var(--trans-bounce);
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    .video-center-play:hover {
+      transform: scale(1.15);
+      background: rgba(0, 242, 254, 0.4);
+    }
+
+    .video-center-play.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.8);
+    }
+
+    /* Custom Glass Controls Bar */
+    .video-controls-glass {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 20px;
+      background: linear-gradient(180deg, transparent, rgba(6, 10, 22, 0.95));
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 12;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-viewport:hover .video-controls-glass {
+      opacity: 1;
+    }
+
+    .v-ctrl-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--trans-fast);
+      flex-shrink: 0;
+    }
+
+    .v-ctrl-btn:hover {
+      background: rgba(0, 242, 254, 0.25);
+      border-color: #00f2fe;
+      color: #00f2fe;
+    }
+
+    .v-ctrl-pill {
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #cbd5e1;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--trans-fast);
+      flex-shrink: 0;
+    }
+
+    .v-ctrl-pill:hover {
+      background: rgba(0, 242, 254, 0.2);
+      color: #00f2fe;
+      border-color: #00f2fe;
+    }
+
+    .v-time-display {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #cbd5e1;
+      white-space: nowrap;
+      min-width: 95px;
+    }
+
+    /* Seek Bar */
+    .v-seek-bar-container {
+      flex: 1;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .v-seek-bg {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .v-seek-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #00f2fe, #3b82f6);
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
+      border-radius: 999px;
+    }
+
+    .v-seek-handle {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.9);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: transform 0.1s ease;
+    }
+
+    .v-seek-bar-container:hover .v-seek-handle {
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+
+    /* Video Source Switcher */
+    .video-source-switcher {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .source-btn {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--trans-fast);
+    }
+
+    .source-btn.active {
+      background: rgba(0, 242, 254, 0.18);
+      border-color: #00f2fe;
+      color: #00f2fe;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+    }
+
+    .timeline-card {
+      padding: 24px;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .timeline-step {
+      display: flex;
+      gap: 14px;
+      position: relative;
+      padding-bottom: 20px;
+      cursor: pointer;
+      border-radius: 12px;
+      padding: 8px 10px 16px 10px;
+      transition: var(--trans-fast);
+    }
+
+    .timeline-step:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .timeline-step:last-child {
+      padding-bottom: 8px;
+    }
+
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 42px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-step:last-child::after {
+      display: none;
+    }
+
+    .timeline-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 242, 254, 0.15);
+      border: 1px solid #00f2fe;
+      color: #00f2fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    .timeline-content h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 4px;
+    }
+
+    .timeline-content p {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .timeline-time-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #38bdf8;
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      background: rgba(56, 189, 248, 0.12);
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* ==========================================================================
+       SLIDE 5: VIRTUAL INTERACTIVE LAB SIMULATOR (CANVAS 2D)
+       ========================================================================== */
+    .lab-container {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 28px;
+      height: calc(100% - 70px);
+    }
+
+    .lab-stage-panel {
+      padding: 20px;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    #lab-canvas {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      background: radial-gradient(circle at 50% 30%, #0d1b33 0%, #060a17 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+      cursor: crosshair;
+    }
+
+    .lab-controls-panel {
+      padding: 24px;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+    }
+
+    .lab-action-btn {
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: var(--trans-fast);
+    }
+
+    .btn-drop-na {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #1e1002;
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-drop-na:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5);
+    }
+
+    .btn-add-indicator {
+      background: rgba(244, 63, 94, 0.18);
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      color: #fda4af;
+    }
+
+    .btn-add-indicator:hover {
+      background: rgba(244, 63, 94, 0.28);
+    }
+
+    .btn-reset-lab {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+    }
+
+    .btn-reset-lab:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .hud-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .hud-metric-box {
+      padding: 12px;
+      background: rgba(10, 16, 30, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .hud-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: #00f2fe;
+    }
+
+    .hud-lbl {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       SLIDE 6: NHẬN XÉT HIỆN TƯỢNG & GIẢI NGUYÊN NHÂN
+       ========================================================================== */
+    .phenomena-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      height: calc(100% - 75px);
+    }
+
+    .phenomenon-card {
+      padding: 24px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--trans-smooth);
+    }
+
+    .phenomenon-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .phenomenon-badge {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .phenomenon-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .phenomenon-desc {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .phenomenon-cause {
+      background: rgba(0, 0, 0, 0.35);
+      border-left: 3px solid #38bdf8;
+      border-radius: 0 10px 10px 0;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: #93c5fd;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SLIDE 7: BẢN CHẤT CƠ CHẾ & PHƯƠNG TRÌNH HÓA HỌC
+       ========================================================================== */
+    .equation-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .stage-card {
+      padding: 24px 30px;
+      border-radius: 22px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .stage-tag {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 242, 254, 0.12);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stage-tag-num {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 800;
+      color: #00f2fe;
+    }
+
+    .stage-tag-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .stage-info h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .stage-info p {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .chemical-equation-row {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 12px 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #e2e8f0;
+    }
+
+    .total-equation-card {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(99, 102, 241, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.2);
+    }
+
+    /* ==========================================================================
+       SLIDE 8: QUY LUẬT VÀNG & SO SÁNH ĐỐI CHIẾU
+       ========================================================================== */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .compare-card {
+      padding: 24px;
+      border-radius: 20px;
+    }
+
+    .mnemonic-banner {
+      padding: 18px 28px;
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(99, 102, 241, 0.15));
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mnemonic-tokens {
+      display: flex;
+      gap: 12px;
+    }
+
+    .mnemonic-chip {
+      padding: 6px 14px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #fcd34d;
+      font-size: 14px;
+    }
+
+    /* ==========================================================================
+       SLIDE 9: MINI QUIZ TƯƠNG TÁC
+       ========================================================================== */
+    .quiz-container {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .quiz-card {
+      padding: 30px;
+      border-radius: 26px;
+    }
+
+    .quiz-question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .quiz-question-text {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 22px;
+    }
+
+    .quiz-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz-option {
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      color: #cbd5e1;
+      transition: var(--trans-fast);
+    }
+
+    .quiz-option:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(6px);
+    }
+
+    .quiz-option.correct {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: #10b981 !important;
+      color: #34d399 !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .quiz-option.wrong {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border-color: #ef4444 !important;
+      color: #fca5a5 !important;
+    }
+
+    .quiz-opt-letter {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .quiz-feedback-box {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      background: rgba(10, 15, 30, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      line-height: 1.5;
+      display: none;
+    }
+
+    /* ==========================================================================
+       SLIDE 10: TỔNG KẾT & MINDMAP TƯ DUY
+       ========================================================================== */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      height: calc(100% - 70px);
+    }
+
+    .mindmap-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .mindmap-node {
+      padding: 16px 22px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .mindmap-node-step {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #00f2fe;
+      font-weight: 700;
+    }
+
+    .takeaways-panel {
+      padding: 24px;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .takeaway-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .takeaway-bullet {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #38bdf8;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       BOTTOM FLOATING NAVIGATION DOCK
+       ========================================================================== */
+    .deck-footer {
+      height: 72px;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 15, 30, 0.6);
+      backdrop-filter: var(--glass-blur-sm);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--trans-fast);
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .nav-indicators {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot-indicator {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: var(--trans-bounce);
+    }
+
+    .dot-indicator.active {
+      width: 28px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #00f2fe, #3b82f6);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.8);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #94a3b8;
+      font-weight: 600;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .footer-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tool-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: var(--trans-fast);
+    }
+
+    .tool-icon-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .tool-icon-btn.active {
+      background: rgba(0, 242, 254, 0.15);
+      color: #00f2fe;
+      border-color: #00f2fe;
+    }
+
+    /* ==========================================================================
+       OVERVIEW LIGHT-TABLE MODAL (KEYNOTE GRID)
+       ========================================================================== */
+    .overview-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(6, 9, 19, 0.9);
+      backdrop-filter: blur(35px);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .overview-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .overview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      overflow-y: auto;
+      flex: 1;
+      padding: 10px 0;
+    }
+
+    .overview-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      aspect-ratio: 16 / 10;
+      transition: var(--trans-bounce);
+      position: relative;
+    }
+
+    .overview-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: #00f2fe;
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 242, 254, 0.2);
+    }
+
+    .overview-card.active {
+      border-color: #00f2fe;
+      background: rgba(0, 242, 254, 0.1);
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+    }
+
+    .overview-card-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .overview-card-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: #f1f5f9;
+      line-height: 1.3;
+    }
+
+    /* ==========================================================================
+       PRESENTER NOTES DRAWER
+       ========================================================================== */
+    .notes-drawer {
+      position: fixed;
+      top: 64px;
+      right: 0;
+      width: 380px;
+      height: calc(100vh - 64px - 72px);
+      background: rgba(12, 18, 34, 0.85);
+      backdrop-filter: var(--glass-blur);
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 50;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -15px 0 35px rgba(0,0,0,0.5);
+    }
+
+    .notes-drawer.open {
+      transform: translateX(0);
+    }
+
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .notes-content {
+      flex: 1;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+
+    .notes-content strong {
+      color: #38bdf8;
+    }
+
+    /* Confetti Canvas */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 200;
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 1024px) {
+      .hero-container,
+      .video-slide-layout,
+      .lab-container,
+      .problem-grid,
+      .phenomena-grid,
+      .summary-grid,
+      .compare-container {
+        grid-template-columns: 1fr;
+      }
+      .prep-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .overview-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="ambient-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Ambient Physics & Molecule Nodes Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="presentation-deck">
+    
+    <!-- Header -->
+    <header class="deck-header">
+      <div class="deck-logo">
+        <div class="logo-badge">9</div>
+        <div>
+          <span class="logo-text">Hóa Học 9 • Khoa Học Tự Nhiên</span>
+          <span class="logo-sub">Chuyên Đề Kim Loại & Dung Dịch Muối</span>
+        </div>
+      </div>
+
+      <div class="deck-progress-container">
+        <div class="deck-progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="deck-header-actions">
+        <div class="header-pill">
+          <span class="indicator-dot"></span>
+          <span>Thực nghiệm trực quan 1080p</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Slide Stage -->
+    <main class="slide-stage" id="slideStage">
+
+      <!-- ==========================================
+           SLIDE 1: HERO / COVER
+           ========================================== -->
+      <section class="slide active" data-slide="1">
+        <div class="hero-container">
+          <div class="hero-left">
+            <div class="badge-label">✨ BÀI HỌC THỰC NGHIỆM ĐỔI MỚI SÁNG TẠO 2026</div>
+            <h1 class="hero-title-main">
+              PHẢN ỨNG GIỮA NATRI & DUNG DỊCH
+              <span class="hero-title-highlight">ĐỒNG(II) SUNFAT (CuSO₄)</span>
+            </h1>
+            <p class="slide-subtitle">
+              Giải mã cơ chế hóa học nhiều giai đoạn, hiện tượng sủi bọt khí không màu & tạo kết tủa xanh lơ dạng keo — "Chiếc bẫy" lý thuyết kinh điển trong đề thi vào 10 THPT.
+            </p>
+
+            <div class="hero-btn-group">
+              <button class="btn-primary" onclick="deck.next()">
+                <span>Bắt đầu bài thuyết trình</span>
+                <span>➔</span>
+              </button>
+              <button class="btn-secondary" onclick="deck.goTo(4)">
+                <span>🎥 Xem video thực tế</span>
+              </button>
+            </div>
+
+            <div class="hero-stats-grid">
+              <div class="hero-stat-card">
+                <div class="hero-stat-num">0.97</div>
+                <div class="hero-stat-desc">g/cm³ khối lượng riêng Na (nhẹ hơn nước)</div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="hero-stat-num">97.8°C</div>
+                <div class="hero-stat-desc">Nhiệt độ nóng chảy cực thấp của Na</div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="hero-stat-num">Cu(OH)₂</div>
+                <div class="hero-stat-desc">Kết tủa xanh lam đặc trưng thu được</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-showcase glass-panel">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="badge-label badge-emerald">MÔ HÌNH PHẢN ỨNG</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:#94a3b8;">Grade 9 Chemistry</span>
+            </div>
+
+            <div class="reaction-preview-box">
+              <div style="font-size:13px; color:#94a3b8; margin-bottom:6px;">Chất tham gia ban đầu:</div>
+              <div class="reagent-row">
+                <div class="reagent-pill reagent-na">Na (Kim loại)</div>
+                <div class="reagent-arrow">+</div>
+                <div class="reagent-pill reagent-cuso4">dd CuSO₄ (Xanh)</div>
+              </div>
+              <div style="font-size:24px; color:#38bdf8; margin:8px 0;">⬇</div>
+              <div style="font-size:13px; color:#94a3b8; margin-bottom:6px;">Sản phẩm thực tế:</div>
+              <div class="formula-box" style="font-size:15px; padding:12px 16px;">
+                <span>Cu(OH)₂ ⬇ (Xanh lam)</span> + <span>H₂ ⬆ (Khí)</span> + <span>Na₂SO₄</span>
+              </div>
+            </div>
+
+            <div style="font-size:12.5px; color:#cbd5e1; line-height:1.5; background:rgba(0,0,0,0.3); padding:12px 16px; border-radius:14px; border-left:3px solid #f59e0b;">
+              ⚠️ <strong>Lưu ý quan trọng:</strong> Natri KHÔNG đẩy Đồng ra khỏi muối như quy tắc kim loại thông thường!
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 2: ĐẶT VẤN ĐỀ & CHIẾC BẪY KIM LOẠI
+           ========================================== -->
+      <section class="slide" data-slide="2">
+        <div class="badge-label badge-amber">🤔 ĐẶT VẤN ĐỀ & TƯ DUY PHẢN BIỆN</div>
+        <h2 class="slide-title">"Chiếc Bẫy" Kim Loại Đứng Trước Đẩy Kim Loại Đứng Sau</h2>
+        <p class="slide-subtitle">
+          Quan sát dãy hoạt động hóa học lớp 9 và xem xét liệu quy tắc thông thường có áp dụng được với Natri?
+        </p>
+
+        <!-- Dãy hoạt động hóa học -->
+        <div class="metal-series-bar">
+          <div class="metal-item"><span>K</span><span style="font-size:10px;">Kali</span></div>
+          <div class="metal-item highlight-na"><span>Na</span><span style="font-size:10px;">Natri</span></div>
+          <div class="metal-item"><span>Ba</span><span style="font-size:10px;">Bari</span></div>
+          <div class="metal-item"><span>Ca</span><span style="font-size:10px;">Canxi</span></div>
+          <div class="metal-item"><span>Mg</span><span style="font-size:10px;">Magie</span></div>
+          <div class="metal-item"><span>Al</span><span style="font-size:10px;">Nhôm</span></div>
+          <div class="metal-item"><span>Zn</span><span style="font-size:10px;">Kẽm</span></div>
+          <div class="metal-item"><span>Fe</span><span style="font-size:10px;">Sắt</span></div>
+          <div class="metal-item"><span>Ni</span><span style="font-size:10px;">Niken</span></div>
+          <div class="metal-item"><span>Sn</span><span style="font-size:10px;">Thiếc</span></div>
+          <div class="metal-item"><span>Pb</span><span style="font-size:10px;">Chì</span></div>
+          <div class="metal-item"><span>(H)</span><span style="font-size:10px;">Hidro</span></div>
+          <div class="metal-item highlight-cu"><span>Cu</span><span style="font-size:10px;">Đồng</span></div>
+          <div class="metal-item"><span>Hg</span><span style="font-size:10px;">Thủy ngân</span></div>
+          <div class="metal-item"><span>Ag</span><span style="font-size:10px;">Bạc</span></div>
+          <div class="metal-item"><span>Pt</span><span style="font-size:10px;">Bạch kim</span></div>
+          <div class="metal-item"><span>Au</span><span style="font-size:10px;">Vàng</span></div>
+        </div>
+
+        <div class="problem-grid">
+          <!-- Sai lầm -->
+          <div class="glass-panel trap-card wrong">
+            <div class="trap-header">
+              <div class="trap-icon">❌</div>
+              <div>
+                <h4 style="font-family:var(--font-display); font-size:18px; color:#f87171;">Suy Luận Sai Lầm Thường Gặp (87% Học Sinh Mắc Phải)</h4>
+                <div style="font-size:12px; color:#fca5a5;">Áp dụng máy móc quy tắc kim loại đẩy kim loại</div>
+              </div>
+            </div>
+            <div class="chemical-equation-row" style="color:#f87171; border-color:rgba(239, 68, 68, 0.4); margin:12px 0;">
+              2Na + CuSO₄ ➔ Na₂SO₄ + Cu ⬇ (Đỏ)
+            </div>
+            <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
+              Học sinh nghĩ rằng Na đứng trước Cu nên sẽ đẩy Cu ra khỏi dung dịch tạo lớp đồng kim loại màu đỏ gạch bám vào đáy ống nghiệm. <strong>Đây là kết luận hoàn toàn SAI trong dung dịch nước!</strong>
+            </p>
+          </div>
+
+          <!-- Đúng -->
+          <div class="glass-panel trap-card correct">
+            <div class="trap-header">
+              <div class="trap-icon">✅</div>
+              <div>
+                <h4 style="font-family:var(--font-display); font-size:18px; color:#34d399;">Thực Tế Khoa Học Chính Xác</h4>
+                <div style="font-size:12px; color:#6ee7b7;">Ưu tiên phản ứng với dung môi nước (H₂O)</div>
+              </div>
+            </div>
+            <div class="chemical-equation-row" style="color:#34d399; border-color:rgba(16, 185, 129, 0.4); margin:12px 0;">
+              Na + H₂O ➔ NaOH + H₂ ⬆ &nbsp;|&nbsp; NaOH + CuSO₄ ➔ Cu(OH)₂ ⬇
+            </div>
+            <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
+              Do Natri là kim loại kiềm cực kỳ hoạt động, khi cho vào dung dịch, <strong>Na lập tức phản ứng mãnh liệt với nước trước</strong>, sinh ra khí H₂ và dung dịch bazơ kiềm NaOH. Sau đó NaOH mới tác dụng với CuSO₄ tạo kết tủa xanh lơ Cu(OH)₂!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 3: CHUẨN BỊ & QUY TẮC AN TOÀN
+           ========================================== -->
+      <section class="slide" data-slide="3">
+        <div class="badge-label">🧰 THỰC NGHIỆM PHÒNG THÍ NGHIỆM</div>
+        <h2 class="slide-title">Dụng Cụ, Hóa Chất & Quy Tắc An Toàn Nghiêm Ngặt</h2>
+        <p class="slide-subtitle">
+          Natri kim loại có hoạt tính hóa học cực mạnh, đòi hỏi thao tác chuẩn xác và tuân thủ tuyệt đối an toàn.
+        </p>
+
+        <div class="prep-grid">
+          <div class="glass-panel prep-card">
+            <div>
+              <div class="prep-icon-box" style="color:#fbbf24;">⚡</div>
+              <h4>Kim Loại Natri (Na)</h4>
+              <p>Kim loại mềm như sáp, cắt được bằng dao, màu trắng bạc sáng lấp lánh khi mới cắt, nhanh chóng bị mờ ngoài không khí.</p>
+              <div class="prep-tag-list">
+                <span class="prep-tag">D = 0.97 g/cm³</span>
+                <span class="prep-tag">T_nc = 97.8°C</span>
+                <span class="prep-tag">Ngâm trong dầu hỏa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-panel prep-card">
+            <div>
+              <div class="prep-icon-box" style="color:#38bdf8;">💧</div>
+              <h4>Dung Dịch Đồng Sunfat (CuSO₄)</h4>
+              <p>Dung dịch có màu xanh lam trong suốt đặc trưng do sự hiện diện của phức ion đồng ngậm nước [Cu(H₂O)₆]²⁺.</p>
+              <div class="prep-tag-list">
+                <span class="prep-tag">Nồng độ ~ 5% - 10%</span>
+                <span class="prep-tag">Màu xanh lam</span>
+                <span class="prep-tag">pH gần trung tính</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-panel prep-card">
+            <div>
+              <div class="prep-icon-box" style="color:#a78bfa;">🧪</div>
+              <h4>Dụng Cụ Thao Tác</h4>
+              <p>Trang thiết bị chuẩn bị cho thí nghiệm biểu diễn và thực hành học sinh lớp 9.</p>
+              <div class="prep-tag-list">
+                <span class="prep-tag">Cốc thủy tinh chịu nhiệt</span>
+                <span class="prep-tag">Kẹp gắp kim loại</span>
+                <span class="prep-tag">Dao cắt thí nghiệm</span>
+                <span class="prep-tag">Giấy lọc hút dầu</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-panel prep-card" style="border-color:rgba(244, 63, 94, 0.4); background:rgba(244, 63, 94, 0.05);">
+            <div>
+              <div class="prep-icon-box" style="color:#f43f5e; background:rgba(244,63,94,0.15);">⚠️</div>
+              <h4 style="color:#fda4af;">An Toàn Tuyệt Đối</h4>
+              <p>Natri phản ứng tỏa nhiệt dữ dội và có thể gây nổ nếu dùng lượng lớn hoặc dính nước không kiểm soát.</p>
+              <div class="prep-tag-list">
+                <span class="prep-tag" style="color:#fca5a5;">Mẩu Na = hạt đậu xanh</span>
+                <span class="prep-tag" style="color:#fca5a5;">Thấm sạch dầu hỏa</span>
+                <span class="prep-tag" style="color:#fca5a5;">Đeo kính bảo hộ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 4: VIDEO THÍ NGHIỆM THỰC TẾ (OFFLINE NATIVE VIDEO PLAYER)
+           ========================================== -->
+      <section class="slide" data-slide="4">
+        <div class="badge-label badge-emerald">🎥 VIDEO THỰC NGHIỆM ĐỘ PHÂN GIẢI CAO (ĐÃ LỌC CÂU HỎI)</div>
+        <h2 class="slide-title">Video Thí Nghiệm Trực Quan: Na + dd CuSO₄</h2>
+        <p class="slide-subtitle">
+          Video ghi lại toàn bộ tiến trình phản ứng thực nghiệm (đã cắt bỏ phần câu hỏi cuối video để tập trung trọn vẹn vào hiện tượng).
+        </p>
+
+        <div class="video-slide-layout">
+          <!-- Glass Video Player Container -->
+          <div class="glass-panel video-player-glass">
+            <div class="video-viewport" id="videoViewport">
+              <video id="experimentVideo" playsinline preload="auto" poster="video_poster.jpg" onclick="deckVideo.togglePlay()">
+                <source src="video_experiment.mp4" type="video/mp4">
+                Trình duyệt không hỗ trợ thẻ video HTML5.
+              </video>
+
+              <!-- Big Center Play Button Overlay -->
+              <div class="video-center-play" id="centerPlayBtn" onclick="deckVideo.togglePlay()">
+                <span>▶</span>
+              </div>
+
+              <!-- Glass Controls Bar -->
+              <div class="video-controls-glass">
+                <button class="v-ctrl-btn" id="vPlayBtn" onclick="deckVideo.togglePlay()" title="Phát / Dừng (Phím K)">
+                  <span id="vPlayIcon">▶</span>
+                </button>
+
+                <div class="v-time-display">
+                  <span id="vCurTime">00:00</span> / <span id="vDurTime">01:21</span>
+                </div>
+
+                <!-- Custom Scrubbing Seek Bar -->
+                <div class="v-seek-bar-container" id="vSeekBar" onclick="deckVideo.seek(event)">
+                  <div class="v-seek-bg">
+                    <div class="v-seek-fill" id="vSeekFill"></div>
+                  </div>
+                  <div class="v-seek-handle" id="vSeekHandle"></div>
+                </div>
+
+                <!-- Playback Speed -->
+                <button class="v-ctrl-pill" id="vSpeedBtn" onclick="deckVideo.cycleSpeed()" title="Tốc độ phát">
+                  <span id="vSpeedLabel">1.0x</span>
+                </button>
+
+                <!-- Mute / Unmute -->
+                <button class="v-ctrl-btn" id="vMuteBtn" onclick="deckVideo.toggleMute()" title="Âm lượng video">
+                  <span id="vMuteIcon">🔊</span>
+                </button>
+
+                <!-- Video Fullscreen -->
+                <button class="v-ctrl-btn" onclick="deckVideo.toggleFullscreen()" title="Toàn màn hình video">
+                  <span>⛶</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Source Switcher -->
+            <div class="video-source-switcher">
+              <button class="source-btn active" id="srcBtn1" onclick="deckVideo.switchSource('video_experiment.mp4', '01:21', this)">
+                <span>🎥 Video Chuẩn (Đã Cắt Bỏ Câu Hỏi Cuối)</span>
+              </button>
+              <button class="source-btn" id="srcBtn2" onclick="deckVideo.switchSource('video_close_up.mp4', '02:04', this)">
+                <span>🔍 Video Cận Cảnh Miệng Cốc 4K</span>
+              </button>
+              <button class="source-btn" id="srcBtn3" onclick="deckVideo.switchSource('thay_quyen.mp4', '01:34', this)">
+                <span>👨‍🏫 Video Thầy Quyến</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Timeline Bên Cạnh (Clickable Seeking) -->
+          <div class="glass-panel timeline-card">
+            <h4 style="font-family:var(--font-display); font-size:16px; margin-bottom:14px; color:#fff; display:flex; align-items:center; gap:8px;">
+              <span>⏱️</span>
+              <span>Dòng Thời Gian (Click để nhảy tới)</span>
+            </h4>
+
+            <div class="timeline-step" onclick="deckVideo.jumpTo(10)">
+              <div class="timeline-num">01</div>
+              <div class="timeline-content">
+                <h5>Giới thiệu dụng cụ & Cắt mẩu Natri</h5>
+                <p>Quan sát mẩu Na mềm sáng bạc, thấm sạch lớp dầu bảo quản trước khi thả.</p>
+                <span class="timeline-time-badge">▶ 00:10</span>
+              </div>
+            </div>
+
+            <div class="timeline-step" onclick="deckVideo.jumpTo(26)">
+              <div class="timeline-num">02</div>
+              <div class="timeline-content">
+                <h5>Thả Natri vào cốc dung dịch CuSO₄</h5>
+                <p>Na lập tức nổi lên mặt thoáng và co tròn thành giọt cầu do nhiệt nóng chảy.</p>
+                <span class="timeline-time-badge">▶ 00:26</span>
+              </div>
+            </div>
+
+            <div class="timeline-step" onclick="deckVideo.jumpTo(40)">
+              <div class="timeline-num">03</div>
+              <div class="timeline-content">
+                <h5>Phản ứng sủi bọt khí H₂ cuồn cuộn</h5>
+                <p>Viên Na lướt nhanh trên mặt nước kèm theo tiếng xì xèo và bốc làn khói mỏng.</p>
+                <span class="timeline-time-badge">▶ 00:40</span>
+              </div>
+            </div>
+
+            <div class="timeline-step" onclick="deckVideo.jumpTo(55)">
+              <div class="timeline-num">04</div>
+              <div class="timeline-content">
+                <h5>Xuất hiện kết tủa xanh lơ Cu(OH)₂</h5>
+                <p>Kết tủa bông màu xanh lam hình thành, lơ lửng và lắng dần xuống đáy cốc thủy tinh.</p>
+                <span class="timeline-time-badge">▶ 00:55</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 5: THÍ NGHIỆM ẢO TƯƠNG TÁC (CANVAS 2D)
+           ========================================== -->
+      <section class="slide" data-slide="5">
+        <div class="badge-label badge-emerald">🧪 PHÒNG THÍ NGHIỆM SỐ TƯƠNG TÁC 60FPS</div>
+        <h2 class="slide-title">Mô Phỏng Thí Nghiệm Ảo: Na + dd CuSO₄</h2>
+        <p class="slide-subtitle">
+          Tương tác trực tiếp: Thả kim loại Na vào cốc dung dịch để quan sát hiệu ứng vật lý & phản ứng kết tủa thời gian thực.
+        </p>
+
+        <div class="lab-container">
+          <!-- Canvas Stage -->
+          <div class="glass-panel lab-stage-panel">
+            <canvas id="lab-canvas" width="680" height="420"></canvas>
+          </div>
+
+          <!-- Controls HUD -->
+          <div class="glass-panel lab-controls-panel">
+            <h4 style="font-family:var(--font-display); font-size:16px; color:#fff;">Bảng Điều Khiển Phòng Lab</h4>
+
+            <button class="lab-action-btn btn-drop-na" id="btnDropNa" onclick="labSim.dropNa()">
+              <span>🟡 Thả 1 mẩu Natri (Na)</span>
+            </button>
+
+            <button class="lab-action-btn btn-add-indicator" onclick="labSim.addPhenol()">
+              <span>🌸 Thêm giọt Phenolphtalein</span>
+            </button>
+
+            <button class="lab-action-btn btn-reset-lab" onclick="labSim.reset()">
+              <span>🔄 Làm sạch cốc (Reset)</span>
+            </button>
+
+            <div class="hud-metrics">
+              <div class="hud-metric-box">
+                <div class="hud-val" id="hudTemp">25.0 °C</div>
+                <div class="hud-lbl">Nhiệt độ dung dịch</div>
+              </div>
+              <div class="hud-metric-box">
+                <div class="hud-val" id="hudGas">0.0 mL</div>
+                <div class="hud-lbl">Thể tích H₂ sinh ra</div>
+              </div>
+              <div class="hud-metric-box">
+                <div class="hud-val" id="hudPpt">0.0 mg</div>
+                <div class="hud-lbl">Kết tủa Cu(OH)₂</div>
+              </div>
+              <div class="hud-metric-box">
+                <div class="hud-val" id="hudStatus" style="color:#10b981;">Sẵn sàng</div>
+                <div class="hud-lbl">Trạng thái phản ứng</div>
+              </div>
+            </div>
+
+            <div style="font-size:12px; color:#94a3b8; line-height:1.5; background:rgba(0,0,0,0.3); padding:12px; border-radius:12px;">
+              💡 <em>Mẹo:</em> Bạn có thể click chuột trực tiếp vào mặt nước trong cốc thủy tinh trên màn hình để thả mẩu Na vào vị trí bất kỳ!
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 6: NHẬN XÉT HIỆN TƯỢNG CHI TIẾT
+           ========================================== -->
+      <section class="slide" data-slide="6">
+        <div class="badge-label">🔍 PHÂN TÍCH HIỆN TƯỢNG THỰC NGHIỆM</div>
+        <h2 class="slide-title">4 Hiện Tượng Then Chốt & Giải Mã Nguyên Nhân</h2>
+        <p class="slide-subtitle">
+          Sự kết hợp giữa tính chất vật lý đặc thù của kim loại kiềm và chuỗi phản ứng hóa học liên tiếp.
+        </p>
+
+        <div class="phenomena-grid">
+          <!-- HT 1 -->
+          <div class="glass-panel phenomenon-card">
+            <div>
+              <div class="phenomenon-badge">
+                <span class="badge-label badge-amber">HIỆN TƯỢNG 1</span>
+                <span style="font-family:var(--font-mono); font-size:12px; color:#fbbf24;">Vật lý & Nhiệt</span>
+              </div>
+              <div class="phenomenon-title">
+                <span>🔴</span>
+                <span>Na Nóng Chảy Vo Tròn & Chạy Trên Mặt Nước</span>
+              </div>
+              <p class="phenomenon-desc">
+                Mẩu Natri co tròn lại thành viên bi cầu sáng bạc như giọt thủy ngân, nổi trên bề mặt và lướt nhanh theo những quỹ đạo ngoằn ngoèo.
+              </p>
+            </div>
+            <div class="phenomenon-cause">
+              <strong>Nguyên nhân:</strong> Khối lượng riêng của Na (0.97 g/cm³) nhỏ hơn nước nên Na nổi. Phản ứng tỏa nhiệt mạnh làm nóng chảy Na (T_nc = 97.8°C). Luồng khí H₂ phụt ra tạo lực đẩy phản lực đẩy viên Na chạy vòng quanh.
+            </div>
+          </div>
+
+          <!-- HT 2 -->
+          <div class="glass-panel phenomenon-card">
+            <div>
+              <div class="phenomenon-badge">
+                <span class="badge-label">HIỆN TƯỢNG 2</span>
+                <span style="font-family:var(--font-mono); font-size:12px; color:#38bdf8;">Khí Hóa Học</span>
+              </div>
+              <div class="phenomenon-title">
+                <span>💨</span>
+                <span>Có Khí Không Màu Thoát Ra Sủi Bọt Mãnh Liệt</span>
+              </div>
+              <p class="phenomenon-desc">
+                Xung quanh viên Natri xuất hiện vô số bọt khí li ti sủi bọt liên tục kèm theo tiếng xì xèo đặc trưng, có làn khói trắng mỏng bốc lên.
+              </p>
+            </div>
+            <div class="phenomenon-cause">
+              <strong>Nguyên nhân:</strong> Khí thoát ra chính là Hidro (H₂), sinh ra do phản ứng oxi hóa - khử mãnh liệt giữa Natri và nước: <em>2Na + 2H₂O ➔ 2NaOH + H₂ ⬆</em>. Làn khói trắng là những giọt nước nhỏ bị cuốn theo luồng khí nóng.
+            </div>
+          </div>
+
+          <!-- HT 3 -->
+          <div class="glass-panel phenomenon-card">
+            <div>
+              <div class="phenomenon-badge">
+                <span class="badge-label badge-emerald">HIỆN TƯỢNG 3</span>
+                <span style="font-family:var(--font-mono); font-size:12px; color:#34d399;">Kết Tủa</span>
+              </div>
+              <div class="phenomenon-title">
+                <span>🌊</span>
+                <span>Xuất Hiện Kết Tủa Màu Xanh Lam Dạng Keo</span>
+              </div>
+              <p class="phenomenon-desc">
+                Trong lòng dung dịch xuất hiện các đám mây vẩn đục kết tủa bông màu xanh lam lơ lửng, sau đó kết tụ lại và từ từ lắng xuống đáy cốc.
+              </p>
+            </div>
+            <div class="phenomenon-cause">
+              <strong>Nguyên nhân:</strong> Dung dịch kiềm NaOH vừa tạo ra ở giai đoạn 1 lập tức phản ứng trao đổi với muối CuSO₄: <em>2NaOH + CuSO₄ ➔ Cu(OH)₂ ⬇ + Na₂SO₄</em>. Cu(OH)₂ là bazơ không tan màu xanh lam.
+            </div>
+          </div>
+
+          <!-- HT 4 -->
+          <div class="glass-panel phenomenon-card">
+            <div>
+              <div class="phenomenon-badge">
+                <span class="badge-label badge-amber">HIỆN TƯỢNG 4</span>
+                <span style="font-family:var(--font-mono); font-size:12px; color:#fca5a5;">Điểm Nhấn</span>
+              </div>
+              <div class="phenomenon-title">
+                <span>🚫</span>
+                <span>Tuyệt Đối KHÔNG Xuất Hiện Kim Loại Cu Đỏ</span>
+              </div>
+              <p class="phenomenon-desc">
+                Dung dịch màu xanh lam nhạt dần do mất bớt ion Cu²⁺. Hoàn toàn không quan sát thấy lớp bột kim loại màu đỏ gạch của đồng.
+              </p>
+            </div>
+            <div class="phenomenon-cause">
+              <strong>Nguyên nhân:</strong> Natri không khử trực tiếp Cu²⁺ thành Cu kim loại trong môi trường dung dịch nước vì tốc độ phản ứng của Na với H₂O vượt trội hoàn toàn.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 7: BẢN CHẤT CƠ CHẾ & PHƯƠNG TRÌNH HÓA HỌC
+           ========================================== -->
+      <section class="slide" data-slide="7">
+        <div class="badge-label badge-emerald">⚛️ BẢN CHẤT CƠ CHẾ PHẢN ỨNG</div>
+        <h2 class="slide-title">Các Giai Đoạn Phản Ứng & Phương Trình Hóa Học</h2>
+        <p class="slide-subtitle">
+          Học sinh lớp 9 cần nắm vững bản chất 2 giai đoạn nối tiếp nhau để không bị mất điểm trong bài thi.
+        </p>
+
+        <div class="equation-breakdown">
+          <!-- Giai đoạn 1 -->
+          <div class="glass-panel stage-card">
+            <div class="stage-tag">
+              <span class="stage-tag-num">01</span>
+              <span class="stage-tag-label">Giai Đoạn</span>
+            </div>
+            <div class="stage-info">
+              <h4>Kim loại Natri tác dụng với dung môi Nước</h4>
+              <p>Phản ứng oxi hóa - khử mãnh liệt, tỏa nhiệt lớn tạo dung dịch kiềm và khí hiđro.</p>
+              <div class="chemical-equation-row">
+                <span style="color:#fcd34d;">2Na</span> + <span style="color:#7dd3fc;">2H₂O</span> ➔ <span style="color:#c084fc;">2NaOH</span> + <span style="color:#4ade80;">H₂ ⬆</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Giai đoạn 2 -->
+          <div class="glass-panel stage-card">
+            <div class="stage-tag" style="border-color:rgba(56, 189, 248, 0.4); background:rgba(56, 189, 248, 0.12);">
+              <span class="stage-tag-num" style="color:#38bdf8;">02</span>
+              <span class="stage-tag-label">Giai Đoạn</span>
+            </div>
+            <div class="stage-info">
+              <h4>Dung dịch kiềm vừa sinh ra tác dụng với muối Đồng(II) Sunfat</h4>
+              <p>Phản ứng trao đổi ion giữa bazơ tan và muối tan tạo ra bazơ không tan.</p>
+              <div class="chemical-equation-row">
+                <span style="color:#c084fc;">2NaOH</span> + <span style="color:#38bdf8;">CuSO₄</span> ➔ <span style="color:#00f2fe; text-decoration:underline;">Cu(OH)₂ ⬇ (Xanh lam)</span> + <span style="color:#cbd5e1;">Na₂SO₄</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tổng Phương Trình -->
+          <div class="glass-panel stage-card total-equation-card">
+            <div class="stage-tag" style="border-color:#38bdf8; background:rgba(56, 189, 248, 0.25);">
+              <span class="stage-tag-num" style="color:#fff;">∑</span>
+              <span class="stage-tag-label" style="color:#bae6fd;">Tổng Hợp</span>
+            </div>
+            <div class="stage-info">
+              <h4 style="color:#e0f2fe;">Phương Trình Hóa Học Tổng Quát (Gộp 2 Giai Đoạn)</h4>
+              <p style="color:#bae6fd;">Cộng hai phương trình vế theo vế và triệt tiêu 2 phân tử trung gian NaOH:</p>
+              <div class="chemical-equation-row" style="background:rgba(0, 0, 0, 0.6); border-color:#38bdf8;">
+                <span style="color:#fcd34d;">2Na</span> + <span style="color:#7dd3fc;">2H₂O</span> + <span style="color:#38bdf8;">CuSO₄</span> ➔ <span style="color:#00f2fe;">Cu(OH)₂ ⬇</span> + <span style="color:#cbd5e1;">Na₂SO₄</span> + <span style="color:#4ade80;">H₂ ⬆</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 8: QUY LUẬT VÀNG & SO SÁNH ĐỐI CHIẾU
+           ========================================== -->
+      <section class="slide" data-slide="8">
+        <div class="badge-label badge-amber">🌟 BÀI HỌC TỔNG QUÁT LỚP 9</div>
+        <h2 class="slide-title">Quy Luật Vàng Cho Nhóm Kim Loại Tan Trong Nước</h2>
+        <p class="slide-subtitle">
+          So sánh đối chiếu hành vi của kim loại thường (Fe, Zn) với kim loại kiềm/kiềm thổ khi thả vào dung dịch muối.
+        </p>
+
+        <div class="compare-container">
+          <div class="glass-panel compare-card">
+            <h4 style="font-family:var(--font-display); font-size:18px; color:#38bdf8; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <span>🔩</span>
+              <span>Kim Loại Không Tan Trong Nước (Fe, Zn, Al...)</span>
+            </h4>
+            <div class="chemical-equation-row" style="font-size:16px; margin-bottom:14px;">
+              Fe + CuSO₄ ➔ FeSO₄ + Cu ⬇
+            </div>
+            <ul style="font-size:13.5px; color:#cbd5e1; line-height:1.7; padding-left:20px;">
+              <li>Đẩy trực tiếp kim loại yếu hơn ra khỏi muối.</li>
+              <li>Có lớp kim loại màu <strong>đỏ gạch (Cu)</strong> bám ngoài bề mặt đinh sắt.</li>
+              <li><strong>Không có khí thoát ra</strong>.</li>
+              <li>Dung dịch nhạt dần màu xanh lam và chuyển sang xanh rêu nhạt (FeSO₄).</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel compare-card" style="border-color:rgba(0, 242, 254, 0.35);">
+            <h4 style="font-family:var(--font-display); font-size:18px; color:#00f2fe; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <span>⚡</span>
+              <span>Kim Loại Tan Trong Nước (K, Na, Ba, Ca, Li)</span>
+            </h4>
+            <div class="chemical-equation-row" style="font-size:16px; margin-bottom:14px; border-color:rgba(0,242,244,0.3);">
+              Na + H₂O + CuSO₄ ➔ Cu(OH)₂ ⬇ + Na₂SO₄ + H₂ ⬆
+            </div>
+            <ul style="font-size:13.5px; color:#cbd5e1; line-height:1.7; padding-left:20px;">
+              <li><strong>LUÔN LUÔN phản ứng với nước trước</strong> tạo dung dịch bazơ.</li>
+              <li>Bazơ tạo thành mới phản ứng với muối (nếu có kết tủa/khí).</li>
+              <li><strong>Có sủi bọt khí H₂</strong> không màu thoát ra.</li>
+              <li>Tạo kết tủa hiđroxit màu xanh lam, <strong>tuyệt đối không tạo Cu đỏ</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="glass-panel mnemonic-banner">
+          <div>
+            <h4 style="font-family:var(--font-display); font-size:16px; color:#fff; margin-bottom:4px;">
+              🧠 Thần Chú Ghi Nhớ 5 Kim Loại Tan Ở Nhiệt Độ Thường:
+            </h4>
+            <div style="font-size:13px; color:#94a3b8;">
+              "<strong>K</strong>hi - <strong>N</strong>ào - <strong>B</strong>ạn - <strong>C</strong>ần - <strong>L</strong>y"
+            </div>
+          </div>
+          <div class="mnemonic-tokens">
+            <span class="mnemonic-chip">K (Kali)</span>
+            <span class="mnemonic-chip">Na (Natri)</span>
+            <span class="mnemonic-chip">Ba (Bari)</span>
+            <span class="mnemonic-chip">Ca (Canxi)</span>
+            <span class="mnemonic-chip">Li (Liti)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 9: MINI QUIZ TƯƠNG TÁC
+           ========================================== -->
+      <section class="slide" data-slide="9">
+        <div class="badge-label badge-emerald">🎯 THỬ TÀI KIẾN THỨC</div>
+        <h2 class="slide-title">Mini Quiz Củng Cố Kiến Thức Lớp 9</h2>
+        <p class="slide-subtitle">
+          Chọn đáp án đúng nhất cho các câu hỏi hay gặp trong đề thi tuyển sinh vào 10 THPT.
+        </p>
+
+        <div class="quiz-container">
+          <div class="glass-panel quiz-card" id="quizCard">
+            <div class="quiz-question-header">
+              <span class="badge-label" id="quizBadge">CÂU HỎI 1 / 3</span>
+              <span style="font-family:var(--font-mono); font-size:13px; color:#38bdf8;" id="quizScoreText">Điểm: 0</span>
+            </div>
+
+            <div class="quiz-question-text" id="quizQuestion">
+              Cho một mẩu nhỏ Natri vào ống nghiệm đựng dung dịch CuSO₄ dư, hiện tượng quan sát được đầy đủ nhất là:
+            </div>
+
+            <div class="quiz-options-list" id="quizOptions">
+              <!-- Rendered via JS -->
+            </div>
+
+            <div class="quiz-feedback-box" id="quizFeedback">
+              <!-- Feedback message -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 10: TỔNG KẾT & MINDMAP TƯ DUY
+           ========================================== -->
+      <section class="slide" data-slide="10">
+        <div class="badge-label">🏁 TỔNG KẾT BÀI HỌC</div>
+        <h2 class="slide-title">Sơ Đồ Tư Duy & Ghi Nhớ Trọng Tâm</h2>
+        <p class="slide-subtitle">
+          Hệ thống hóa toàn bộ kiến thức về phản ứng của Natri với dung dịch muối Đồng(II) Sunfat.
+        </p>
+
+        <div class="summary-grid">
+          <!-- Flowchart Mindmap -->
+          <div class="glass-panel mindmap-flow">
+            <h4 style="font-family:var(--font-display); font-size:17px; color:#fff; margin-bottom:10px;">
+              🗺️ Luồng Phản Ứng Bản Chất (Mindmap)
+            </h4>
+
+            <div class="mindmap-node">
+              <div>
+                <div class="mindmap-node-step">BƯỚC 1: TIẾP XÚC DUNG MÔI</div>
+                <div style="font-size:14px; color:#fff; font-weight:600; margin-top:2px;">Natri (Na) + Nước (H₂O)</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:12px; color:#38bdf8;">Tạo NaOH + H₂ ⬆</div>
+            </div>
+
+            <div style="text-align:center; font-size:18px; color:#00f2fe; margin:-8px 0;">⬇</div>
+
+            <div class="mindmap-node">
+              <div>
+                <div class="mindmap-node-step">BƯỚC 2: TRAO ĐỔI ION</div>
+                <div style="font-size:14px; color:#fff; font-weight:600; margin-top:2px;">NaOH sinh ra + Dung dịch CuSO₄</div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:12px; color:#00f2fe;">Tạo Cu(OH)₂ ⬇ + Na₂SO₄</div>
+            </div>
+
+            <div style="text-align:center; font-size:18px; color:#00f2fe; margin:-8px 0;">⬇</div>
+
+            <div class="mindmap-node" style="border-color:#38bdf8; background:rgba(0, 242, 254, 0.1);">
+              <div>
+                <div class="mindmap-node-step" style="color:#fbbf24;">KẾT QUẢ THỰC NGHIỆM</div>
+                <div style="font-size:14px; color:#fff; font-weight:700; margin-top:2px;">Sủi bọt khí H₂ & Kết tủa xanh lơ Cu(OH)₂</div>
+              </div>
+              <span class="badge-label badge-emerald" style="margin-bottom:0;">THÀNH CÔNG</span>
+            </div>
+          </div>
+
+          <!-- Takeaways Panel -->
+          <div class="glass-panel takeaways-panel">
+            <div>
+              <h4 style="font-family:var(--font-display); font-size:17px; color:#fff; margin-bottom:18px;">
+                💡 3 Điều Không Thể Quên
+              </h4>
+
+              <div class="takeaway-item">
+                <div class="takeaway-bullet">1</div>
+                <div style="font-size:13.5px; color:#cbd5e1; line-height:1.5;">
+                  <strong>Na tác dụng với H₂O trước:</strong> Kim loại kiềm không bao giờ đẩy kim loại khác trực tiếp trong dung dịch nước.
+                </div>
+              </div>
+
+              <div class="takeaway-item">
+                <div class="takeaway-bullet">2</div>
+                <div style="font-size:13.5px; color:#cbd5e1; line-height:1.5;">
+                  <strong>Hiện tượng kép:</strong> Vừa có khí không màu sủi bọt (H₂), vừa có kết tủa xanh lam (Cu(OH)₂).
+                </div>
+              </div>
+
+              <div class="takeaway-item">
+                <div class="takeaway-bullet">3</div>
+                <div style="font-size:13.5px; color:#cbd5e1; line-height:1.5;">
+                  <strong>Quy tắc cho K, Na, Ba, Ca:</strong> Cùng quy luật phản ứng 2 giai đoạn với tất cả các dung dịch muối khác (FeCl₃, Al₂(SO₄)₃...).
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:20px; display:flex; gap:10px;">
+              <button class="btn-primary" style="flex:1;" onclick="deck.goTo(1)">
+                <span>🔄 Xem lại từ đầu</span>
+              </button>
+              <button class="btn-secondary" onclick="deck.toggleFullscreen()">
+                <span>⛶ Toàn màn hình</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Floating Navigation Dock -->
+    <footer class="deck-footer">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="nav-btn" id="btnPrev" onclick="deck.prev()">
+          <span>◀</span>
+          <span>Trước</span>
+        </button>
+        <button class="nav-btn" id="btnNext" onclick="deck.next()">
+          <span>Tiếp</span>
+          <span>▶</span>
+        </button>
+      </div>
+
+      <div class="nav-indicators" id="dotsContainer">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div class="slide-counter" id="slideCounter">
+        01 / 10
+      </div>
+
+      <div class="footer-tools">
+        <button class="tool-icon-btn" title="Tổng quan Slide (Phím O)" onclick="deck.toggleOverview()">
+          <span>⊞</span>
+        </button>
+        <button class="tool-icon-btn" title="Phát video thực tế (Phím V)" onclick="deck.goTo(4)">
+          <span>🎥</span>
+        </button>
+        <button class="tool-icon-btn" title="Phòng Thí Nghiệm Ảo (Phím L)" onclick="deck.goTo(5)">
+          <span>🧪</span>
+        </button>
+        <button class="tool-icon-btn" id="btnSound" title="Bật/Tắt Âm Thanh Hiệu Ứng (Phím M)" onclick="soundFx.toggle()">
+          <span>🔊</span>
+        </button>
+        <button class="tool-icon-btn" id="btnNotes" title="Ghi Chú Người Thuyết Trình (Phím N)" onclick="deck.toggleNotes()">
+          <span>📝</span>
+        </button>
+        <button class="tool-icon-btn" title="Toàn Màn Hình (Phím F)" onclick="deck.toggleFullscreen()">
+          <span>⛶</span>
+        </button>
+      </div>
+    </footer>
+
+    <!-- Overview Light-Table Modal -->
+    <div class="overview-modal" id="overviewModal">
+      <div class="overview-header">
+        <div>
+          <h3 style="font-family:var(--font-display); font-size:24px; color:#fff;">Mục Lục & Tổng Quan Slide</h3>
+          <p style="font-size:13px; color:#94a3b8;">Nhấn vào bất kỳ slide nào để chuyển đến ngay lập tức</p>
+        </div>
+        <button class="nav-btn" onclick="deck.toggleOverview()">
+          <span>✕ Đóng</span>
+        </button>
+      </div>
+      <div class="overview-grid" id="overviewGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Presenter Notes Drawer -->
+    <aside class="notes-drawer" id="notesDrawer">
+      <div class="notes-header">
+        <div>
+          <h4 style="font-family:var(--font-display); font-size:16px; color:#fff;">Ghi Chú Thuyết Trình</h4>
+          <span style="font-size:11px; color:#38bdf8; font-family:var(--font-mono);" id="notesSlideTag">Slide 1 / 10</span>
+        </div>
+        <button class="tool-icon-btn" onclick="deck.toggleNotes()">✕</button>
+      </div>
+      <div class="notes-content" id="notesBody">
+        <!-- Injected via JS based on current slide -->
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Sound FX Synthesizer (Web Audio API) -->
+  <script>
+    class SoundEngine {
+      constructor() {
+        this.ctx = null;
+        this.enabled = true;
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) this.ctx = new AudioContext();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+
+      toggle() {
+        this.enabled = !this.enabled;
+        const btn = document.getElementById('btnSound');
+        if (btn) {
+          btn.innerHTML = this.enabled ? '<span>🔊</span>' : '<span>🔇</span>';
+          btn.classList.toggle('active', !this.enabled);
+        }
+      }
+
+      playSlideSwoosh() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(320, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.18);
+        gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.18);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.18);
+      }
+
+      playCorrect() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime;
+        [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + i * 0.08);
+          gain.gain.setValueAtTime(0.12, now + i * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.25);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now + i * 0.08);
+          osc.stop(now + i * 0.08 + 0.25);
+        });
+      }
+
+      playWrong() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(180, this.ctx.currentTime);
+        osc.frequency.linearRampToValueAtTime(110, this.ctx.currentTime + 0.28);
+        gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.28);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.28);
+      }
+
+      playBubble() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        const startFreq = 400 + Math.random() * 300;
+        osc.frequency.setValueAtTime(startFreq, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(startFreq + 500, this.ctx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.08);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.08);
+      }
+    }
+    const soundFx = new SoundEngine();
+  </script>
+
+  <!-- Ambient Molecule Particle System -->
+  <script>
+    const ambientCanvas = document.getElementById('ambient-canvas');
+    const actx = ambientCanvas.getContext('2d');
+    let aWidth, aHeight;
+    let particles = [];
+
+    function resizeAmbient() {
+      aWidth = ambientCanvas.width = window.innerWidth;
+      aHeight = ambientCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeAmbient);
+    resizeAmbient();
+
+    class AmbientParticle {
+      constructor() {
+        this.x = Math.random() * aWidth;
+        this.y = Math.random() * aHeight;
+        this.size = Math.random() * 2.5 + 1;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.alpha = Math.random() * 0.4 + 0.1;
+        this.color = Math.random() > 0.4 ? 'rgba(0, 242, 254,' : 'rgba(99, 102, 241,';
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0) this.x = aWidth;
+        if (this.x > aWidth) this.x = 0;
+        if (this.y < 0) this.y = aHeight;
+        if (this.y > aHeight) this.y = 0;
+      }
+
+      draw() {
+        actx.beginPath();
+        actx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        actx.fillStyle = this.color + this.alpha + ')';
+        actx.fill();
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      particles.push(new AmbientParticle());
+    }
+
+    function animateAmbient() {
+      actx.clearRect(0, 0, aWidth, aHeight);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            actx.beginPath();
+            actx.moveTo(particles[i].x, particles[i].y);
+            actx.lineTo(particles[j].x, particles[j].y);
+            actx.strokeStyle = `rgba(0, 242, 254, ${0.08 * (1 - dist / 120)})`;
+            actx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateAmbient);
+    }
+    animateAmbient();
+  </script>
+
+  <!-- HTML5 Native Video Player Controller -->
+  <script>
+    class VideoDeckPlayer {
+      constructor() {
+        this.video = document.getElementById('experimentVideo');
+        this.playBtn = document.getElementById('vPlayBtn');
+        this.playIcon = document.getElementById('vPlayIcon');
+        this.centerPlayBtn = document.getElementById('centerPlayBtn');
+        this.curTimeElem = document.getElementById('vCurTime');
+        this.durTimeElem = document.getElementById('vDurTime');
+        this.seekFill = document.getElementById('vSeekFill');
+        this.seekHandle = document.getElementById('vSeekHandle');
+        this.speedBtn = document.getElementById('vSpeedBtn');
+        this.speedLabel = document.getElementById('vSpeedLabel');
+        this.muteBtn = document.getElementById('vMuteBtn');
+        this.muteIcon = document.getElementById('vMuteIcon');
+
+        this.speeds = [1.0, 1.25, 1.5, 2.0, 0.5];
+        this.speedIndex = 0;
+
+        this.initEvents();
+      }
+
+      initEvents() {
+        if (!this.video) return;
+
+        this.video.addEventListener('timeupdate', () => this.onTimeUpdate());
+        this.video.addEventListener('loadedmetadata', () => this.onLoadedMetadata());
+        this.video.addEventListener('play', () => this.onPlayState(true));
+        this.video.addEventListener('pause', () => this.onPlayState(false));
+        this.video.addEventListener('ended', () => this.onPlayState(false));
+      }
+
+      formatTime(seconds) {
+        if (isNaN(seconds)) return '00:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+
+      onLoadedMetadata() {
+        this.durTimeElem.textContent = this.formatTime(this.video.duration);
+      }
+
+      onTimeUpdate() {
+        if (!this.video.duration) return;
+        const cur = this.video.currentTime;
+        const dur = this.video.duration;
+        const pct = (cur / dur) * 100;
+
+        this.curTimeElem.textContent = this.formatTime(cur);
+        this.durTimeElem.textContent = this.formatTime(dur);
+        this.seekFill.style.width = `${pct}%`;
+        this.seekHandle.style.left = `${pct}%`;
+      }
+
+      onPlayState(isPlaying) {
+        if (isPlaying) {
+          this.playIcon.textContent = '⏸';
+          this.centerPlayBtn.classList.add('hidden');
+        } else {
+          this.playIcon.textContent = '▶';
+          this.centerPlayBtn.classList.remove('hidden');
+        }
+      }
+
+      togglePlay() {
+        if (!this.video) return;
+        if (this.video.paused) {
+          this.video.play().catch(e => console.log('Autoplay policy:', e));
+        } else {
+          this.video.pause();
+        }
+      }
+
+      pause() {
+        if (this.video && !this.video.paused) {
+          this.video.pause();
+        }
+      }
+
+      seek(e) {
+        if (!this.video || !this.video.duration) return;
+        const rect = document.getElementById('vSeekBar').getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const pct = Math.max(0, Math.min(1, clickX / rect.width));
+        this.video.currentTime = pct * this.video.duration;
+      }
+
+      jumpTo(sec) {
+        if (!this.video) return;
+        this.video.currentTime = sec;
+        this.video.play().catch(e => console.log(e));
+      }
+
+      cycleSpeed() {
+        this.speedIndex = (this.speedIndex + 1) % this.speeds.length;
+        const newSpeed = this.speeds[this.speedIndex];
+        this.video.playbackRate = newSpeed;
+        this.speedLabel.textContent = `${newSpeed}x`;
+      }
+
+      toggleMute() {
+        this.video.muted = !this.video.muted;
+        this.muteIcon.textContent = this.video.muted ? '🔇' : '🔊';
+      }
+
+      toggleFullscreen() {
+        const vp = document.getElementById('videoViewport');
+        if (!document.fullscreenElement) {
+          vp.requestFullscreen().catch(err => console.log(err));
+        } else {
+          document.exitFullscreen().catch(err => console.log(err));
+        }
+      }
+
+      switchSource(src, durationStr, btnElem) {
+        if (!this.video) return;
+        const isPlaying = !this.video.paused;
+        this.video.src = src;
+        this.video.load();
+        this.durTimeElem.textContent = durationStr;
+        if (isPlaying) {
+          this.video.play().catch(e => console.log(e));
+        }
+
+        document.querySelectorAll('.source-btn').forEach(b => b.classList.remove('active'));
+        if (btnElem) btnElem.classList.add('active');
+      }
+    }
+
+    let deckVideo;
+    window.addEventListener('DOMContentLoaded', () => {
+      deckVideo = new VideoDeckPlayer();
+    });
+  </script>
+
+  <!-- Interactive Lab Simulation Engine -->
+  <script>
+    class VirtualLab {
+      constructor() {
+        this.canvas = document.getElementById('lab-canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.width = this.canvas.width;
+        this.height = this.canvas.height;
+        
+        // Beaker bounds
+        this.beaker = {
+          x: 180,
+          y: 70,
+          w: 320,
+          h: 300,
+          waterLevel: 150
+        };
+
+        this.sodium = null;
+        this.bubbles = [];
+        this.precipitates = [];
+        this.smoke = [];
+        this.temp = 25.0;
+        this.gasVol = 0.0;
+        this.pptWeight = 0.0;
+        this.isPhenol = false;
+
+        this.initEvents();
+        this.loop();
+      }
+
+      initEvents() {
+        this.canvas.addEventListener('click', (e) => {
+          const rect = this.canvas.getBoundingClientRect();
+          const scaleX = this.canvas.width / rect.width;
+          const scaleY = this.canvas.height / rect.height;
+          const x = (e.clientX - rect.left) * scaleX;
+          const y = (e.clientY - rect.top) * scaleY;
+
+          if (x > this.beaker.x && x < this.beaker.x + this.beaker.w && y < this.beaker.y + this.beaker.waterLevel + 40) {
+            this.dropNaAt(x, Math.min(y, this.beaker.y + 40));
+          }
+        });
+      }
+
+      dropNa() {
+        this.dropNaAt(this.beaker.x + this.beaker.w / 2 + (Math.random() - 0.5) * 60, this.beaker.y + 20);
+      }
+
+      dropNaAt(x, y) {
+        if (this.sodium) return;
+        this.sodium = {
+          x: x,
+          y: y,
+          vx: (Math.random() - 0.5) * 1.5,
+          vy: 2.5,
+          radius: 12,
+          state: 'falling',
+          life: 1.0,
+          molten: false,
+          fuel: 450
+        };
+        soundFx.playBubble();
+        document.getElementById('hudStatus').textContent = 'Đang phản ứng mãnh liệt!';
+        document.getElementById('hudStatus').style.color = '#f59e0b';
+      }
+
+      addPhenol() {
+        this.isPhenol = true;
+        soundFx.playBubble();
+        document.getElementById('hudStatus').textContent = 'Đã thêm chỉ thị Phenolphtalein';
+      }
+
+      reset() {
+        this.sodium = null;
+        this.bubbles = [];
+        this.precipitates = [];
+        this.smoke = [];
+        this.temp = 25.0;
+        this.gasVol = 0.0;
+        this.pptWeight = 0.0;
+        this.isPhenol = false;
+        this.updateHUD();
+        document.getElementById('hudStatus').textContent = 'Sẵn sàng';
+        document.getElementById('hudStatus').style.color = '#10b981';
+      }
+
+      updateHUD() {
+        document.getElementById('hudTemp').textContent = this.temp.toFixed(1) + ' °C';
+        document.getElementById('hudGas').textContent = this.gasVol.toFixed(1) + ' mL';
+        document.getElementById('hudPpt').textContent = this.pptWeight.toFixed(1) + ' mg';
+      }
+
+      update() {
+        const waterY = this.beaker.y + this.beaker.waterLevel;
+
+        // Sodium Physics
+        if (this.sodium) {
+          const s = this.sodium;
+          if (s.state === 'falling') {
+            s.y += s.vy;
+            s.vy += 0.2;
+            if (s.y >= waterY - 4) {
+              s.state = 'reacting';
+              s.y = waterY - 4;
+              s.vy = 0;
+              s.molten = true;
+            }
+          } else if (s.state === 'reacting') {
+            s.fuel--;
+            s.radius = 6 + (s.fuel / 450) * 6;
+
+            if (this.temp < 68) this.temp += 0.08;
+            this.gasVol += 0.05;
+            this.pptWeight += 0.12;
+            this.updateHUD();
+
+            s.vx += (Math.random() - 0.5) * 1.2;
+            s.vx *= 0.95;
+            s.x += s.vx;
+
+            if (s.x < this.beaker.x + s.radius + 15) {
+              s.x = this.beaker.x + s.radius + 15;
+              s.vx = Math.abs(s.vx) + 1.2;
+            }
+            if (s.x > this.beaker.x + this.beaker.w - s.radius - 15) {
+              s.x = this.beaker.x + this.beaker.w - s.radius - 15;
+              s.vx = -Math.abs(s.vx) - 1.2;
+            }
+
+            s.y = waterY - 4 + Math.sin(Date.now() / 80) * 2;
+
+            if (Math.random() > 0.2) {
+              this.bubbles.push({
+                x: s.x + (Math.random() - 0.5) * s.radius,
+                y: s.y + s.radius,
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: -Math.random() * 2 - 1,
+                size: Math.random() * 3.5 + 1.5,
+                alpha: 0.9
+              });
+              if (Math.random() > 0.8) soundFx.playBubble();
+            }
+
+            if (Math.random() > 0.4) {
+              this.smoke.push({
+                x: s.x,
+                y: s.y - 6,
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: -Math.random() * 1.5 - 0.8,
+                size: Math.random() * 6 + 4,
+                alpha: 0.6
+              });
+            }
+
+            if (Math.random() > 0.3) {
+              this.precipitates.push({
+                x: s.x + (Math.random() - 0.5) * 16,
+                y: waterY + 6,
+                vx: (Math.random() - 0.5) * 0.6,
+                vy: Math.random() * 0.8 + 0.4,
+                size: Math.random() * 8 + 6,
+                alpha: 0.85,
+                settled: false
+              });
+            }
+
+            if (s.fuel <= 0) {
+              this.sodium = null;
+              document.getElementById('hudStatus').textContent = 'Phản ứng kết thúc - Kết tủa xanh lắng dần';
+              document.getElementById('hudStatus').style.color = '#38bdf8';
+            }
+          }
+        }
+
+        // Bubbles update
+        for (let i = this.bubbles.length - 1; i >= 0; i--) {
+          const b = this.bubbles[i];
+          b.x += b.vx;
+          b.y += b.vy;
+          b.alpha -= 0.015;
+          if (b.y < waterY || b.alpha <= 0) {
+            this.bubbles.splice(i, 1);
+          }
+        }
+
+        // Smoke update
+        for (let i = this.smoke.length - 1; i >= 0; i--) {
+          const sm = this.smoke[i];
+          sm.x += sm.vx;
+          sm.y += sm.vy;
+          sm.size += 0.25;
+          sm.alpha -= 0.015;
+          if (sm.alpha <= 0) {
+            this.smoke.splice(i, 1);
+          }
+        }
+
+        // Precipitate update
+        const beakerBottom = this.beaker.y + this.beaker.h - 15;
+        for (let i = this.precipitates.length - 1; i >= 0; i--) {
+          const p = this.precipitates[i];
+          if (!p.settled) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vx *= 0.98;
+            if (p.y >= beakerBottom - Math.random() * 12) {
+              p.settled = true;
+              p.vy = 0;
+              p.vx = 0;
+            }
+          }
+        }
+      }
+
+      draw() {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+
+        const bx = this.beaker.x;
+        const by = this.beaker.y;
+        const bw = this.beaker.w;
+        const bh = this.beaker.h;
+        const waterY = by + this.beaker.waterLevel;
+
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+        this.ctx.fillRect(bx, by, bw, bh);
+
+        // Liquid in Beaker
+        const gradLiquid = this.ctx.createLinearGradient(bx, waterY, bx, by + bh);
+        if (this.isPhenol && this.sodium) {
+          gradLiquid.addColorStop(0, 'rgba(236, 72, 153, 0.5)');
+          gradLiquid.addColorStop(0.3, 'rgba(2, 132, 199, 0.55)');
+          gradLiquid.addColorStop(1, 'rgba(3, 105, 161, 0.7)');
+        } else {
+          gradLiquid.addColorStop(0, 'rgba(56, 189, 248, 0.4)');
+          gradLiquid.addColorStop(0.4, 'rgba(2, 132, 199, 0.55)');
+          gradLiquid.addColorStop(1, 'rgba(3, 105, 161, 0.75)');
+        }
+
+        this.ctx.fillStyle = gradLiquid;
+        this.ctx.fillRect(bx + 4, waterY, bw - 8, by + bh - waterY - 4);
+
+        // Meniscus
+        this.ctx.beginPath();
+        this.ctx.ellipse(bx + bw / 2, waterY, bw / 2 - 4, 8, 0, 0, Math.PI * 2);
+        this.ctx.fillStyle = 'rgba(125, 211, 252, 0.35)';
+        this.ctx.fill();
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+        this.ctx.lineWidth = 1.5;
+        this.ctx.stroke();
+
+        // Precipitates
+        for (const p of this.precipitates) {
+          this.ctx.beginPath();
+          this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          const pgrad = this.ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+          pgrad.addColorStop(0, 'rgba(14, 165, 233, 0.85)');
+          pgrad.addColorStop(0.7, 'rgba(2, 132, 199, 0.6)');
+          pgrad.addColorStop(1, 'rgba(2, 132, 199, 0)');
+          this.ctx.fillStyle = pgrad;
+          this.ctx.fill();
+        }
+
+        // Bubbles
+        for (const b of this.bubbles) {
+          this.ctx.beginPath();
+          this.ctx.arc(b.x, b.y, b.size, 0, Math.PI * 2);
+          this.ctx.fillStyle = `rgba(255, 255, 255, ${b.alpha})`;
+          this.ctx.fill();
+          this.ctx.strokeStyle = `rgba(0, 242, 254, ${b.alpha * 0.8})`;
+          this.ctx.lineWidth = 0.8;
+          this.ctx.stroke();
+        }
+
+        // Steam Smoke
+        for (const sm of this.smoke) {
+          this.ctx.beginPath();
+          this.ctx.arc(sm.x, sm.y, sm.size, 0, Math.PI * 2);
+          this.ctx.fillStyle = `rgba(255, 255, 255, ${sm.alpha * 0.3})`;
+          this.ctx.fill();
+        }
+
+        // Sodium Bead
+        if (this.sodium) {
+          const s = this.sodium;
+          this.ctx.save();
+          this.ctx.beginPath();
+          this.ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+
+          const naGrad = this.ctx.createRadialGradient(s.x - s.radius * 0.3, s.y - s.radius * 0.3, 1, s.x, s.y, s.radius);
+          naGrad.addColorStop(0, '#ffffff');
+          naGrad.addColorStop(0.3, '#fef08a');
+          naGrad.addColorStop(0.8, '#f59e0b');
+          naGrad.addColorStop(1, '#b45309');
+          this.ctx.fillStyle = naGrad;
+          this.ctx.fill();
+
+          this.ctx.shadowColor = '#f59e0b';
+          this.ctx.shadowBlur = 18;
+          this.ctx.strokeStyle = '#fff';
+          this.ctx.lineWidth = 1.2;
+          this.ctx.stroke();
+          this.ctx.restore();
+        }
+
+        // Beaker Outline
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+        this.ctx.lineWidth = 3;
+        this.ctx.beginPath();
+        this.ctx.moveTo(bx - 10, by);
+        this.ctx.lineTo(bx + 4, by);
+        this.ctx.lineTo(bx + 4, by + bh - 10);
+        this.ctx.quadraticCurveTo(bx + 4, by + bh, bx + 16, by + bh);
+        this.ctx.lineTo(bx + bw - 16, by + bh);
+        this.ctx.quadraticCurveTo(bx + bw - 4, by + bh, bx + bw - 4, by + bh - 10);
+        this.ctx.lineTo(bx + bw - 4, by);
+        this.ctx.stroke();
+
+        // Measurement ticks
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+        this.ctx.lineWidth = 1.5;
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        this.ctx.font = '10px JetBrains Mono';
+        for (let i = 1; i <= 5; i++) {
+          const ty = by + bh - i * 45;
+          this.ctx.beginPath();
+          this.ctx.moveTo(bx + 10, ty);
+          this.ctx.lineTo(bx + 26, ty);
+          this.ctx.stroke();
+          this.ctx.fillText((i * 50) + 'ml', bx + 32, ty + 3);
+        }
+
+        // Reflections
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        this.ctx.lineWidth = 6;
+        this.ctx.beginPath();
+        this.ctx.moveTo(bx + 18, by + 15);
+        this.ctx.lineTo(bx + 18, by + bh - 25);
+        this.ctx.stroke();
+      }
+
+      loop() {
+        this.update();
+        this.draw();
+        requestAnimationFrame(() => this.loop());
+      }
+    }
+
+    let labSim;
+    window.addEventListener('DOMContentLoaded', () => {
+      labSim = new VirtualLab();
+    });
+  </script>
+
+  <!-- Presentation Deck Controller & Interactive Quiz Engine -->
+  <script>
+    class DeckController {
+      constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.current = 1;
+        this.total = this.slides.length;
+        this.notesOpen = false;
+        this.overviewOpen = false;
+
+        this.notesData = [
+          `<strong>Lời dẫn mở đầu:</strong> "Kính thưa thầy cô và các bạn, hôm nay nhóm em xin trình bày về một thí nghiệm vô cùng thú vị nhưng cũng là cái bẫy kinh điển nhất trong chương trình Hóa học lớp 9: Phản ứng giữa Natri và dung dịch CuSO₄."`,
+          `<strong>Nhấn mạnh tư duy phản biện:</strong> "Khi nhìn vào dãy hoạt động hóa học, phản xạ đầu tiên của đa số học sinh là viết phương trình Na đẩy Cu tạo kết tủa đồng đỏ. Nhưng thực tế trong dung dịch có dung môi nước, quy tắc này có còn đúng không? Hãy cùng lật mở bí mật."`,
+          `<strong>Quy tắc an toàn:</strong> "Natri là kim loại kiềm cực kỳ hoạt động. Trong phòng thí nghiệm trường học, giáo viên luôn nhấn mạnh: Chỉ lấy mẩu Na bằng hạt đậu xanh, phải dùng giấy lọc thấm sạch dầu hỏa trước khi cho vào nước để tránh phản ứng nổ nguy hiểm."`,
+          `<strong>Hướng dẫn xem video:</strong> "Mời thầy cô và các bạn quan sát video thí nghiệm thực tế độ nét cao (đã được cắt lọc sạch sẽ phần câu hỏi cuối video để tập trung trọn vẹn vào diễn biến thực nghiệm). Các bạn có thể bấm vào các mốc thời gian để xem chậm từng khoảnh khắc."`,
+          `<strong>Tương tác phòng Lab ảo:</strong> "Để hiểu rõ động học phân tử, em xin mời một bạn lên bấm nút 'Thả mẩu Natri' vào cốc mô phỏng để quan sát quá trình sinh bọt khí H₂ và các đám mây kết tủa keo Cu(OH)₂ lắng xuống đáy."`,
+          `<strong>Phân tích hiện tượng:</strong> "Có 4 hiện tượng cốt lõi cần giải thích: Tại sao Na co tròn? Do sức căng bề mặt khi nóng chảy. Tại sao chạy trên mặt nước? Do lực đẩy phản lực của khí H₂. Tại sao kết tủa màu xanh lam? Đó là Cu(OH)₂. Và quan trọng nhất: Không hề có kim loại Cu đỏ!"`,
+          `<strong>Cơ chế 2 giai đoạn:</strong> "Đây là phần trọng tâm ghi điểm trong đề thi: Phương trình phải viết tách bạch 2 giai đoạn: Giai đoạn 1 Na tác dụng với H₂O tạo NaOH và H₂. Giai đoạn 2 NaOH mới phản ứng trao đổi với CuSO₄ tạo Cu(OH)₂."`,
+          `<strong>Mở rộng quy luật:</strong> "Quy tắc vàng cần nhớ: Đối với 5 kim loại tan trong nước thường (Khi Nào Bạn Cần Ly - K, Na, Ba, Ca, Li), khi cho vào bất kỳ dung dịch muối nào, chúng đều tác dụng với H₂O trước!"`,
+          `<strong>Tương tác trắc nghiệm:</strong> "Bây giờ xin mời cả lớp cùng tham gia trả lời nhanh 3 câu hỏi trắc nghiệm chuẩn cấu trúc đề thi vào 10 để củng cố kiến thức vừa học."`,
+          `<strong>Tổng kết & Lời cảm ơn:</strong> "Qua bài thuyết trình, nhóm em hy vọng các bạn đã nắm vững bản chất của phản ứng. Xin chân thành cảm ơn thầy cô và các bạn đã chú ý lắng nghe. Nhóm em rất mong nhận được những câu hỏi và ý kiến đóng góp!"`
+        ];
+
+        this.initControls();
+        this.renderDots();
+        this.renderOverview();
+        this.updateState();
+      }
+
+      initControls() {
+        document.addEventListener('keydown', (e) => {
+          // If video is playing and space is pressed inside slide 4, don't change slide
+          if (e.key === ' ' && this.current === 4) {
+            e.preventDefault();
+            if (deckVideo) deckVideo.togglePlay();
+            return;
+          }
+
+          if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            this.next();
+          } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            this.prev();
+          } else if (e.key === 'f' || e.key === 'F') {
+            this.toggleFullscreen();
+          } else if (e.key === 'o' || e.key === 'O') {
+            this.toggleOverview();
+          } else if (e.key === 'n' || e.key === 'N') {
+            this.toggleNotes();
+          } else if (e.key === 'm' || e.key === 'M') {
+            soundFx.toggle();
+          } else if (e.key === 'l' || e.key === 'L') {
+            this.goTo(5);
+          } else if (e.key === 'v' || e.key === 'V') {
+            this.goTo(4);
+          } else if (e.key === 'Escape') {
+            if (this.overviewOpen) this.toggleOverview();
+            if (this.notesOpen) this.toggleNotes();
+          }
+        });
+      }
+
+      renderDots() {
+        const container = document.getElementById('dotsContainer');
+        container.innerHTML = '';
+        for (let i = 1; i <= this.total; i++) {
+          const dot = document.createElement('div');
+          dot.className = `dot-indicator ${i === this.current ? 'active' : ''}`;
+          dot.title = `Slide ${i}`;
+          dot.onclick = () => this.goTo(i);
+          container.appendChild(dot);
+        }
+      }
+
+      renderOverview() {
+        const grid = document.getElementById('overviewGrid');
+        grid.innerHTML = '';
+        const titles = [
+          'Trang Bìa Hero 2026',
+          'Đặt Vấn Đề & Chiếc Bẫy',
+          'Dụng Cụ & Quy Tắc An Toàn',
+          'Video Thí Nghiệm Thực Tế',
+          'Phòng Lab Ảo Tương Tác',
+          '4 Hiện Tượng Then Chốt',
+          'Cơ Chế & Phương Trình',
+          'Quy Luật Vàng & Đối Chiếu',
+          'Mini Quiz Ôn Thi Lớp 10',
+          'Sơ Đồ Tư Duy & Tổng Kết'
+        ];
+
+        for (let i = 1; i <= this.total; i++) {
+          const card = document.createElement('div');
+          card.className = `overview-card ${i === this.current ? 'active' : ''}`;
+          card.onclick = () => {
+            this.goTo(i);
+            this.toggleOverview();
+          };
+          card.innerHTML = `
+            <div class="overview-card-num">SLIDE 0${i}</div>
+            <div class="overview-card-title">${titles[i - 1]}</div>
+            <div style="font-size:11px; color:#64748b; font-family:var(--font-mono);">Click để xem ➔</div>
+          `;
+          grid.appendChild(card);
+        }
+      }
+
+      goTo(index) {
+        if (index < 1 || index > this.total || index === this.current) return;
+        soundFx.playSlideSwoosh();
+
+        // Pause video if leaving slide 4
+        if (this.current === 4 && deckVideo) {
+          deckVideo.pause();
+        }
+
+        this.slides.forEach(slide => {
+          const sNum = parseInt(slide.dataset.slide);
+          slide.classList.remove('active', 'prev');
+          if (sNum < index) slide.classList.add('prev');
+        });
+
+        this.current = index;
+        const target = document.querySelector(`.slide[data-slide="${this.current}"]`);
+        if (target) target.classList.add('active');
+
+        this.updateState();
+      }
+
+      next() {
+        if (this.current < this.total) this.goTo(this.current + 1);
+      }
+
+      prev() {
+        if (this.current > 1) this.goTo(this.current - 1);
+      }
+
+      updateState() {
+        const progress = (this.current / this.total) * 100;
+        document.getElementById('progressBar').style.width = `${progress}%`;
+
+        const formattedCur = this.current < 10 ? `0${this.current}` : this.current;
+        document.getElementById('slideCounter').textContent = `${formattedCur} / ${this.total}`;
+
+        const dots = document.querySelectorAll('.dot-indicator');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx + 1 === this.current);
+        });
+
+        const ovCards = document.querySelectorAll('.overview-card');
+        ovCards.forEach((card, idx) => {
+          card.classList.toggle('active', idx + 1 === this.current);
+        });
+
+        document.getElementById('btnPrev').disabled = (this.current === 1);
+        document.getElementById('btnNext').disabled = (this.current === this.total);
+
+        document.getElementById('notesSlideTag').textContent = `Slide ${this.current} / ${this.total}`;
+        document.getElementById('notesBody').innerHTML = this.notesData[this.current - 1];
+      }
+
+      toggleOverview() {
+        this.overviewOpen = !this.overviewOpen;
+        document.getElementById('overviewModal').classList.toggle('open', this.overviewOpen);
+      }
+
+      toggleNotes() {
+        this.notesOpen = !this.notesOpen;
+        document.getElementById('notesDrawer').classList.toggle('open', this.notesOpen);
+        document.getElementById('btnNotes').classList.toggle('active', this.notesOpen);
+      }
+
+      toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => console.log(err));
+        } else {
+          document.exitFullscreen().catch(err => console.log(err));
+        }
+      }
+    }
+
+    const deck = new DeckController();
+
+    // ==========================================
+    // INTERACTIVE QUIZ ENGINE
+    // ==========================================
+    const quizQuestions = [
+      {
+        question: "Cho một mẩu nhỏ Natri vào ống nghiệm chứa dung dịch CuSO₄, hiện tượng quan sát được đầy đủ nhất là:",
+        options: [
+          "Mẩu Na tan dần, có khí không màu sủi bọt và xuất hiện kết tủa màu xanh lam.",
+          "Mẩu Na tan ra, có lớp kim loại màu đỏ bám vào đáy ống nghiệm.",
+          "Chỉ xuất hiện kết tủa màu xanh lam, không có sủi bọt khí.",
+          "Mẩu Na chìm xuống đáy ống nghiệm và dung dịch mất màu hoàn toàn."
+        ],
+        answer: 0,
+        explanation: "Chính xác! Na phản ứng với H₂O tạo H₂ sủi bọt và NaOH. Sau đó NaOH phản ứng với CuSO₄ tạo kết tủa xanh lam Cu(OH)₂."
+      },
+      {
+        question: "Bản chất của phản ứng tạo kết tủa màu xanh lam là do:",
+        options: [
+          "Natri tác dụng trực tiếp đẩy Đồng ra khỏi dung dịch muối.",
+          "Dung dịch kiềm NaOH vừa sinh ra tác dụng trao đổi với muối CuSO₄.",
+          "Khí Hidro sinh ra phản ứng với ion Cu²⁺ tạo hợp chất màu xanh.",
+          "Dung dịch CuSO₄ bị đun nóng và tự kết tinh thành bột màu xanh."
+        ],
+        answer: 1,
+        explanation: "Đúng rồi! Phản ứng trao đổi: 2NaOH + CuSO₄ ➔ Cu(OH)₂ ⬇ (kết tủa xanh) + Na₂SO₄."
+      },
+      {
+        question: "Nếu lọc lấy kết tủa màu xanh lam thu được đem nung nóng ngoài không khí đến khối lượng không đổi thì thu được chất rắn màu gì?",
+        options: [
+          "Chất rắn màu đỏ gạch (kim loại Cu).",
+          "Chất rắn màu đen (Đồng(II) oxit - CuO).",
+          "Chất rắn màu trắng (Đồng(I) oxit - Cu₂O).",
+          "Kết tủa không bị nhiệt phân và vẫn giữ nguyên màu xanh lam."
+        ],
+        answer: 1,
+        explanation: "Xuất sắc! Cu(OH)₂ là bazơ không tan nên bị nhiệt phân hủy thành CuO (màu đen) và hơi nước: Cu(OH)₂ ➔ CuO + H₂O."
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+
+    function renderQuiz() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quizBadge').textContent = `CÂU HỎI ${currentQuizIndex + 1} / ${quizQuestions.length}`;
+      document.getElementById('quizQuestion').textContent = q.question;
+      document.getElementById('quizScoreText').textContent = `Điểm: ${quizScore * 10}`;
+
+      const optsContainer = document.getElementById('quizOptions');
+      optsContainer.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      q.options.forEach((optText, idx) => {
+        const optDiv = document.createElement('div');
+        optDiv.className = 'quiz-option';
+        optDiv.onclick = () => handleQuizSelect(idx);
+        optDiv.innerHTML = `
+          <div class="quiz-opt-letter">${letters[idx]}</div>
+          <div style="flex:1;">${optText}</div>
+        `;
+        optsContainer.appendChild(optDiv);
+      });
+
+      const fb = document.getElementById('quizFeedback');
+      fb.style.display = 'none';
+      fb.innerHTML = '';
+    }
+
+    function handleQuizSelect(selectedIndex) {
+      const q = quizQuestions[currentQuizIndex];
+      const opts = document.querySelectorAll('.quiz-option');
+      opts.forEach(o => o.style.pointerEvents = 'none');
+
+      const fb = document.getElementById('quizFeedback');
+      fb.style.display = 'block';
+
+      if (selectedIndex === q.answer) {
+        opts[selectedIndex].classList.add('correct');
+        soundFx.playCorrect();
+        quizScore++;
+        document.getElementById('quizScoreText').textContent = `Điểm: ${quizScore * 10}`;
+        fb.innerHTML = `
+          <div style="color:#34d399; font-weight:700; margin-bottom:4px;">🎉 Chúc mừng bạn đã trả lời đúng!</div>
+          <div style="color:#cbd5e1;">${q.explanation}</div>
+          <button class="btn-primary" style="margin-top:12px; padding:8px 16px; font-size:13px;" onclick="nextQuiz()">
+            ${currentQuizIndex < quizQuestions.length - 1 ? 'Câu tiếp theo ➔' : 'Hoàn thành bài kiểm tra 🏆'}
+          </button>
+        `;
+        triggerConfetti();
+      } else {
+        opts[selectedIndex].classList.add('wrong');
+        opts[q.answer].classList.add('correct');
+        soundFx.playWrong();
+        fb.innerHTML = `
+          <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ Rất tiếc, câu trả lời chưa chính xác!</div>
+          <div style="color:#cbd5e1;">${q.explanation}</div>
+          <button class="btn-secondary" style="margin-top:12px; padding:8px 16px; font-size:13px;" onclick="nextQuiz()">
+            ${currentQuizIndex < quizQuestions.length - 1 ? 'Câu tiếp theo ➔' : 'Xem kết quả tổng kết ➔'}
+          </button>
+        `;
+      }
+    }
+
+    function nextQuiz() {
+      if (currentQuizIndex < quizQuestions.length - 1) {
+        currentQuizIndex++;
+        renderQuiz();
+      } else {
+        const card = document.getElementById('quizCard');
+        card.innerHTML = `
+          <div style="text-align:center; padding:30px 20px;">
+            <div style="font-size:54px; margin-bottom:12px;">🏆</div>
+            <h3 style="font-family:var(--font-display); font-size:26px; color:#fff; margin-bottom:10px;">Hoàn Thành Xuất Sắc Bài Tập!</h3>
+            <p style="font-size:16px; color:#94a3b8; margin-bottom:20px;">
+              Bạn đạt được <strong>${quizScore * 10} / 30 điểm</strong> (${quizScore}/${quizQuestions.length} câu đúng).
+            </p>
+            <div style="display:flex; justify-content:center; gap:12px;">
+              <button class="btn-primary" onclick="restartQuiz()">
+                <span>🔄 Làm lại trắc nghiệm</span>
+              </button>
+              <button class="btn-secondary" onclick="deck.next()">
+                <span>Xem tổng kết slide 10 ➔</span>
+              </button>
+            </div>
+          </div>
+        `;
+        triggerConfetti();
+      }
+    }
+
+    function restartQuiz() {
+      currentQuizIndex = 0;
+      quizScore = 0;
+      location.reload();
+    }
+
+    renderQuiz();
+
+    // Confetti Fireworks Engine
+    function triggerConfetti() {
+      const c = document.getElementById('confetti-canvas');
+      const ctx = c.getContext('2d');
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+
+      const confettis = [];
+      const colors = ['#00f2fe', '#3b82f6', '#f59e0b', '#10b981', '#ec4899', '#ffffff'];
+
+      for (let i = 0; i < 90; i++) {
+        confettis.push({
+          x: c.width / 2,
+          y: c.height / 2 + 50,
+          vx: (Math.random() - 0.5) * 16,
+          vy: -Math.random() * 14 - 4,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          vrot: (Math.random() - 0.5) * 10,
+          alpha: 1.0
+        });
+      }
+
+      function animConfetti() {
+        ctx.clearRect(0, 0, c.width, c.height);
+        let alive = false;
+        for (const p of confettis) {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.35;
+          p.rotation += p.vrot;
+          p.alpha -= 0.012;
+
+          if (p.alpha > 0) {
+            alive = true;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate((p.rotation * Math.PI) / 180);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.alpha;
+            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+            ctx.restore();
+          }
+        }
+        if (alive) requestAnimationFrame(animConfetti);
+        else ctx.clearRect(0, 0, c.width, c.height);
+      }
+      animConfetti();
+    }
+  </script>
+
+</body>
+</html>
