@@ -23,6 +23,21 @@
       --blue-precipitate: #0284c7;
       --indigo-glow: #6366f1;
       --amber-na: #f59e0b;
+
+      /* === MOTION TOKENS SYSTEM 2026 === */
+      --duration-micro: 180ms;
+      --duration-fast: 320ms;
+      --duration-medium: 650ms;
+      --duration-slow: 950ms;
+      --duration-cinematic: 1200ms;
+      --duration-ambient: 14s;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --ease-fluid: cubic-bezier(0.25, 1, 0.5, 1);
+
       --emerald-accent: #10b981;
       --rose-accent: #f43f5e;
       
@@ -248,38 +263,384 @@
     }
 
     /* Main Slide Stage */
+    
+    /* === ADVANCED MOTION DESIGN & DIVERSE SLIDE TRANSITIONS === */
     .slide-stage {
       position: relative;
-      flex: 1;
       width: 100%;
-      height: calc(100vh - 64px - 72px);
-      perspective: 1200px;
+      height: calc(100vh - 72px - 64px);
+      overflow: hidden;
+      perspective: 1300px;
+      perspective-origin: center center;
+      transform-style: preserve-3d;
     }
 
+    /* Base Slide State */
     .slide {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 30px 48px;
+      padding: 26px 44px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transform: translate3d(60px, 0, -40px) scale(0.96);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       overflow-y: auto;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
     }
 
-    .slide.active {
+    /* Transition 1: Directional Wipe */
+    .slide[data-transition="directional-wipe"] {
+      transform: translate3d(80px, 0, 0);
+      transition: opacity var(--duration-medium) var(--ease-out-expo),
+                  transform var(--duration-medium) var(--ease-out-expo);
+    }
+    .slide[data-transition="directional-wipe"].active {
       opacity: 1;
       pointer-events: auto;
-      transform: translate3d(0, 0, 0) scale(1);
+      transform: translate3d(0, 0, 0);
       z-index: 5;
     }
+    .slide[data-transition="directional-wipe"].prev {
+      opacity: 0;
+      transform: translate3d(-80px, 0, 0);
+      z-index: 1;
+    }
+
+    /* Transition 2: Cinematic Zoom */
+    .slide[data-transition="cinematic-zoom"] {
+      transform: scale(1.1) translateZ(-80px);
+      filter: blur(12px);
+      transition: opacity var(--duration-medium) var(--ease-out-expo),
+                  transform var(--duration-slow) var(--ease-out-expo),
+                  filter var(--duration-medium) var(--ease-out-expo);
+    }
+    .slide[data-transition="cinematic-zoom"].active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) translateZ(0);
+      filter: blur(0);
+      z-index: 5;
+    }
+    .slide[data-transition="cinematic-zoom"].prev {
+      opacity: 0;
+      transform: scale(0.9) translateZ(-140px);
+      filter: blur(10px);
+      z-index: 1;
+    }
+
+    /* Transition 3: Depth Tunnel */
+    .slide[data-transition="depth-tunnel"] {
+      transform: translate3d(0, 40px, -280px) rotateX(8deg);
+      transition: opacity var(--duration-medium) var(--ease-out-expo),
+                  transform var(--duration-medium) var(--ease-out-back);
+    }
+    .slide[data-transition="depth-tunnel"].active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0) rotateX(0deg);
+      z-index: 5;
+    }
+    .slide[data-transition="depth-tunnel"].prev {
+      opacity: 0;
+      transform: translate3d(0, -40px, 160px) rotateX(-6deg);
+      z-index: 1;
+    }
+
+    /* Transition 4: Mask Circle (Iris Aperture) */
+    .slide[data-transition="mask-circle"] {
+      clip-path: circle(0% at 50% 50%);
+      transform: scale(1.05);
+      transition: clip-path var(--duration-slow) var(--ease-out-expo),
+                  opacity var(--duration-fast) ease-out,
+                  transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .slide[data-transition="mask-circle"].active {
+      opacity: 1;
+      pointer-events: auto;
+      clip-path: circle(150% at 50% 50%);
+      transform: scale(1);
+      z-index: 5;
+    }
+    .slide[data-transition="mask-circle"].prev {
+      opacity: 0;
+      clip-path: circle(0% at 50% 50%);
+      transform: scale(0.95);
+      z-index: 1;
+    }
+
+    /* Transition 5: Mask Diagonal */
+    .slide[data-transition="mask-diagonal"] {
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      transform: translate3d(40px, 0, 0);
+      transition: clip-path var(--duration-slow) var(--ease-in-out-circ),
+                  opacity var(--duration-fast) ease-out,
+                  transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .slide[data-transition="mask-diagonal"].active {
+      opacity: 1;
+      pointer-events: auto;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      transform: translate3d(0, 0, 0);
+      z-index: 5;
+    }
+    .slide[data-transition="mask-diagonal"].prev {
+      opacity: 0;
+      clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+      transform: translate3d(-40px, 0, 0);
+      z-index: 1;
+    }
+
+    /* Transition 6: Morph Depth */
+    .slide[data-transition="morph-depth"] {
+      transform: translate3d(60px, 0, -120px) rotateY(-8deg);
+      transition: opacity var(--duration-medium) var(--ease-out-expo),
+                  transform var(--duration-medium) var(--ease-out-expo);
+    }
+    .slide[data-transition="morph-depth"].active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0) rotateY(0deg);
+      z-index: 5;
+    }
+    .slide[data-transition="morph-depth"].prev {
+      opacity: 0;
+      transform: translate3d(-60px, 0, -120px) rotateY(8deg);
+      z-index: 1;
+    }
+
+    /* === KINETIC TYPOGRAPHY === */
+    .kinetic-title .k-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px) scale(0.96);
+      filter: blur(8px);
+      transition: opacity var(--duration-medium) var(--ease-out-expo),
+                  transform var(--duration-medium) var(--ease-out-back),
+                  filter var(--duration-medium) var(--ease-out-expo);
+      transition-delay: calc(var(--w-idx, 0) * 55ms + 100ms);
+    }
+    .slide.active .kinetic-title .k-word {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* === STAGGER ANIMATIONS === */
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(28px) translateZ(0);
+      transition: opacity var(--duration-medium) var(--ease-out-expo),
+                  transform var(--duration-medium) var(--ease-out-back);
+      transition-delay: calc(var(--s-idx, 0) * 85ms + 180ms);
+    }
+    .slide.active .stagger-item {
+      opacity: 1;
+      transform: translateY(0) translateZ(0);
+    }
+
+    /* === 3D INTERACTIVE TILT & MICRO-INTERACTIONS === */
+    .interactive-tilt {
+      transition: transform 0.18s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+      transform-style: preserve-3d;
+    }
+    .interactive-tilt:hover {
+      box-shadow: 0 20px 40px -10px rgba(0, 242, 254, 0.25), 0 0 25px rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* === VALENCY CLUSTER STYLES === */
+    .valency-mnemonic-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 20px 28px;
+      backdrop-filter: var(--glass-blur);
+      box-shadow: var(--shadow-ambient);
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .valency-mnemonic-quote {
+      font-family: var(--font-display);
+      font-size: 23px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+    .valency-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      width: 100%;
+    }
+    .valency-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.35s var(--ease-out-back);
+      backdrop-filter: var(--glass-blur-sm);
+    }
+    .valency-card:hover, .valency-card.active-reveal {
+      transform: translateY(-8px) scale(1.05);
+      border-color: var(--cyan-glow);
+      box-shadow: 0 14px 28px -6px rgba(0, 242, 254, 0.35);
+    }
+    .valency-card-phrase {
+      font-size: 13px;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .valency-card:hover .valency-card-phrase, .valency-card.active-reveal .valency-card-phrase {
+      color: #38bdf8;
+    }
+    .valency-card-symbol {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .valency-card-name {
+      font-size: 11px;
+      color: #64748b;
+      font-family: var(--font-mono);
+    }
+    .valency-card-badge {
+      position: absolute;
+      top: -8px;
+      right: 10px;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: rgba(0, 242, 254, 0.2);
+      color: var(--cyan-glow);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+    }
+
+    .roman-medallion {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      position: relative;
+      box-shadow: 0 0 35px var(--glow-color, rgba(0, 242, 254, 0.4));
+      border: 2px solid rgba(255,255,255,0.3);
+      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25) 0%, rgba(15,23,42,0.8) 100%);
+    }
+
+    .giant-number-4 {
+      font-family: var(--font-display);
+      font-size: 130px;
+      font-weight: 900;
+      line-height: 0.9;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 45px rgba(245, 158, 11, 0.5));
+      animation: numberPulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes numberPulse {
+      0% { transform: scale(1); filter: drop-shadow(0 0 35px rgba(245, 158, 11, 0.4)); }
+      100% { transform: scale(1.05); filter: drop-shadow(0 0 55px rgba(245, 158, 11, 0.7)); }
+    }
+
+    .valency-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      width: 100%;
+    }
+    .valency-matrix-col {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 22px;
+      backdrop-filter: var(--glass-blur);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s ease;
+    }
+    .valency-matrix-col:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
+    }
+    .valency-matrix-col.col-i { border-top: 4px solid #00f2fe; }
+    .valency-matrix-col.col-ii { border-top: 4px solid #10b981; }
+    .valency-matrix-col.col-iii { border-top: 4px solid #f59e0b; }
+
+    .valency-quiz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      width: 100%;
+    }
+    .valency-quiz-card {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 22px;
+      backdrop-filter: var(--glass-blur-sm);
+      transition: all 0.35s var(--ease-out-back);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .valency-quiz-card:hover {
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-4px);
+    }
+    .valency-quiz-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(10px);
+      transition: all 0.4s var(--ease-out-expo);
+      background: rgba(0, 242, 254, 0.08);
+      border-left: 3px solid var(--cyan-glow);
+      border-radius: 0 10px 10px 0;
+      padding: 0 14px;
+      margin-top: 0;
+    }
+    .valency-quiz-card.revealed .valency-quiz-answer {
+      max-height: 180px;
+      opacity: 1;
+      transform: translateY(0);
+      padding: 12px 14px;
+      margin-top: 12px;
+    }
+
+    /* Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .slide, .stagger-item, .kinetic-title .k-word, .interactive-tilt, .giant-number-4 {
+        transition: opacity 0.2s ease !important;
+        transform: none !important;
+        filter: none !important;
+        clip-path: none !important;
+        animation: none !important;
+      }
+    }
+
 
     .slide.prev {
       opacity: 0;
@@ -1818,7 +2179,7 @@
       <!-- ==========================================
            SLIDE 1: HERO / COVER
            ========================================== -->
-      <section class="slide active" data-slide="1">
+      <section class="slide active" data-slide="1" data-transition="cinematic-zoom">
         <div class="hero-container">
           <div class="hero-left">
             <div class="badge-label">✨ BÀI HỌC THỰC NGHIỆM ĐỔI MỚI SÁNG TẠO 2026</div>
@@ -1886,9 +2247,9 @@
       <!-- ==========================================
            SLIDE 2: ĐẶT VẤN ĐỀ & CHIẾC BẪY KIM LOẠI
            ========================================== -->
-      <section class="slide" data-slide="2">
+      <section class="slide" data-slide="2" data-transition="depth-tunnel">
         <div class="badge-label badge-amber">🤔 ĐẶT VẤN ĐỀ & TƯ DUY PHẢN BIỆN</div>
-        <h2 class="slide-title">"Chiếc Bẫy" Kim Loại Đứng Trước Đẩy Kim Loại Đứng Sau</h2>
+        <h2 class="slide-title kinetic-title">"Chiếc Bẫy" Kim Loại Đứng Trước Đẩy Kim Loại Đứng Sau</h2>
         <p class="slide-subtitle">
           Quan sát dãy hoạt động hóa học lớp 9 và xem xét liệu quy tắc thông thường có áp dụng được với Natri?
         </p>
@@ -1954,9 +2315,9 @@
       <!-- ==========================================
            SLIDE 3: CHUẨN BỊ & QUY TẮC AN TOÀN
            ========================================== -->
-      <section class="slide" data-slide="3">
+      <section class="slide" data-slide="3" data-transition="directional-wipe">
         <div class="badge-label">🧰 THỰC NGHIỆM PHÒNG THÍ NGHIỆM</div>
-        <h2 class="slide-title">Dụng Cụ, Hóa Chất & Quy Tắc An Toàn Nghiêm Ngặt</h2>
+        <h2 class="slide-title kinetic-title">Dụng Cụ, Hóa Chất & Quy Tắc An Toàn Nghiêm Ngặt</h2>
         <p class="slide-subtitle">
           Natri kim loại có hoạt tính hóa học cực mạnh, đòi hỏi thao tác chuẩn xác và tuân thủ tuyệt đối an toàn.
         </p>
@@ -2020,9 +2381,9 @@
       <!-- ==========================================
            SLIDE 4: VIDEO THÍ NGHIỆM THỰC TẾ (OFFLINE NATIVE VIDEO PLAYER)
            ========================================== -->
-      <section class="slide" data-slide="4">
+      <section class="slide" data-slide="4" data-transition="mask-circle">
         <div class="badge-label badge-emerald">🎥 VIDEO THỰC NGHIỆM ĐỘ PHÂN GIẢI CAO (ĐÃ LỌC CÂU HỎI)</div>
-        <h2 class="slide-title">Video Thí Nghiệm Trực Quan: Na + dd CuSO₄</h2>
+        <h2 class="slide-title kinetic-title">Video Thí Nghiệm Trực Quan: Na + dd CuSO₄</h2>
         <p class="slide-subtitle">
           Video ghi lại toàn bộ tiến trình phản ứng thực nghiệm (đã cắt bỏ phần câu hỏi cuối video để tập trung trọn vẹn vào hiện tượng).
         </p>
@@ -2139,9 +2500,9 @@
       <!-- ==========================================
            SLIDE 5: THÍ NGHIỆM ẢO TƯƠNG TÁC (CANVAS 2D)
            ========================================== -->
-      <section class="slide" data-slide="5">
+      <section class="slide" data-slide="5" data-transition="cinematic-zoom">
         <div class="badge-label badge-emerald">🧪 PHÒNG THÍ NGHIỆM SỐ TƯƠNG TÁC 60FPS</div>
-        <h2 class="slide-title">Mô Phỏng Thí Nghiệm Ảo: Na + dd CuSO₄</h2>
+        <h2 class="slide-title kinetic-title">Mô Phỏng Thí Nghiệm Ảo: Na + dd CuSO₄</h2>
         <p class="slide-subtitle">
           Tương tác trực tiếp: Thả kim loại Na vào cốc dung dịch để quan sát hiệu ứng vật lý & phản ứng kết tủa thời gian thực.
         </p>
@@ -2197,9 +2558,9 @@
       <!-- ==========================================
            SLIDE 6: NHẬN XÉT HIỆN TƯỢNG CHI TIẾT
            ========================================== -->
-      <section class="slide" data-slide="6">
+      <section class="slide" data-slide="6" data-transition="directional-wipe">
         <div class="badge-label">🔍 PHÂN TÍCH HIỆN TƯỢNG THỰC NGHIỆM</div>
-        <h2 class="slide-title">4 Hiện Tượng Then Chốt & Giải Mã Nguyên Nhân</h2>
+        <h2 class="slide-title kinetic-title">4 Hiện Tượng Then Chốt & Giải Mã Nguyên Nhân</h2>
         <p class="slide-subtitle">
           Sự kết hợp giữa tính chất vật lý đặc thù của kim loại kiềm và chuỗi phản ứng hóa học liên tiếp.
         </p>
@@ -2290,9 +2651,9 @@
       <!-- ==========================================
            SLIDE 7: BẢN CHẤT CƠ CHẾ & PHƯƠNG TRÌNH HÓA HỌC
            ========================================== -->
-      <section class="slide" data-slide="7">
+      <section class="slide" data-slide="7" data-transition="morph-depth">
         <div class="badge-label badge-emerald">⚛️ BẢN CHẤT CƠ CHẾ PHẢN ỨNG</div>
-        <h2 class="slide-title">Các Giai Đoạn Phản Ứng & Phương Trình Hóa Học</h2>
+        <h2 class="slide-title kinetic-title">Các Giai Đoạn Phản Ứng & Phương Trình Hóa Học</h2>
         <p class="slide-subtitle">
           Học sinh lớp 9 cần nắm vững bản chất 2 giai đoạn nối tiếp nhau để không bị mất điểm trong bài thi.
         </p>
@@ -2348,9 +2709,9 @@
       <!-- ==========================================
            SLIDE 8: QUY LUẬT VÀNG & SO SÁNH ĐỐI CHIẾU
            ========================================== -->
-      <section class="slide" data-slide="8">
+      <section class="slide" data-slide="8" data-transition="mask-diagonal">
         <div class="badge-label badge-amber">🌟 BÀI HỌC TỔNG QUÁT LỚP 9</div>
-        <h2 class="slide-title">Quy Luật Vàng Cho Nhóm Kim Loại Tan Trong Nước</h2>
+        <h2 class="slide-title kinetic-title">Quy Luật Vàng Cho Nhóm Kim Loại Tan Trong Nước</h2>
         <p class="slide-subtitle">
           So sánh đối chiếu hành vi của kim loại thường (Fe, Zn) với kim loại kiềm/kiềm thổ khi thả vào dung dịch muối.
         </p>
@@ -2411,9 +2772,9 @@
       <!-- ==========================================
            SLIDE 9: MINI QUIZ TƯƠNG TÁC
            ========================================== -->
-      <section class="slide" data-slide="9">
+      <section class="slide" data-slide="9" data-transition="depth-tunnel">
         <div class="badge-label badge-emerald">🎯 THỬ TÀI KIẾN THỨC</div>
-        <h2 class="slide-title">Mini Quiz Củng Cố Kiến Thức Lớp 9</h2>
+        <h2 class="slide-title kinetic-title">Mini Quiz Củng Cố Kiến Thức Lớp 9</h2>
         <p class="slide-subtitle">
           Chọn đáp án đúng nhất cho các câu hỏi hay gặp trong đề thi tuyển sinh vào 10 THPT.
         </p>
@@ -2443,9 +2804,9 @@
       <!-- ==========================================
            SLIDE 10: TỔNG KẾT & MINDMAP TƯ DUY
            ========================================== -->
-      <section class="slide" data-slide="10">
+      <section class="slide" data-slide="10" data-transition="cinematic-zoom">
         <div class="badge-label">🏁 TỔNG KẾT BÀI HỌC</div>
-        <h2 class="slide-title">Sơ Đồ Tư Duy & Ghi Nhớ Trọng Tâm</h2>
+        <h2 class="slide-title kinetic-title">Sơ Đồ Tư Duy & Ghi Nhớ Trọng Tâm</h2>
         <p class="slide-subtitle">
           Hệ thống hóa toàn bộ kiến thức về phản ứng của Natri với dung dịch muối Đồng(II) Sunfat.
         </p>
@@ -2522,10 +2883,584 @@
               <button class="btn-secondary" onclick="deck.toggleFullscreen()">
                 <span>⛶ Toàn màn hình</span>
               </button>
+              <button class="btn-primary" style="flex:1.4; background:linear-gradient(135deg, #00f2fe, #3b82f6); color:#060913; font-weight:800;" onclick="deck.goTo(11)">
+                <span>Khám Phá Bí Quyết Hóa Trị ➔</span>
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- SLIDE 11: BÍ QUYẾT GHI NHỚ HÓA TRỊ (INTRO) -->
+      <section class="slide" data-slide="11" data-transition="mask-circle">
+        <div class="badge-label stagger-item" style="--s-idx:0;">🔮 CHUYÊN ĐỀ MỞ RỘNG — BÍ QUYẾT HỌC TỐT HÓA 9</div>
+        <h2 class="slide-title kinetic-title">Bí Quyết Ghi Nhớ Hóa Trị Bằng Thần Chú</h2>
+        <p class="slide-subtitle stagger-item" style="--s-idx:1;">
+          Biến những ký hiệu hóa học khô khan thành những câu nói dễ nhớ — Giúp viết đúng 100% công thức hóa học và cân bằng phương trình!
+        </p>
+
+        <div style="display:grid; grid-template-columns: 1.1fr 1fr; gap:24px; align-items:stretch; margin-top:8px;">
+          <!-- Left: Hero Card with Animated Medallions -->
+          <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:2; padding:28px; text-align:center; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden;">
+            <div style="position:absolute; top:-30px; left:-30px; width:160px; height:160px; background:radial-gradient(circle, rgba(0,242,254,0.2) 0%, transparent 70%); pointer-events:none;"></div>
+            
+            <div>
+              <div style="display:flex; justify-content:center; gap:20px; margin-bottom:16px;">
+                <div class="roman-medallion" style="--glow-color:rgba(0,242,254,0.45); color:#00f2fe; border-color:rgba(0,242,254,0.5);">I</div>
+                <div class="roman-medallion" style="--glow-color:rgba(16,185,129,0.45); color:#10b981; border-color:rgba(16,185,129,0.5);">II</div>
+                <div class="roman-medallion" style="--glow-color:rgba(245,158,11,0.45); color:#f59e0b; border-color:rgba(245,158,11,0.5);">III</div>
+              </div>
+
+              <h3 style="font-family:var(--font-display); font-size:22px; color:#fff; margin-bottom:10px;">
+                3 Câu Thần Chú Thống Trị Hóa Học THCS
+              </h3>
+              <p style="font-size:14px; color:#94a3b8; line-height:1.6; margin-bottom:14px;">
+                Hóa trị là quy tắc then chốt để xác định số lượng liên kết giữa các nguyên tử trong phân tử. Không cần phải học thuộc bảng hóa trị dài dòng, các thế hệ học sinh giỏi đã sáng tạo 3 câu vần điệu cực kỳ bắt tai để ghi nhớ trọn vẹn Hóa trị I, II và III.
+              </p>
+            </div>
+
+            <div style="display:flex; justify-content:center; gap:12px; margin-top:8px;">
+              <button class="btn-primary" onclick="deck.goTo(12)">
+                <span>Khám Phá Hóa Trị I</span>
+                <span style="font-size:16px;">➔</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: 3 Interactive Overview Cards -->
+          <div style="display:flex; flex-direction:column; gap:12px; justify-content:center;">
+            <!-- Card Hóa trị I -->
+            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:3; padding:18px 22px; cursor:pointer;" onclick="deck.goTo(12)">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:14px;">
+                  <div style="width:44px; height:44px; border-radius:12px; background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:20px; color:#00f2fe;">I</div>
+                  <div>
+                    <div style="font-size:15px; font-weight:700; color:#fff;">Hóa Trị I: "Khi Na ăn gà..."</div>
+                    <div style="font-size:12px; color:#94a3b8; font-family:var(--font-mono); margin-top:2px;">K – Na – Ag – Cl – H – OH – NO₃ – Br</div>
+                  </div>
+                </div>
+                <span style="color:#00f2fe; font-size:16px;">➔</span>
+              </div>
+            </div>
+
+            <!-- Card Hóa trị II -->
+            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:4; padding:18px 22px; cursor:pointer;" onclick="deck.goTo(13)">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:14px;">
+                  <div style="width:44px; height:44px; border-radius:12px; background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:20px; color:#10b981;">II</div>
+                  <div>
+                    <div style="font-size:15px; font-weight:700; color:#fff;">Hóa Trị II: "Ba Cũng Sang Mua Cà Phê Sữa..."</div>
+                    <div style="font-size:12px; color:#94a3b8; font-family:var(--font-mono); margin-top:2px;">Ba – Cu – SO₄ – Mg – Ca – Fe – SO₃ – Zn – CO₃</div>
+                  </div>
+                </div>
+                <span style="color:#10b981; font-size:16px;">➔</span>
+              </div>
+            </div>
+
+            <!-- Card Hóa trị III -->
+            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:5; padding:18px 22px; cursor:pointer;" onclick="deck.goTo(14)">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:14px;">
+                  <div style="width:44px; height:44px; border-radius:12px; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:20px; color:#f59e0b;">III</div>
+                  <div>
+                    <div style="font-size:15px; font-weight:700; color:#fff;">Hóa Trị III: "Phơi 4 Áo Sắt"</div>
+                    <div style="font-size:12px; color:#94a3b8; font-family:var(--font-mono); margin-top:2px;">PO₄ – Al – Fe (Điểm nhấn con số 4)</div>
+                  </div>
+                </div>
+                <span style="color:#f59e0b; font-size:16px;">➔</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 12: HÓA TRỊ I -->
+      <section class="slide" data-slide="12" data-transition="directional-wipe">
+        <div class="badge-label stagger-item" style="--s-idx:0;">⚡ HÓA TRỊ I (VALENCY I)</div>
+        <h2 class="slide-title kinetic-title">Hóa Trị I — Khi Na Ăn Gà...</h2>
+        <p class="slide-subtitle stagger-item" style="--s-idx:1;">
+          Câu thần chú kinh điển giúp nhớ trọn vẹn 8 nguyên tố và nhóm gốc axit có hóa trị I.
+        </p>
+
+        <!-- Mnemonic Master Banner -->
+        <div class="valency-mnemonic-box stagger-item" style="--s-idx:2;">
+          <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:6px;">
+            <div class="roman-medallion" style="width:38px; height:38px; font-size:18px; margin-bottom:0; color:#00f2fe; border-color:rgba(0,242,254,0.4);">I</div>
+            <span style="font-family:var(--font-mono); font-size:12px; color:#38bdf8; text-transform:uppercase; letter-spacing:0.1em;">CÂU THẦN CHÚ GỐC CHUẨN XÁC</span>
+          </div>
+          <div class="valency-mnemonic-quote">
+            "Khi Na ăn gà, Cô Lan hát; Ông Hùng nấu ba rổ bắp"
+          </div>
+          <div style="margin-top:6px; font-size:12px; color:#94a3b8;">
+            Bấm vào từng thẻ hoặc <button class="tool-icon-btn" style="display:inline-flex; width:auto; height:24px; padding:0 10px; font-size:11px; vertical-align:middle; margin-left:6px;" onclick="playValencySequence(1)">▶ Trình diễn lần lượt 8 thẻ</button> để thấy liên kết chữ và ký hiệu
+          </div>
+        </div>
+
+        <!-- 8 Cards Grid -->
+        <div class="valency-cards-grid stagger-item" style="--s-idx:3;" id="valencyGrid1">
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="0" onclick="highlightValencyCard(this, 'K', 'Kali — Kim loại kiềm hóa trị I (ví dụ: KCl, KOH)')">
+            <div class="valency-card-badge">Hóa trị I</div>
+            <div class="valency-card-phrase">"Khi"</div>
+            <div class="valency-card-symbol" style="color:#00f2fe;">K</div>
+            <div class="valency-card-name">Kali</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="1" onclick="highlightValencyCard(this, 'Na', 'Natri — Kim loại kiềm hóa trị I (ví dụ: NaCl, NaOH)')">
+            <div class="valency-card-badge">Hóa trị I</div>
+            <div class="valency-card-phrase">"Na"</div>
+            <div class="valency-card-symbol" style="color:#38bdf8;">Na</div>
+            <div class="valency-card-name">Natri</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="2" onclick="highlightValencyCard(this, 'Ag', 'Bạc (Argentum) — Kim loại hóa trị I (ví dụ: AgNO₃, AgCl)')">
+            <div class="valency-card-badge">Hóa trị I</div>
+            <div class="valency-card-phrase">"ăn gà"</div>
+            <div class="valency-card-symbol" style="color:#e2e8f0;">Ag</div>
+            <div class="valency-card-name">Bạc (Argentum)</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="3" onclick="highlightValencyCard(this, 'Cl', 'Clo — Phi kim Halogen hóa trị I trong muối clorua (ví dụ: NaCl, HCl)')">
+            <div class="valency-card-badge">Hóa trị I</div>
+            <div class="valency-card-phrase">"Cô Lan"</div>
+            <div class="valency-card-symbol" style="color:#4ade80;">Cl</div>
+            <div class="valency-card-name">Clo</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="4" onclick="highlightValencyCard(this, 'H', 'Hiđro — Nguyên tố chuẩn hóa trị I (ví dụ: H₂O, HCl)')">
+            <div class="valency-card-badge">Hóa trị I</div>
+            <div class="valency-card-phrase">"hát"</div>
+            <div class="valency-card-symbol" style="color:#60a5fa;">H</div>
+            <div class="valency-card-name">Hiđro</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="5" onclick="highlightValencyCard(this, 'OH', 'Gốc Hiđroxit — Nhóm ion hóa trị I trong bazơ (ví dụ: NaOH, KOH)')">
+            <div class="valency-card-badge">Gốc I</div>
+            <div class="valency-card-phrase">"Ông Hùng"</div>
+            <div class="valency-card-symbol" style="color:#818cf8;">OH</div>
+            <div class="valency-card-name">Gốc Hiđroxit</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="6" onclick="highlightValencyCard(this, 'NO3', 'Gốc Nitrat — Nhóm gốc axit hóa trị I (ví dụ: HNO₃, NaNO₃)')">
+            <div class="valency-card-badge">Gốc I</div>
+            <div class="valency-card-phrase">"nấu ba"</div>
+            <div class="valency-card-symbol" style="color:#f472b6;">NO₃</div>
+            <div class="valency-card-name">Gốc Nitrat (Số 3)</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="1" data-idx="7" onclick="highlightValencyCard(this, 'Br', 'Brom — Phi kim Halogen hóa trị I trong muối bromua (ví dụ: NaBr, HBr)')">
+            <div class="valency-card-badge">Hóa trị I</div>
+            <div class="valency-card-phrase">"rổ bắp"</div>
+            <div class="valency-card-symbol" style="color:#fb923c;">Br</div>
+            <div class="valency-card-name">Brom</div>
+          </div>
+        </div>
+
+        <!-- Detail Inspector Bar -->
+        <div class="glass-panel stagger-item" id="valencyInspector1" style="--s-idx:4; margin-top:14px; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; font-size:13px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="color:#00f2fe; font-size:16px;">💡</span>
+            <span id="inspectorText1" style="color:#cbd5e1;">Bấm vào từng thẻ phía trên để xem giải nghĩa hóa học và ví dụ công thức tương ứng.</span>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:#64748b;">K – Na – Ag – Cl – H – OH – NO₃ – Br</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 13: HÓA TRỊ II -->
+      <section class="slide" data-slide="13" data-transition="depth-tunnel">
+        <div class="badge-label stagger-item" style="--s-idx:0;">💎 HÓA TRỊ II (VALENCY II)</div>
+        <h2 class="slide-title kinetic-title">Hóa Trị II — Ba Cũng Sang Mua Cà Phê Sữa Zới Cô Ba...</h2>
+        <p class="slide-subtitle stagger-item" style="--s-idx:1;">
+          Nhớ ngay 9 nguyên tố và gốc axit hóa trị II phổ biến nhất trong đề thi và bài tập hóa học lớp 9.
+        </p>
+
+        <!-- Mnemonic Master Banner -->
+        <div class="valency-mnemonic-box stagger-item" style="--s-idx:2; border-color:rgba(16,185,129,0.3);">
+          <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:6px;">
+            <div class="roman-medallion" style="width:38px; height:38px; font-size:18px; margin-bottom:0; color:#10b981; border-color:rgba(16,185,129,0.4);">II</div>
+            <span style="font-family:var(--font-mono); font-size:12px; color:#34d399; text-transform:uppercase; letter-spacing:0.1em;">CÂU THẦN CHÚ GỐC CHUẨN XÁC (GIỮ NGUYÊN TỪ "ZỚI")</span>
+          </div>
+          <div class="valency-mnemonic-quote" style="color:#ecfdf5;">
+            "Ba Cũng Sang Mua Cà Phê Sữa Zới Cô ba"
+          </div>
+          <div style="margin-top:6px; font-size:12px; color:#94a3b8;">
+            Bấm vào từng thẻ hoặc <button class="tool-icon-btn" style="display:inline-flex; width:auto; height:24px; padding:0 10px; font-size:11px; vertical-align:middle; margin-left:6px;" onclick="playValencySequence(2)">▶ Trình diễn lần lượt 9 thẻ</button> để thấy liên kết chữ và ký hiệu
+          </div>
+        </div>
+
+        <!-- 9 Cards Grid -->
+        <div class="valency-cards-grid stagger-item" style="--s-idx:3; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));" id="valencyGrid2">
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="0" onclick="highlightValencyCard(this, 'Ba', 'Bari — Kim loại kiềm thổ hóa trị II (ví dụ: BaCl₂, BaSO₄)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
+            <div class="valency-card-phrase">"Ba"</div>
+            <div class="valency-card-symbol" style="color:#10b981;">Ba</div>
+            <div class="valency-card-name">Bari</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="1" onclick="highlightValencyCard(this, 'Cu', 'Đồng — Kim loại chuyển tiếp hóa trị II phổ biến (ví dụ: CuSO₄, CuO, Cu(OH)₂)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
+            <div class="valency-card-phrase">"Cũng"</div>
+            <div class="valency-card-symbol" style="color:#34d399;">Cu</div>
+            <div class="valency-card-name">Đồng (Copper)</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="2" onclick="highlightValencyCard(this, 'SO4', 'Gốc Sunfat — Nhóm gốc axit sunfuric hóa trị II (ví dụ: H₂SO₄, CuSO₄)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Gốc II</div>
+            <div class="valency-card-phrase">"Sang"</div>
+            <div class="valency-card-symbol" style="color:#6ee7b7;">SO₄</div>
+            <div class="valency-card-name">Gốc Sunfat</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="3" onclick="highlightValencyCard(this, 'Mg', 'Magie — Kim loại kiềm thổ hóa trị II (ví dụ: MgCl₂, MgSO₄)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
+            <div class="valency-card-phrase">"Mua"</div>
+            <div class="valency-card-symbol" style="color:#a7f3d0;">Mg</div>
+            <div class="valency-card-name">Magie</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="4" onclick="highlightValencyCard(this, 'Ca', 'Canxi — Kim loại kiềm thổ hóa trị II (ví dụ: CaCO₃, Ca(OH)₂)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
+            <div class="valency-card-phrase">"Cà"</div>
+            <div class="valency-card-symbol" style="color:#6ee7b7;">Ca</div>
+            <div class="valency-card-name">Canxi</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="5" onclick="highlightValencyCard(this, 'Fe', 'Sắt (II) — Hóa trị II trong muối sắt(II) như FeCl₂, FeSO₄ (Lưu ý: Fe còn có hóa trị III!)')">
+            <div class="valency-card-badge" style="color:#f59e0b; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Fe (II)</div>
+            <div class="valency-card-phrase">"Phê"</div>
+            <div class="valency-card-symbol" style="color:#fbbf24;">Fe</div>
+            <div class="valency-card-name">Sắt (II)</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="6" onclick="highlightValencyCard(this, 'SO3', 'Gốc Sunfit — Nhóm gốc axit sunfurơ hóa trị II (ví dụ: H₂SO₃, Na₂SO₃)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Gốc II</div>
+            <div class="valency-card-phrase">"Sữa"</div>
+            <div class="valency-card-symbol" style="color:#6ee7b7;">SO₃</div>
+            <div class="valency-card-name">Gốc Sunfit</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="7" onclick="highlightValencyCard(this, 'Zn', 'Kẽm — Kim loại chuyển tiếp hóa trị II duy nhất (ví dụ: ZnSO₄, ZnCl₂)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Hóa trị II</div>
+            <div class="valency-card-phrase">"Zới"</div>
+            <div class="valency-card-symbol" style="color:#34d399;">Zn</div>
+            <div class="valency-card-name">Kẽm (Zinc)</div>
+          </div>
+
+          <div class="valency-card interactive-tilt" data-v="2" data-idx="8" onclick="highlightValencyCard(this, 'CO3', 'Gốc Cacbonat — Nhóm gốc axit cacbonic hóa trị II (ví dụ: CaCO₃, Na₂CO₃)')">
+            <div class="valency-card-badge" style="color:#10b981; background:rgba(16,185,129,0.2); border-color:rgba(16,185,129,0.4);">Gốc II</div>
+            <div class="valency-card-phrase">"Cô ba"</div>
+            <div class="valency-card-symbol" style="color:#10b981;">CO₃</div>
+            <div class="valency-card-name">Gốc Cacbonat</div>
+          </div>
+        </div>
+
+        <!-- Detail Inspector Bar -->
+        <div class="glass-panel stagger-item" id="valencyInspector2" style="--s-idx:4; margin-top:14px; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; font-size:13px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="color:#10b981; font-size:16px;">💎</span>
+            <span id="inspectorText2" style="color:#cbd5e1;">Bấm vào từng thẻ phía trên để giải nghĩa. Lưu ý từ "Zới" (Zn) và "Phê" (Fe - Sắt II).</span>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:#64748b;">Ba – Cu – SO₄ – Mg – Ca – Fe – SO₃ – Zn – CO₃</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: HÓA TRỊ III -->
+      <section class="slide" data-slide="14" data-transition="cinematic-zoom">
+        <div class="badge-label stagger-item" style="--s-idx:0;">🔥 HÓA TRỊ III (VALENCY III)</div>
+        <h2 class="slide-title kinetic-title">Hóa Trị III — Phơi 4 Áo Sắt</h2>
+        <p class="slide-subtitle stagger-item" style="--s-idx:1;">
+          Câu nói ngắn gọn chỉ 4 từ nhưng bao trọn gốc axit Photphat và 2 kim loại hóa trị III trọng tâm trong Hóa 9.
+        </p>
+
+        <div style="display:grid; grid-template-columns: 1fr 1.3fr; gap:24px; align-items:center; margin-top:10px;">
+          <!-- Left: Big Glowing Number 4 Visual -->
+          <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:2; padding:28px 24px; text-align:center; border-color:rgba(245,158,11,0.3); background:radial-gradient(circle at center, rgba(245,158,11,0.08) 0%, rgba(15,23,42,0.6) 100%);">
+            <div class="giant-number-4">4</div>
+            <div style="font-family:var(--font-display); font-size:20px; font-weight:700; color:#fff; margin-top:2px;">
+              Điểm Nhấn: "Phơi 4" ➔ PO₄
+            </div>
+            <p style="font-size:13px; color:#94a3b8; line-height:1.5; margin-top:8px;">
+              Bí quyết của câu thần chú này nằm ở chữ <strong>"4"</strong>: Nó vừa là số từ trong câu, vừa chính là <strong>4 nguyên tử Oxi</strong> trong gốc axit <strong>PO₄</strong> (Photphat)!
+            </p>
+            <div style="margin-top:14px;">
+              <span class="badge-label" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.4); color:#fbbf24; font-size:11px;">
+                MẸO THẦN TỐC: PHƠI 4 = PO₄
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: 3 Big Chemical Cards -->
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <!-- Card PO4 -->
+            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:3; padding:20px 24px; border-left:4px solid #f59e0b; cursor:pointer;" onclick="highlightValencyCard(this, 'PO4', 'Gốc Photphat — Nhóm gốc axit photphoric hóa trị III duy nhất thường gặp (ví dụ: Na₃PO₄, Ca₃(PO₄)₂)')">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:16px;">
+                  <div style="width:50px; height:50px; border-radius:14px; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:22px; color:#fbbf24;">
+                    PO₄
+                  </div>
+                  <div>
+                    <div style="font-size:16px; font-weight:700; color:#fff;">"Phơi 4" ➔ Gốc Photphat (PO₄)</div>
+                    <div style="font-size:13px; color:#94a3b8; margin-top:2px;">Gốc axit hóa trị III (axit tương ứng H₃PO₄)</div>
+                  </div>
+                </div>
+                <div class="valency-card-badge" style="position:static; color:#fbbf24; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Gốc III</div>
+              </div>
+            </div>
+
+            <!-- Card Al -->
+            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:4; padding:20px 24px; border-left:4px solid #f59e0b; cursor:pointer;" onclick="highlightValencyCard(this, 'Al', 'Nhôm — Kim loại có hóa trị III duy nhất trong mọi hợp chất (ví dụ: Al₂O₃, AlCl₃, Al(OH)₃)')">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:16px;">
+                  <div style="width:50px; height:50px; border-radius:14px; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:22px; color:#fbbf24;">
+                    Al
+                  </div>
+                  <div>
+                    <div style="font-size:16px; font-weight:700; color:#fff;">"Áo" ➔ Kim loại Nhôm (Al)</div>
+                    <div style="font-size:13px; color:#94a3b8; margin-top:2px;">Hóa trị III không đổi trong mọi phản ứng</div>
+                  </div>
+                </div>
+                <div class="valency-card-badge" style="position:static; color:#fbbf24; background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);">Hóa trị III</div>
+              </div>
+            </div>
+
+            <!-- Card Fe (III) -->
+            <div class="glass-panel interactive-tilt stagger-item" style="--s-idx:5; padding:20px 24px; border-left:4px solid #ef4444; cursor:pointer;" onclick="highlightValencyCard(this, 'Fe3', 'Sắt (III) — Thể hiện hóa trị III trong muối sắt(III) như FeCl₃, Fe₂(SO₄)₃, Fe₂O₃ (Lưu ý Fe có 2 hóa trị: II và III)')">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:16px;">
+                  <div style="width:50px; height:50px; border-radius:14px; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:22px; color:#f87171;">
+                    Fe
+                  </div>
+                  <div>
+                    <div style="font-size:16px; font-weight:700; color:#fff;">"Sắt" ➔ Kim loại Sắt (Fe - III)</div>
+                    <div style="font-size:13px; color:#94a3b8; margin-top:2px;">Sắt thể hiện hóa trị III (ví dụ: FeCl₃, Fe₂(SO₄)₃)</div>
+                  </div>
+                </div>
+                <div class="valency-card-badge" style="position:static; color:#f87171; background:rgba(239,68,68,0.2); border-color:rgba(239,68,68,0.4);">Fe (III)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 15: TỔNG HỢP CÁC CÂU NHỚ HÓA TRỊ -->
+      <section class="slide" data-slide="15" data-transition="morph-depth">
+        <div class="badge-label stagger-item" style="--s-idx:0;">📚 BẢNG TRA CỨU MA TRẬN</div>
+        <h2 class="slide-title kinetic-title">Tổng Hợp Các Câu Nhớ Hóa Trị I – II – III</h2>
+        <p class="slide-subtitle stagger-item" style="--s-idx:1;">
+          Hệ thống hóa toàn bộ 3 nhóm hóa trị trên cùng một màn hình — Dễ dàng đối chiếu, so sánh và ghi nhớ vĩnh viễn.
+        </p>
+
+        <!-- 3 Columns Matrix -->
+        <div class="valency-matrix-grid stagger-item" style="--s-idx:2;">
+          <!-- Column 1: Hóa trị I -->
+          <div class="valency-matrix-col col-i interactive-tilt">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span style="font-family:var(--font-display); font-size:20px; font-weight:800; color:#00f2fe;">HÓA TRỊ I</span>
+              <div class="roman-medallion" style="width:34px; height:34px; font-size:16px; margin-bottom:0; color:#00f2fe; border-color:rgba(0,242,254,0.4);">I</div>
+            </div>
+
+            <div style="font-size:14px; font-weight:700; color:#fff; line-height:1.4; margin-bottom:10px; background:rgba(0,242,254,0.08); padding:10px 12px; border-radius:10px;">
+              "Khi Na ăn gà, Cô Lan hát; Ông Hùng nấu ba rổ bắp"
+            </div>
+
+            <div style="font-family:var(--font-mono); font-size:13px; color:#38bdf8; font-weight:600; margin-bottom:12px;">
+              K – Na – Ag – Cl – H – OH – NO₃ – Br
+            </div>
+
+            <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; font-size:12px; color:#94a3b8; line-height:1.5;">
+              <strong style="color:#cbd5e1;">Hợp chất tiêu biểu:</strong><br/>
+              • Muối: NaCl, KCl, AgNO₃, NaBr<br/>
+              • Bazơ: NaOH, KOH<br/>
+              • Axit: HCl, HNO₃, HBr
+            </div>
+          </div>
+
+          <!-- Column 2: Hóa trị II -->
+          <div class="valency-matrix-col col-ii interactive-tilt">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span style="font-family:var(--font-display); font-size:20px; font-weight:800; color:#10b981;">HÓA TRỊ II</span>
+              <div class="roman-medallion" style="width:34px; height:34px; font-size:16px; margin-bottom:0; color:#10b981; border-color:rgba(16,185,129,0.4);">II</div>
+            </div>
+
+            <div style="font-size:14px; font-weight:700; color:#fff; line-height:1.4; margin-bottom:10px; background:rgba(16,185,129,0.08); padding:10px 12px; border-radius:10px;">
+              "Ba Cũng Sang Mua Cà Phê Sữa Zới Cô ba"
+            </div>
+
+            <div style="font-family:var(--font-mono); font-size:13px; color:#34d399; font-weight:600; margin-bottom:12px;">
+              Ba – Cu – SO₄ – Mg – Ca – Fe – SO₃ – Zn – CO₃
+            </div>
+
+            <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; font-size:12px; color:#94a3b8; line-height:1.5;">
+              <strong style="color:#cbd5e1;">Hợp chất tiêu biểu:</strong><br/>
+              • Muối: BaSO₄, CuSO₄, CaCO₃, MgCl₂, ZnSO₄<br/>
+              • Bazơ: Ca(OH)₂, Ba(OH)₂, Cu(OH)₂<br/>
+              • Sắt (II): FeSO₄, FeCl₂
+            </div>
+          </div>
+
+          <!-- Column 3: Hóa trị III -->
+          <div class="valency-matrix-col col-iii interactive-tilt">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span style="font-family:var(--font-display); font-size:20px; font-weight:800; color:#f59e0b;">HÓA TRỊ III</span>
+              <div class="roman-medallion" style="width:34px; height:34px; font-size:16px; margin-bottom:0; color:#f59e0b; border-color:rgba(245,158,11,0.4);">III</div>
+            </div>
+
+            <div style="font-size:14px; font-weight:700; color:#fff; line-height:1.4; margin-bottom:10px; background:rgba(245,158,11,0.08); padding:10px 12px; border-radius:10px;">
+              "Phơi 4 Áo Sắt"
+            </div>
+
+            <div style="font-family:var(--font-mono); font-size:13px; color:#fbbf24; font-weight:600; margin-bottom:12px;">
+              PO₄ – Al – Fe (Chỉ số 4 đặc biệt)
+            </div>
+
+            <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:10px; font-size:12px; color:#94a3b8; line-height:1.5;">
+              <strong style="color:#cbd5e1;">Hợp chất tiêu biểu:</strong><br/>
+              • Muối Photphat: Na₃PO₄, Ca₃(PO₄)₂<br/>
+              • Nhôm (Al): Al₂O₃, AlCl₃, Al(OH)₃<br/>
+              • Sắt (III): FeCl₃, Fe₂(SO₄)₃, Fe₂O₃
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Precision Guardrail Note -->
+        <div class="glass-panel stagger-item" style="--s-idx:3; margin-top:16px; padding:12px 20px; border-left:3px solid #f59e0b; display:flex; align-items:center; justify-content:space-between;">
+          <div style="font-size:13px; color:#cbd5e1; line-height:1.5;">
+            <strong style="color:#fbbf24;">Lưu ý học thuật quan trọng:</strong> Kim loại Sắt (<strong>Fe</strong>) có nhiều hóa trị trong hóa học (thường gặp là <strong>II</strong> và <strong>III</strong>). Do đó Fe xuất hiện ở cả câu Hóa trị II (<em>"Phê"</em>) và Hóa trị III (<em>"Sắt"</em>). Các câu thần chú là công cụ hỗ trợ tư duy nhanh, không thay thế quy tắc cấu tạo electron nguyên tử.
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 16: MINI QUIZ HÓA TRỊ -->
+      <section class="slide" data-slide="16" data-transition="mask-circle">
+        <div class="badge-label stagger-item" style="--s-idx:0;">🎯 THỬ THÁCH TƯƠNG TÁC</div>
+        <h2 class="slide-title kinetic-title">Mini Quiz: Thử Thách Ghi Nhớ Hóa Trị</h2>
+        <p class="slide-subtitle stagger-item" style="--s-idx:1;">
+          Kiểm tra độ nhạy bén và khả năng áp dụng 3 câu thần chú — Bấm vào từng câu hỏi để lật mở đáp án và giải thích chi tiết!
+        </p>
+
+        <!-- 4 Interactive Quiz Cards -->
+        <div class="valency-quiz-grid stagger-item" style="--s-idx:2;">
+          <!-- Q1 -->
+          <div class="valency-quiz-card interactive-tilt" id="vQuiz1">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+                <span style="font-family:var(--font-mono); font-size:11px; color:#00f2fe; text-transform:uppercase;">CÂU HỎI 01</span>
+                <span style="font-size:16px;">❓</span>
+              </div>
+              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
+                Câu "Khi Na ăn gà..." tương ứng với hóa trị nào?
+              </h4>
+            </div>
+
+            <div class="valency-quiz-answer">
+              <div style="font-size:13px; font-weight:700; color:#00f2fe; margin-bottom:4px;">
+                ✓ ĐÁP ÁN: HÓA TRỊ I
+              </div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
+                Gồm 8 nguyên tố và gốc axit: <strong>K, Na, Ag, Cl, H, OH, NO₃, Br</strong>. Ví dụ: NaCl, KOH, AgNO₃.
+              </div>
+            </div>
+
+            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px;" onclick="toggleValencyQuizAnswer('vQuiz1')">
+              <span>Lật Mở Đáp Án</span> <span>➔</span>
+            </button>
+          </div>
+
+          <!-- Q2 -->
+          <div class="valency-quiz-card interactive-tilt" id="vQuiz2">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+                <span style="font-family:var(--font-mono); font-size:11px; color:#10b981; text-transform:uppercase;">CÂU HỎI 02</span>
+                <span style="font-size:16px;">❓</span>
+              </div>
+              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
+                Gốc Sunfat (SO₄) nằm trong câu ghi nhớ nào?
+              </h4>
+            </div>
+
+            <div class="valency-quiz-answer" style="border-left-color:#10b981;">
+              <div style="font-size:13px; font-weight:700; color:#10b981; margin-bottom:4px;">
+                ✓ ĐÁP ÁN: CÂU HÓA TRỊ II
+              </div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
+                Trong câu <em>"Ba Cũng <strong>Sang</strong> Mua Cà Phê..."</em>, từ <strong>"Sang"</strong> chính là gốc <strong>SO₄ (Hóa trị II)</strong>.
+              </div>
+            </div>
+
+            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px; background:linear-gradient(135deg, #10b981, #059669);" onclick="toggleValencyQuizAnswer('vQuiz2')">
+              <span>Lật Mở Đáp Án</span> <span>➔</span>
+            </button>
+          </div>
+
+          <!-- Q3 -->
+          <div class="valency-quiz-card interactive-tilt" id="vQuiz3">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+                <span style="font-family:var(--font-mono); font-size:11px; color:#f59e0b; text-transform:uppercase;">CÂU HỎI 03</span>
+                <span style="font-size:16px;">❓</span>
+              </div>
+              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
+                Câu "Phơi 4 Áo Sắt" tương ứng với những ký hiệu nào?
+              </h4>
+            </div>
+
+            <div class="valency-quiz-answer" style="border-left-color:#f59e0b;">
+              <div style="font-size:13px; font-weight:700; color:#f59e0b; margin-bottom:4px;">
+                ✓ ĐÁP ÁN: PO₄ – Al – Fe (HÓA TRỊ III)
+              </div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
+                • "Phơi 4" = <strong>PO₄</strong> (gốc Photphat)<br/>
+                • "Áo" = <strong>Al</strong> (Nhôm)<br/>
+                • "Sắt" = <strong>Fe</strong> (Sắt - III)
+              </div>
+            </div>
+
+            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px; background:linear-gradient(135deg, #f59e0b, #d97706);" onclick="toggleValencyQuizAnswer('vQuiz3')">
+              <span>Lật Mở Đáp Án</span> <span>➔</span>
+            </button>
+          </div>
+
+          <!-- Q4 -->
+          <div class="valency-quiz-card interactive-tilt" id="vQuiz4">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+                <span style="font-family:var(--font-mono); font-size:11px; color:#f43f5e; text-transform:uppercase;">CÂU HỎI 04 (BẪY HỌC THUẬT)</span>
+                <span style="font-size:16px;">❓</span>
+              </div>
+              <h4 style="font-size:16px; color:#fff; font-weight:700; line-height:1.4;">
+                Kim loại Sắt (Fe) xuất hiện trong những nhóm ghi nhớ nào?
+              </h4>
+            </div>
+
+            <div class="valency-quiz-answer" style="border-left-color:#f43f5e;">
+              <div style="font-size:13px; font-weight:700; color:#f43f5e; margin-bottom:4px;">
+                ✓ ĐÁP ÁN: CẢ HÓA TRỊ II VÀ III
+              </div>
+              <div style="font-size:12px; color:#94a3b8; line-height:1.5;">
+                • Hóa trị II: từ <strong>"Phê"</strong> trong <em>"Ba Cũng Sang Mua Cà Phê..."</em><br/>
+                • Hóa trị III: từ <strong>"Sắt"</strong> trong <em>"Phơi 4 Áo Sắt"</em>. Fe là kim loại có nhiều hóa trị!
+              </div>
+            </div>
+
+            <button class="btn-primary" style="margin-top:12px; align-self:flex-start; padding:8px 16px; font-size:12px; background:linear-gradient(135deg, #f43f5e, #e11d48);" onclick="toggleValencyQuizAnswer('vQuiz4')">
+              <span>Lật Mở Đáp Án</span> <span>➔</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Control Bar -->
+        <div style="display:flex; justify-content:center; gap:16px; margin-top:16px;">
+          <button class="tool-icon-btn" style="width:auto; padding:0 16px; height:36px; font-size:12px; gap:8px;" onclick="revealAllValencyQuiz()">
+            <span>✨</span> Lật Mở Tất Cả Đáp Án
+          </button>
+          <button class="tool-icon-btn" style="width:auto; padding:0 16px; height:36px; font-size:12px; gap:8px;" onclick="resetValencyQuiz()">
+            <span>🔄</span> Ẩn Lại Từ Đầu
+          </button>
+          <button class="btn-primary" style="padding:0 20px; height:36px; font-size:13px;" onclick="triggerConfetti(); soundFx.playSuccessChime();">
+            <span>🏆 Chúc Mừng Hoàn Thành</span>
+          </button>
+        </div>
+      </section>
+
 
     </main>
 
@@ -2626,80 +3561,156 @@
         this.enabled = !this.enabled;
         const btn = document.getElementById('btnSound');
         if (btn) {
-          btn.innerHTML = this.enabled ? '<span>🔊</span>' : '<span>🔇</span>';
           btn.classList.toggle('active', !this.enabled);
         }
       }
 
       playSlideSwoosh() {
         if (!this.enabled) return;
-        this.init();
-        if (!this.ctx) return;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(320, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.18);
-        gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.18);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.18);
+        try {
+          this.init();
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(320, now);
+          osc.frequency.exponentialRampToValueAtTime(140, now + 0.18);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.19);
+        } catch(e) {}
       }
 
       playCorrect() {
         if (!this.enabled) return;
-        this.init();
-        if (!this.ctx) return;
-        const now = this.ctx.currentTime;
-        [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
-          const osc = this.ctx.createOscillator();
-          const gain = this.ctx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(freq, now + i * 0.08);
-          gain.gain.setValueAtTime(0.12, now + i * 0.08);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.25);
-          osc.connect(gain);
-          gain.connect(this.ctx.destination);
-          osc.start(now + i * 0.08);
-          osc.stop(now + i * 0.08 + 0.25);
-        });
+        try {
+          this.init();
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.frequency.setValueAtTime(freq, now + i * 0.08);
+            gain.gain.setValueAtTime(0.1, now + i * 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.25);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now + i * 0.08);
+            osc.stop(now + i * 0.08 + 0.26);
+          });
+        } catch(e) {}
       }
 
       playWrong() {
         if (!this.enabled) return;
-        this.init();
-        if (!this.ctx) return;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(180, this.ctx.currentTime);
-        osc.frequency.linearRampToValueAtTime(110, this.ctx.currentTime + 0.28);
-        gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.28);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.28);
+        try {
+          this.init();
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(180, now);
+          osc.frequency.linearRampToValueAtTime(110, now + 0.28);
+          gain.gain.setValueAtTime(0.1, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.29);
+        } catch(e) {}
       }
 
       playBubble() {
         if (!this.enabled) return;
-        this.init();
-        if (!this.ctx) return;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sine';
-        const startFreq = 400 + Math.random() * 300;
-        osc.frequency.setValueAtTime(startFreq, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(startFreq + 500, this.ctx.currentTime + 0.08);
-        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.08);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.08);
+        try {
+          this.init();
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          const startFreq = 400 + Math.random() * 300;
+          osc.frequency.setValueAtTime(startFreq, now);
+          osc.frequency.exponentialRampToValueAtTime(startFreq + 500, now + 0.08);
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.09);
+        } catch(e) {}
+      }
+
+      playPop(delay = 0) {
+        if (!this.enabled) return;
+        setTimeout(() => {
+          try {
+            this.init();
+            if (!this.ctx) return;
+            const now = this.ctx.currentTime;
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(600, now);
+            osc.frequency.exponentialRampToValueAtTime(900, now + 0.05);
+            gain.gain.setValueAtTime(0.07, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.06);
+          } catch(e) {}
+        }, delay);
+      }
+
+      playCardFlip() {
+        if (!this.enabled) return;
+        try {
+          this.init();
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(320, now);
+          osc.frequency.exponentialRampToValueAtTime(640, now + 0.12);
+          gain.gain.setValueAtTime(0.07, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.13);
+        } catch(e) {}
+      }
+
+      playValencyChime() {
+        if (!this.enabled) return;
+        try {
+          this.init();
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          const notes = [523.25, 659.25, 783.99, 1046.50];
+          notes.forEach((freq, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.06);
+            gain.gain.setValueAtTime(0.08, now + idx * 0.06);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.35);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now + idx * 0.06);
+            osc.stop(now + idx * 0.06 + 0.36);
+          });
+        } catch(e) {}
+      }
+
+      playSuccessChime() {
+        this.playCorrect();
       }
     }
     const soundFx = new SoundEngine();
@@ -3285,7 +4296,13 @@
           `<strong>Cơ chế 2 giai đoạn:</strong> "Đây là phần trọng tâm ghi điểm trong đề thi: Phương trình phải viết tách bạch 2 giai đoạn: Giai đoạn 1 Na tác dụng với H₂O tạo NaOH và H₂. Giai đoạn 2 NaOH mới phản ứng trao đổi với CuSO₄ tạo Cu(OH)₂."`,
           `<strong>Mở rộng quy luật:</strong> "Quy tắc vàng cần nhớ: Đối với 5 kim loại tan trong nước thường (Khi Nào Bạn Cần Ly - K, Na, Ba, Ca, Li), khi cho vào bất kỳ dung dịch muối nào, chúng đều tác dụng với H₂O trước!"`,
           `<strong>Tương tác trắc nghiệm:</strong> "Bây giờ xin mời cả lớp cùng tham gia trả lời nhanh 3 câu hỏi trắc nghiệm chuẩn cấu trúc đề thi vào 10 để củng cố kiến thức vừa học."`,
-          `<strong>Tổng kết & Lời cảm ơn:</strong> "Qua bài thuyết trình, nhóm em hy vọng các bạn đã nắm vững bản chất của phản ứng. Xin chân thành cảm ơn thầy cô và các bạn đã chú ý lắng nghe. Nhóm em rất mong nhận được những câu hỏi và ý kiến đóng góp!"`
+          `<strong>Tổng kết Na + CuSO₄:</strong> "Qua bài thuyết trình, nhóm em hy vọng các bạn đã nắm vững bản chất phản ứng 2 giai đoạn và không bao giờ bị bẫy kết tủa đồng đỏ. Tiếp theo xin mời thầy cô và các bạn đến với chuyên đề mở rộng đặc biệt: Bí quyết ghi nhớ Hóa trị."`,
+          `<strong>Bí quyết Hóa trị (Mở đầu):</strong> "Hóa trị là nền tảng sống còn của hóa học THCS. Để giúp các bạn không phải học vẹt bảng hóa trị khô khan, nhóm em xin giới thiệu 3 câu thơ lục ngôn - bát ngôn độc đáo được lưu truyền qua các thế hệ học sinh giỏi."`,
+          `<strong>Hóa trị I ("Khi Na ăn gà..."):</strong> "Câu nói gồm 8 ký hiệu: K, Na, Ag, Cl, H, OH, NO₃, Br. Các bạn hãy quan sát các liên kết giữa từ ngữ vui nhộn và ký hiệu hóa học tương ứng. Bấm vào từng thẻ để kiểm tra."`,
+          `<strong>Hóa trị II ("Ba Cũng Sang Mua..."):</strong> "Câu nói chuẩn gồm 9 ký hiệu: Ba, Cu, SO₄, Mg, Ca, Fe, SO₃, Zn, CO₃. Đặc biệt lưu ý từ 'Zới' chính là Zn (Kẽm) và 'Phê' là Sắt (II). Giữ nguyên từ 'Zới' theo đúng bản gốc."`,
+          `<strong>Hóa trị III ("Phơi 4 Áo Sắt"):</strong> "Câu thần chú này cực kỳ thông minh: Con số '4' đại diện cho 4 nguyên tử Oxy trong gốc PO₄ (Photphat), 'Áo' là Al, và 'Sắt' là Fe (III). Fe là kim loại đa hóa trị nên xuất hiện ở cả nhóm II và III."`,
+          `<strong>Bảng Ma Trận Tổng Hợp:</strong> "Tại đây học sinh có cái nhìn toàn cảnh về cả 3 nhóm hóa trị I, II, III. Giáo viên cần nhấn mạnh tính đa hóa trị của Fe và lưu ý rằng các câu thần chú là công cụ nhớ nhanh, không thay thế quy tắc cấu tạo electron."`,
+          `<strong>Mini Quiz Hóa Trị:</strong> "Bây giờ xin mời cả lớp cùng thử thách phản xạ với 4 câu hỏi trắc nghiệm kiểm tra khả năng nhớ và ứng dụng 3 câu thần chú vừa học. Người thuyết trình có thể bấm lật mở đáp án từng câu hoặc lật tất cả."`
         ];
 
         this.initControls();
@@ -3350,8 +4367,14 @@
           '4 Hiện Tượng Then Chốt',
           'Cơ Chế & Phương Trình',
           'Quy Luật Vàng & Đối Chiếu',
-          'Mini Quiz Ôn Thi Lớp 10',
-          'Sơ Đồ Tư Duy & Tổng Kết'
+          'Mini Quiz Thí Nghiệm Lớp 9',
+          'Sơ Đồ Tư Duy & Tổng Kết Na+CuSO₄',
+          'Bí Quyết Ghi Nhớ Hóa Trị (Intro)',
+          'Hóa Trị I: Khi Na Ăn Gà...',
+          'Hóa Trị II: Ba Cũng Sang Mua Cà Phê...',
+          'Hóa Trị III: Phơi 4 Áo Sắt',
+          'Tổng Hợp 3 Nhóm Hóa Trị I-II-III',
+          'Mini Quiz Thử Thách Hóa Trị'
         ];
 
         for (let i = 1; i <= this.total; i++) {
@@ -3443,6 +4466,108 @@
         }
       }
     }
+
+    
+    // === VALENCY & ADVANCED MOTION HELPER FUNCTIONS ===
+    function highlightValencyCard(cardEl, symbol, description) {
+      try { if (window.soundFx && soundFx.playCardFlip) soundFx.playCardFlip(); } catch(e) {}
+      cardEl.classList.add('active-reveal');
+      setTimeout(() => cardEl.classList.remove('active-reveal'), 1800);
+
+      // Find slide inspector
+      const slide = cardEl.closest('.slide');
+      if (slide) {
+        const inspectorText = slide.querySelector('[id^="inspectorText"]');
+        if (inspectorText) {
+          inspectorText.innerHTML = `<strong style="color:#00f2fe;">${symbol}:</strong> ${description}`;
+        }
+      }
+    }
+
+    function playValencySequence(valencyNum) {
+      try { if (window.soundFx && soundFx.playValencyChime) soundFx.playValencyChime(); } catch(e) {}
+      const grid = document.getElementById(`valencyGrid${valencyNum}`);
+      if (!grid) return;
+      const cards = grid.querySelectorAll('.valency-card');
+      cards.forEach((card, idx) => {
+        setTimeout(() => {
+          card.classList.add('active-reveal');
+          try { if (window.soundFx && soundFx.playPop) soundFx.playPop(0); } catch(e) {}
+          setTimeout(() => card.classList.remove('active-reveal'), 1200);
+        }, idx * 220);
+      });
+    }
+
+    function toggleValencyQuizAnswer(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      try { if (window.soundFx && soundFx.playCardFlip) soundFx.playCardFlip(); } catch(e) {}
+      card.classList.toggle('revealed');
+      const btn = card.querySelector('button');
+      if (btn) {
+        btn.querySelector('span').textContent = card.classList.contains('revealed') ? 'Ẩn Đáp Án' : 'Lật Mở Đáp Án';
+      }
+    }
+
+    function revealAllValencyQuiz() {
+      try { if (window.soundFx && soundFx.playSuccessChime) soundFx.playSuccessChime(); } catch(e) {}
+      ['vQuiz1', 'vQuiz2', 'vQuiz3', 'vQuiz4'].forEach(id => {
+        const card = document.getElementById(id);
+        if (card) {
+          card.classList.add('revealed');
+          const btn = card.querySelector('button');
+          if (btn) btn.querySelector('span').textContent = 'Ẩn Đáp Án';
+        }
+      });
+    }
+
+    function resetValencyQuiz() {
+      try { if (window.soundFx && soundFx.playSlideSwoosh) soundFx.playSlideSwoosh(); } catch(e) {}
+      ['vQuiz1', 'vQuiz2', 'vQuiz3', 'vQuiz4'].forEach(id => {
+        const card = document.getElementById(id);
+        if (card) {
+          card.classList.remove('revealed');
+          const btn = card.querySelector('button');
+          if (btn) btn.querySelector('span').textContent = 'Lật Mở Đáp Án';
+        }
+      });
+    }
+
+    // Kinetic Typography Initializer
+    function initKineticTypography() {
+      document.querySelectorAll('.kinetic-title').forEach(el => {
+        if (!el.dataset.wrapped) {
+          const words = el.innerText.trim().split(/\s+/);
+          el.innerHTML = words.map((w, idx) => `<span class="k-word" style="--w-idx:${idx}">${w}</span>`).join(' ');
+          el.dataset.wrapped = 'true';
+        }
+      });
+    }
+
+    // 3D Interactive Tilt Initializer
+    function initInteractiveTilt() {
+      document.querySelectorAll('.interactive-tilt').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -5;
+          const rotateY = ((x - centerX) / centerX) * 5;
+          card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+
+    // Initialize after DOM ready
+    window.addEventListener('DOMContentLoaded', () => {
+      initKineticTypography();
+      initInteractiveTilt();
+    });
 
     const deck = new DeckController();
 
