@@ -1178,25 +1178,240 @@
       transform: scale(0.8);
     }
 
-    /* Custom Glass Controls Bar */
+    /* Custom YouTube-Style Controls Bar */
     .video-controls-glass {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 14px 20px;
-      background: linear-gradient(180deg, transparent, rgba(6, 10, 22, 0.95));
+      padding: 8px 18px 14px 18px;
+      background: linear-gradient(180deg, transparent 0%, rgba(6, 10, 22, 0.75) 30%, rgba(6, 10, 22, 0.96) 100%);
       backdrop-filter: blur(16px);
       display: flex;
-      align-items: center;
-      gap: 12px;
+      flex-direction: column;
+      gap: 4px;
       z-index: 12;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.25s ease;
     }
 
-    .video-viewport:hover .video-controls-glass {
+    .video-viewport:hover .video-controls-glass,
+    .video-controls-glass.active-controls {
       opacity: 1;
+    }
+
+    /* YouTube Full-Width Progress Scrubber Area */
+    .yt-progress-area {
+      width: 100%;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .yt-progress-track {
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.22);
+      position: relative;
+      transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: visible;
+    }
+
+    .yt-progress-area:hover .yt-progress-track,
+    .yt-progress-area.is-dragging .yt-progress-track {
+      height: 7px;
+      border-radius: 3.5px;
+    }
+
+    .yt-progress-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .yt-progress-buffered {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      border-radius: inherit;
+      background: rgba(255, 255, 255, 0.42);
+      pointer-events: none;
+      transition: width 0.2s ease;
+    }
+
+    .yt-progress-hover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      border-radius: inherit;
+      background: rgba(255, 255, 255, 0.32);
+      pointer-events: none;
+    }
+
+    .yt-progress-played {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      border-radius: inherit;
+      background: #ff0033;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.8);
+      pointer-events: none;
+    }
+
+    /* Chapter Notch Markers on Progress Track */
+    .yt-chapter-notch {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2.5px;
+      background: #060a16;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Scrubber Knob (YouTube Red) */
+    .yt-scrubber-handle {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ff0033;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.9);
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    .yt-progress-area:hover .yt-scrubber-handle,
+    .yt-progress-area.is-dragging .yt-scrubber-handle {
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+
+    /* Floating YouTube Thumbnail Preview Card */
+    .yt-preview-tooltip {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 0;
+      transform: translateX(-50%) translateY(8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 40;
+      background: rgba(11, 17, 33, 0.96);
+      border: 1.5px solid rgba(0, 242, 254, 0.4);
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 16px rgba(0, 242, 254, 0.2);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      width: 172px;
+    }
+
+    .yt-preview-tooltip.is-active {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .yt-preview-thumb-box {
+      width: 160px;
+      height: 90px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .yt-preview-thumb-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .yt-preview-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+    }
+
+    .yt-preview-chapter {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      color: #94a3b8;
+      max-width: 156px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 500;
+    }
+
+    .yt-preview-time {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #00f2fe;
+      letter-spacing: 0.5px;
+    }
+
+    /* Controls Bottom Row */
+    .yt-controls-bottom-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2px;
+    }
+
+    .yt-controls-left, .yt-controls-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .yt-chapter-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      font-family: var(--font-body);
+      color: #cbd5e1;
+      white-space: nowrap;
+      max-width: 260px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .yt-chapter-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00f2fe;
+      flex-shrink: 0;
     }
 
     .v-ctrl-btn {
@@ -1247,54 +1462,6 @@
       color: #cbd5e1;
       white-space: nowrap;
       min-width: 95px;
-    }
-
-    /* Seek Bar */
-    .v-seek-bar-container {
-      flex: 1;
-      height: 22px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .v-seek-bg {
-      width: 100%;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.2);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .v-seek-fill {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #00f2fe, #3b82f6);
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
-      border-radius: 999px;
-    }
-
-    .v-seek-handle {
-      position: absolute;
-      top: 50%;
-      left: 0%;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.9);
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      transition: transform 0.1s ease;
-    }
-
-    .v-seek-bar-container:hover .v-seek-handle {
-      transform: translate(-50%, -50%) scale(1.3);
     }
 
     /* Video Source Switcher */
@@ -2402,38 +2569,70 @@
                 <span>▶</span>
               </div>
 
-              <!-- Glass Controls Bar -->
-              <div class="video-controls-glass">
-                <button class="v-ctrl-btn" id="vPlayBtn" onclick="deckVideo.togglePlay()" title="Phát / Dừng (Phím K)">
-                  <span id="vPlayIcon">▶</span>
-                </button>
-
-                <div class="v-time-display">
-                  <span id="vCurTime">00:00</span> / <span id="vDurTime">01:21</span>
-                </div>
-
-                <!-- Custom Scrubbing Seek Bar -->
-                <div class="v-seek-bar-container" id="vSeekBar" onclick="deckVideo.seek(event)">
-                  <div class="v-seek-bg">
-                    <div class="v-seek-fill" id="vSeekFill"></div>
+              <!-- YouTube-Style Glass Controls Bar -->
+              <div class="video-controls-glass" id="videoControlsGlass">
+                <!-- Full-Width YouTube Progress Bar with Scrub & Live Thumbnail Preview -->
+                <div class="yt-progress-area" id="ytProgressArea">
+                  <!-- Floating Preview Tooltip Card (YouTube Style) -->
+                  <div class="yt-preview-tooltip" id="ytPreviewTooltip">
+                    <div class="yt-preview-thumb-box">
+                      <video id="ytPreviewThumbVideo" preload="auto" muted playsinline poster="video_poster.jpg">
+                        <source src="video_experiment.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="yt-preview-info">
+                      <span class="yt-preview-chapter" id="ytPreviewChapter">00:00 • Bắt đầu video</span>
+                      <span class="yt-preview-time" id="ytPreviewTime">00:00</span>
+                    </div>
                   </div>
-                  <div class="v-seek-handle" id="vSeekHandle"></div>
+
+                  <!-- Scrubber Track -->
+                  <div class="yt-progress-track" id="ytProgressTrack">
+                    <div class="yt-progress-bg"></div>
+                    <div class="yt-progress-buffered" id="ytProgressBuffered"></div>
+                    <div class="yt-progress-hover" id="ytProgressHover"></div>
+                    <div class="yt-progress-played" id="ytProgressPlayed"></div>
+
+                    <!-- Chapter Notch Markers -->
+                    <div class="yt-chapter-notch" style="left: 12.3%;" title="00:10 - Mẩu Na tiếp xúc"></div>
+                    <div class="yt-chapter-notch" style="left: 32.1%;" title="00:26 - Khí H₂ sủi bọt"></div>
+                    <div class="yt-chapter-notch" style="left: 49.4%;" title="00:40 - Kết tủa Cu(OH)₂"></div>
+                    <div class="yt-chapter-notch" style="left: 67.9%;" title="00:55 - Phản ứng kết thúc"></div>
+                  </div>
+
+                  <!-- YouTube Red Scrubber Knob -->
+                  <div class="yt-scrubber-handle" id="ytScrubberHandle"></div>
                 </div>
 
-                <!-- Playback Speed -->
-                <button class="v-ctrl-pill" id="vSpeedBtn" onclick="deckVideo.cycleSpeed()" title="Tốc độ phát">
-                  <span id="vSpeedLabel">1.0x</span>
-                </button>
+                <!-- Bottom Controls Row -->
+                <div class="yt-controls-bottom-row">
+                  <div class="yt-controls-left">
+                    <button class="v-ctrl-btn" id="vPlayBtn" onclick="deckVideo.togglePlay()" title="Phát / Dừng (Phím Space / K)">
+                      <span id="vPlayIcon">▶</span>
+                    </button>
+                    <button class="v-ctrl-btn" id="vMuteBtn" onclick="deckVideo.toggleMute()" title="Âm lượng video (Phím M)">
+                      <span id="vMuteIcon">🔊</span>
+                    </button>
+                    <div class="v-time-display">
+                      <span id="vCurTime">00:00</span> / <span id="vDurTime">01:21</span>
+                    </div>
+                    <div class="yt-chapter-pill">
+                      <span class="yt-chapter-dot"></span>
+                      <span id="ytCurrentChapter">Thí nghiệm Na + CuSO₄</span>
+                    </div>
+                  </div>
 
-                <!-- Mute / Unmute -->
-                <button class="v-ctrl-btn" id="vMuteBtn" onclick="deckVideo.toggleMute()" title="Âm lượng video">
-                  <span id="vMuteIcon">🔊</span>
-                </button>
-
-                <!-- Video Fullscreen -->
-                <button class="v-ctrl-btn" onclick="deckVideo.toggleFullscreen()" title="Toàn màn hình video">
-                  <span>⛶</span>
-                </button>
+                  <div class="yt-controls-right">
+                    <!-- Playback Speed -->
+                    <button class="v-ctrl-pill" id="vSpeedBtn" onclick="deckVideo.cycleSpeed()" title="Tốc độ phát">
+                      <span id="vSpeedLabel">1.0x</span>
+                    </button>
+                    <!-- Video Fullscreen -->
+                    <button class="v-ctrl-btn" onclick="deckVideo.toggleFullscreen()" title="Toàn màn hình video (Phím F)">
+                      <span>⛶</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -3707,18 +3906,29 @@
     animateAmbient();
   </script>
 
-  <!-- HTML5 Native Video Player Controller -->
+  <!-- HTML5 Native Video Player Controller with YouTube Scrub & Preview -->
   <script>
     class VideoDeckPlayer {
       constructor() {
         this.video = document.getElementById('experimentVideo');
+        this.previewVideo = document.getElementById('ytPreviewThumbVideo');
+        this.progressArea = document.getElementById('ytProgressArea');
+        this.progressTrack = document.getElementById('ytProgressTrack');
+        this.progressPlayed = document.getElementById('ytProgressPlayed');
+        this.progressHover = document.getElementById('ytProgressHover');
+        this.progressBuffered = document.getElementById('ytProgressBuffered');
+        this.scrubberHandle = document.getElementById('ytScrubberHandle');
+        this.previewTooltip = document.getElementById('ytPreviewTooltip');
+        this.previewTime = document.getElementById('ytPreviewTime');
+        this.previewChapter = document.getElementById('ytPreviewChapter');
+        this.currentChapterElem = document.getElementById('ytCurrentChapter');
+        this.controlsGlass = document.getElementById('videoControlsGlass');
+
         this.playBtn = document.getElementById('vPlayBtn');
         this.playIcon = document.getElementById('vPlayIcon');
         this.centerPlayBtn = document.getElementById('centerPlayBtn');
         this.curTimeElem = document.getElementById('vCurTime');
         this.durTimeElem = document.getElementById('vDurTime');
-        this.seekFill = document.getElementById('vSeekFill');
-        this.seekHandle = document.getElementById('vSeekHandle');
         this.speedBtn = document.getElementById('vSpeedBtn');
         this.speedLabel = document.getElementById('vSpeedLabel');
         this.muteBtn = document.getElementById('vMuteBtn');
@@ -3727,6 +3937,19 @@
         this.speeds = [1.0, 1.25, 1.5, 2.0, 0.5];
         this.speedIndex = 0;
 
+        // Video Chapters (matching the timeline steps)
+        this.chapters = [
+          { start: 0, end: 10, title: 'Chuẩn bị mẩu Sodium & dd CuSO₄' },
+          { start: 10, end: 26, title: 'Mẩu Sodium tiếp xúc dung dịch CuSO₄' },
+          { start: 26, end: 40, title: 'Khí H₂ sủi bọt & Na nóng chảy chạy tròn' },
+          { start: 40, end: 55, title: 'Xuất hiện kết tủa Cu(OH)₂ màu xanh lơ' },
+          { start: 55, end: 9999, title: 'Phản ứng kết thúc & lắng cặn kết tủa' }
+        ];
+
+        this.isDragging = false;
+        this.pendingTime = null;
+        this.wasPlayingBeforeDrag = false;
+
         this.initEvents();
       }
 
@@ -3734,42 +3957,82 @@
         if (!this.video) return;
 
         this.video.addEventListener('timeupdate', () => this.onTimeUpdate());
+        this.video.addEventListener('progress', () => this.onProgress());
         this.video.addEventListener('loadedmetadata', () => this.onLoadedMetadata());
         this.video.addEventListener('play', () => this.onPlayState(true));
         this.video.addEventListener('pause', () => this.onPlayState(false));
         this.video.addEventListener('ended', () => this.onPlayState(false));
+
+        // Hover events for preview tooltip
+        if (this.progressArea) {
+          this.progressArea.addEventListener('mouseenter', (e) => this.onHoverStart(e));
+          this.progressArea.addEventListener('mousemove', (e) => this.onHoverMove(e));
+          this.progressArea.addEventListener('mouseleave', () => this.onHoverEnd());
+
+          // Mouse dragging events (YouTube-style scrubbing)
+          this.progressArea.addEventListener('mousedown', (e) => this.onDragStart(e));
+
+          // Touch events for mobile/tablet
+          this.progressArea.addEventListener('touchstart', (e) => this.onDragStart(e), { passive: false });
+        }
+
+        window.addEventListener('mousemove', (e) => this.onDragMove(e));
+        window.addEventListener('mouseup', (e) => this.onDragEnd(e));
+        window.addEventListener('touchmove', (e) => this.onDragMove(e), { passive: false });
+        window.addEventListener('touchend', (e) => this.onDragEnd(e));
       }
 
       formatTime(seconds) {
-        if (isNaN(seconds)) return '00:00';
+        if (isNaN(seconds) || seconds < 0) return '00:00';
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
       }
 
+      getChapter(sec) {
+        const found = this.chapters.find(c => sec >= c.start && sec < c.end);
+        return found ? found.title : 'Thí nghiệm Na + dd CuSO₄';
+      }
+
       onLoadedMetadata() {
-        this.durTimeElem.textContent = this.formatTime(this.video.duration);
+        if (this.durTimeElem) {
+          this.durTimeElem.textContent = this.formatTime(this.video.duration);
+        }
+      }
+
+      onProgress() {
+        if (!this.video || !this.video.duration || !this.progressBuffered) return;
+        try {
+          if (this.video.buffered.length > 0) {
+            const bufferedEnd = this.video.buffered.end(this.video.buffered.length - 1);
+            const pct = (bufferedEnd / this.video.duration) * 100;
+            this.progressBuffered.style.width = `${Math.min(100, pct)}%`;
+          }
+        } catch (e) {}
       }
 
       onTimeUpdate() {
         if (!this.video.duration) return;
         const cur = this.video.currentTime;
         const dur = this.video.duration;
-        const pct = (cur / dur) * 100;
 
-        this.curTimeElem.textContent = this.formatTime(cur);
-        this.durTimeElem.textContent = this.formatTime(dur);
-        this.seekFill.style.width = `${pct}%`;
-        this.seekHandle.style.left = `${pct}%`;
+        // If user is dragging/scrubbing, do not overwrite the scrubbed visual handle
+        if (!this.isDragging) {
+          const pct = (cur / dur) * 100;
+          if (this.curTimeElem) this.curTimeElem.textContent = this.formatTime(cur);
+          if (this.progressPlayed) this.progressPlayed.style.width = `${pct}%`;
+          if (this.scrubberHandle) this.scrubberHandle.style.left = `${pct}%`;
+          if (this.currentChapterElem) this.currentChapterElem.textContent = this.getChapter(cur);
+        }
       }
 
       onPlayState(isPlaying) {
         if (isPlaying) {
-          this.playIcon.textContent = '⏸';
-          this.centerPlayBtn.classList.add('hidden');
+          if (this.playIcon) this.playIcon.textContent = '⏸';
+          if (this.centerPlayBtn) this.centerPlayBtn.classList.add('hidden');
         } else {
-          this.playIcon.textContent = '▶';
-          this.centerPlayBtn.classList.remove('hidden');
+          if (this.playIcon) this.playIcon.textContent = '▶';
+          if (this.centerPlayBtn) this.centerPlayBtn.classList.remove('hidden');
         }
       }
 
@@ -3788,30 +4051,134 @@
         }
       }
 
-      seek(e) {
-        if (!this.video || !this.video.duration) return;
-        const rect = document.getElementById('vSeekBar').getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const pct = Math.max(0, Math.min(1, clickX / rect.width));
-        this.video.currentTime = pct * this.video.duration;
+      calcPctFromEvent(e) {
+        if (!this.progressTrack) return { pct: 0, clientX: 0 };
+        const rect = this.progressTrack.getBoundingClientRect();
+        const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX;
+        const offsetX = clientX - rect.left;
+        const pct = Math.max(0, Math.min(1, offsetX / rect.width));
+        return { pct, clientX, rect };
+      }
+
+      updatePreviewPosition(clientX, pct) {
+        if (!this.progressArea || !this.previewTooltip) return;
+        const dur = this.video.duration || 81.4;
+        const hoverSec = pct * dur;
+
+        // Update preview video frame
+        if (this.previewVideo) {
+          if (Math.abs(this.previewVideo.currentTime - hoverSec) > 0.25) {
+            this.previewVideo.currentTime = hoverSec;
+          }
+        }
+
+        // Update preview labels
+        if (this.previewTime) this.previewTime.textContent = this.formatTime(hoverSec);
+        if (this.previewChapter) this.previewChapter.textContent = this.getChapter(hoverSec);
+
+        // Position preview card horizontally centered on cursor, clamped within container
+        const areaRect = this.progressArea.getBoundingClientRect();
+        const tooltipHalfWidth = 86; // 172px / 2
+        let cardLeft = clientX - areaRect.left;
+        cardLeft = Math.max(tooltipHalfWidth + 4, Math.min(areaRect.width - tooltipHalfWidth - 4, cardLeft));
+
+        this.previewTooltip.style.left = `${cardLeft}px`;
+        if (this.progressHover) this.progressHover.style.width = `${pct * 100}%`;
+      }
+
+      onHoverStart(e) {
+        if (!this.previewTooltip) return;
+        this.previewTooltip.classList.add('is-active');
+        const { pct, clientX } = this.calcPctFromEvent(e);
+        this.updatePreviewPosition(clientX, pct);
+      }
+
+      onHoverMove(e) {
+        if (this.isDragging) return; // Handled by dragMove
+        const { pct, clientX } = this.calcPctFromEvent(e);
+        this.updatePreviewPosition(clientX, pct);
+      }
+
+      onHoverEnd() {
+        if (!this.isDragging && this.previewTooltip) {
+          this.previewTooltip.classList.remove('is-active');
+          if (this.progressHover) this.progressHover.style.width = '0%';
+        }
+      }
+
+      onDragStart(e) {
+        if (e.type === 'touchstart') e.preventDefault();
+        this.isDragging = true;
+        this.wasPlayingBeforeDrag = !this.video.paused;
+
+        if (this.progressArea) this.progressArea.classList.add('is-dragging');
+        if (this.previewTooltip) this.previewTooltip.classList.add('is-active');
+
+        const { pct, clientX } = this.calcPctFromEvent(e);
+        const dur = this.video.duration || 81.4;
+        this.pendingTime = pct * dur;
+
+        // Update visual handle and candidate time immediately
+        if (this.scrubberHandle) this.scrubberHandle.style.left = `${pct * 100}%`;
+        if (this.progressPlayed) this.progressPlayed.style.width = `${pct * 100}%`;
+        if (this.curTimeElem) this.curTimeElem.textContent = this.formatTime(this.pendingTime);
+
+        this.updatePreviewPosition(clientX, pct);
+      }
+
+      onDragMove(e) {
+        if (!this.isDragging) return;
+        if (e.type === 'touchmove') e.preventDefault();
+        const { pct, clientX } = this.calcPctFromEvent(e);
+        const dur = this.video.duration || 81.4;
+        this.pendingTime = pct * dur;
+
+        // Smooth interactive scrubbing: visual handle & preview follow cursor live
+        if (this.scrubberHandle) this.scrubberHandle.style.left = `${pct * 100}%`;
+        if (this.progressPlayed) this.progressPlayed.style.width = `${pct * 100}%`;
+        if (this.curTimeElem) this.curTimeElem.textContent = this.formatTime(this.pendingTime);
+
+        this.updatePreviewPosition(clientX, pct);
+      }
+
+      onDragEnd(e) {
+        if (!this.isDragging) return;
+        this.isDragging = false;
+        if (this.progressArea) this.progressArea.classList.remove('is-dragging');
+        if (this.previewTooltip) this.previewTooltip.classList.remove('is-active');
+        if (this.progressHover) this.progressHover.style.width = '0%';
+
+        // "chọn mốc thời gian được chọn rồi mới chạy video tại mốc thời gian đó"
+        if (this.pendingTime !== null) {
+          this.video.currentTime = this.pendingTime;
+          // Play video at selected timestamp
+          this.video.play().catch(err => console.log(err));
+          if (window.soundFx && typeof soundFx.playCardFlip === 'function') {
+            soundFx.playCardFlip();
+          }
+          this.pendingTime = null;
+        }
       }
 
       jumpTo(sec) {
         if (!this.video) return;
         this.video.currentTime = sec;
         this.video.play().catch(e => console.log(e));
+        if (window.soundFx && typeof soundFx.playPop === 'function') {
+          soundFx.playPop();
+        }
       }
 
       cycleSpeed() {
         this.speedIndex = (this.speedIndex + 1) % this.speeds.length;
         const newSpeed = this.speeds[this.speedIndex];
         this.video.playbackRate = newSpeed;
-        this.speedLabel.textContent = `${newSpeed}x`;
+        if (this.speedLabel) this.speedLabel.textContent = `${newSpeed}x`;
       }
 
       toggleMute() {
         this.video.muted = !this.video.muted;
-        this.muteIcon.textContent = this.video.muted ? '🔇' : '🔊';
+        if (this.muteIcon) this.muteIcon.textContent = this.video.muted ? '🔇' : '🔊';
       }
 
       toggleFullscreen() {
@@ -3828,7 +4195,14 @@
         const isPlaying = !this.video.paused;
         this.video.src = src;
         this.video.load();
-        this.durTimeElem.textContent = durationStr;
+
+        // Also synchronize preview video source
+        if (this.previewVideo) {
+          this.previewVideo.src = src;
+          this.previewVideo.load();
+        }
+
+        if (this.durTimeElem) this.durTimeElem.textContent = durationStr;
         if (isPlaying) {
           this.video.play().catch(e => console.log(e));
         }
