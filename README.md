@@ -71,3 +71,26 @@ Bổ sung liền mạch từ Slide 11 đến Slide 16, giữ nguyên vẹn 10 sl
 - `V`: Nhảy nhanh tới Video thí nghiệm (Slide 4)
 - `L`: Nhảy nhanh tới Phòng Lab ảo 2D (Slide 5)
 - `Space` *(khi ở Slide 4)*: Phát / Tạm dừng video thí nghiệm
+
+---
+
+## 📽️ PHIÊN BẢN POWERPOINT MORPH PRO (`.pptx`)
+
+Dành cho trình chiếu ngoại tuyến trên Microsoft PowerPoint (Microsoft 365 / Office 2019 / 2021) với hiệu ứng **Morph Transition** chuẩn studio:
+
+* **File:** [`na_cuso4_presentation_morph_pro.pptx`](na_cuso4_presentation_morph_pro.pptx)
+* **Kích thước:** Widescreen 16:9 (13.333" x 7.5")
+* **12 Slide Đẳng Cấp:**
+  1. **Trang Bìa Hero:** 3 khối cầu nguyên tử phát sáng `Na`, `Cu²⁺`, `SO₄²⁻` lơ lửng không gian.
+  2. **Bẫy Tư Duy & Thực Tế Khoa Học:** Chuyển đổi Morph mượt mà từ khối cầu thành 2 thẻ so sánh đối chiếu; công thức chuẩn xác: `Na + H₂O ➔ NaOH + H₂ ⬆ | NaOH + CuSO₄ ➔ Cu(OH)₂ ⬇ + Na₂SO₄`.
+  3. **Chuẩn Bị Thực Nghiệm & An Toàn:** Cốc phản ứng vươn lên ở trung tâm, mẩu Sodium lơ lửng sẵn sàng.
+  4. **Giai Đoạn 1:** Mẩu Sodium rơi vào mặt nước, nóng chảy thành giọt cầu bi xoay tròn phát sáng, bọt khí $H_2$ sủi reo, chỉ số nhiệt độ bốc cao > 98°C.
+  5. **Giai Đoạn 2:** Giọt Sodium hòa tan hoàn toàn, đám mây kết tủa keo $Cu(OH)_2$ xanh lam nở rộ lắng xuống đáy; khẳng định không có đồng đỏ.
+  6. **Quy Luật 5 Kim Loại Kiềm:** Cốc phản ứng thu gọn nhường chỗ cho 5 thẻ kim loại kiềm/kiềm thổ trượt vào theo chiều ngang (*K, Na, Ba, Ca, Li* - "Khi Nào Bạn Cần Ly").
+  7. **Khởi Động Thần Chú Hóa Trị:** 3 cổng huân chương I, II, III phát sáng.
+  8. **Hóa Trị I:** Huân chương I phóng to toàn màn hình mở ra lưới 8 nguyên tố (*Khi Na ăn gà, Cô Lan hát...*).
+  9. **Hóa Trị II:** Huân chương II mở ra 9 nguyên tố/gốc ngọc lục bảo (*Ba Cũng Sang Mua Cà Phê Sữa Zới Cô ba*).
+  10. **Hóa Trị III:** Huân chương III mở ra phân tích chuyên sâu 3 nhân tố trọng yếu (*Phơi 4 Áo Sắt*), kèm hộp lưu ý tính đa hóa trị của Iron.
+  11. **Bảng Ma Trận So Sánh 3 Cột:** 3 nhóm hóa trị biến hình đồng thời thành bảng tra cứu đối chiếu song song.
+  12. **Lời Cảm Ơn & Tổng Kết Bế Mạc:** 3 cột thu gọn thành 3 điểm sáng takeaway, ở trên nở ra thẻ cảm ơn chân thành và thông điệp truyền cảm hứng.
+
