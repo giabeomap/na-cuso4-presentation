@@ -2276,7 +2276,7 @@ html_content = r'''<!DOCTYPE html>
           <div class="metal-item"><span>Ni</span><span style="font-size:10px;">Nickel</span></div>
           <div class="metal-item"><span>Sn</span><span style="font-size:10px;">Tin</span></div>
           <div class="metal-item"><span>Pb</span><span style="font-size:10px;">Lead</span></div>
-          <div class="metal-item"><span>(H)</span><span style="font-size:10px;">Hidro</span></div>
+          <div class="metal-item"><span>(H)</span><span style="font-size:10px;">Hydrogen</span></div>
           <div class="metal-item highlight-cu"><span>Cu</span><span style="font-size:10px;">Copper</span></div>
           <div class="metal-item"><span>Hg</span><span style="font-size:10px;">Mercury</span></div>
           <div class="metal-item"><span>Ag</span><span style="font-size:10px;">Silver</span></div>
@@ -2311,8 +2311,8 @@ html_content = r'''<!DOCTYPE html>
                 <div style="font-size:12px; color:#6ee7b7;">Ưu tiên phản ứng với dung môi nước (H₂O)</div>
               </div>
             </div>
-            <div class="chemical-equation-row" style="color:#34d399; border-color:rgba(16, 185, 129, 0.4); margin:12px 0;">
-              Na + H₂O ➔ NaOH + H₂ ⬆ &nbsp;|&nbsp; NaOH + CuSO₄ ➔ Cu(OH)₂ ⬇
+            <div class="chemical-equation-row" style="color:#34d399; border-color:rgba(16, 185, 129, 0.4); margin:12px 0; font-size:14.5px; padding:10px 14px; white-space:nowrap; overflow-x:auto;">
+              Na + H₂O ➔ NaOH + H₂ ⬆ &nbsp;|&nbsp; NaOH + CuSO₄ ➔ Cu(OH)₂ ⬇ + Na₂SO₄
             </div>
             <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
               Do Sodium là kim loại kiềm cực kỳ hoạt động, khi cho vào dung dịch, <strong>Na lập tức phản ứng mãnh liệt với nước trước</strong>, sinh ra khí H₂ và dung dịch bazơ kiềm NaOH. Sau đó NaOH mới tác dụng với CuSO₄ tạo kết tủa xanh lơ Cu(OH)₂!
